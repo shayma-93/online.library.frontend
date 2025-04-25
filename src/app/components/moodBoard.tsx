@@ -30,13 +30,13 @@ const HeroMoodBoard = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="absolute top-[10%] right-[10%] w-[45%] h-auto z-20 shadow-lg rounded-md overflow-hidden transform rotate-3"
         >
-          <Image
-            src="/placeholder.svg?height=450&width=300&text=Magical+Realms"
-            alt="Magical Realms Book Cover"
-            width={300}
-            height={450}
-            className="w-full h-auto object-cover"
-          />
+       <Image
+  src="https://covers.openlibrary.org/b/id/7984916-L.jpg"
+  alt="Magical Realms Book Cover"
+  width={300}
+  height={450}
+  className="w-full h-auto object-cover"
+/>
         </motion.div>
 
         <motion.div
@@ -46,8 +46,8 @@ const HeroMoodBoard = () => {
           className="absolute top-[35%] left-[0%] w-[30%] h-auto aspect-square z-10 overflow-hidden rounded-full border-4 border-white shadow-lg"
         >
           <Image
-            src="/placeholder.svg?height=300&width=300&text=Reading+Nook"
-            alt="Reading Nook"
+       src="https://covers.openlibrary.org/b/id/8231856-L.jpg"
+       alt="Reading Nook"
             width={300}
             height={300}
             className="w-full h-full object-cover"
@@ -60,13 +60,13 @@ const HeroMoodBoard = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="absolute top-[45%] right-[5%] w-[35%] h-auto z-30 shadow-lg rounded-md overflow-hidden transform -rotate-6"
         >
-          <Image
-            src="/placeholder.svg?height=450&width=300&text=Enchanted+Tales"
-            alt="Enchanted Tales Book Cover"
-            width={300}
-            height={450}
-            className="w-full h-auto object-cover"
-          />
+   <Image
+  src="https://covers.openlibrary.org/b/id/10520671-L.jpg"
+  alt="Reading Nook"
+  width={300}
+  height={300}
+  className="w-full h-full object-cover"
+/>
         </motion.div>
 
         {/* Quote Box */}

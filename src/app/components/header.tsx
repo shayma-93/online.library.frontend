@@ -2,6 +2,9 @@ import { useState } from "react";
 import Link from "next/link";
 import { BookOpen, Menu } from "lucide-react";
 import { Button } from "./ui/button";
+import { Search } from 'lucide-react';
+import { Input } from './ui/input'; // Assuming you have an Input component
+
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -38,6 +41,23 @@ const Header = () => {
           <Link href="/bookshelves" className="nav-3d text-purple-700">
             Bookshelves
           </Link>
+          {/* Search Bar with only icon button inside input */}
+<div className="flex w-full max-w-xl mx-auto items-center px-2 md:px-0">
+  <div className="relative w-full">
+    <Input
+      type="text"
+      placeholder="Search for magical books..."
+      className="magical-input h-12 text-lg pr-12"
+    />
+    <button
+      type="submit"
+      className="absolute top-1/2 right-3 -translate-y-1/2 text-purple-700 hover:text-purple-900"
+    >
+      <Search className="h-5 w-5" />
+    </button>
+  </div>
+</div>
+
         </nav>
 
         {/* Auth Buttons & Mobile Toggle */}

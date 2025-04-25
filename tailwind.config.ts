@@ -80,6 +80,7 @@ const config = {
         display: ["var(--font-display)"],
         script: ["var(--font-script)"],
         serif: ["var(--font-serif)"],
+        
       },
     },
   },
