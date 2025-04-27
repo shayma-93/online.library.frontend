@@ -52,31 +52,6 @@ const SidebarFilter = ({
           </Button>
         </div>
 
-        {/* Search */}
-        <div className="mb-6">
-          <label htmlFor="search" className="block text-sm font-medium text-purple-700 mb-2">
-            Search
-          </label>
-          <div className="relative">
-            <input
-              id="search"
-              type="text"
-              placeholder="Search titles or authors..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="magical-input"
-            />
-            {searchTerm && (
-              <button
-                className="absolute right-2 top-1/2 transform -translate-y-1/2 text-purple-400 hover:text-purple-600"
-                onClick={() => setSearchTerm('')}
-              >
-                <X className="h-4 w-4" />
-              </button>
-            )}
-          </div>
-        </div>
-
         {/* Genre Filter */}
         <div className="mb-6">
           <h3 className="font-serif italic font-bold text-purple-700 mb-2">Genre</h3>

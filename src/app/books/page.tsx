@@ -457,14 +457,7 @@ export default function BooksPage() {
               </div>
             ) : (
               <>
-                {/* Results count */}
-                <div className="mb-6">
-                  <p className="text-purple-700">
-                    Showing{" "}
-                    <span className="font-bold">{filteredBooks.length}</span>{" "}
-                    magical books
-                  </p>
-                </div>
+            
 
                 {/* Books grid */}
                 <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 mx-auto">
