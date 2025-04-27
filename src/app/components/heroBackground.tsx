@@ -1,7 +1,7 @@
 const HeroBackground = () => {
     return (
-      <div className="absolute inset-0 overflow-hidden">
-        {Array.from({ length: 5 }).map((_, i) => (
+<div className="absolute inset-0 overflow-hidden w-full flex flex-col justify-center items-center">
+{Array.from({ length: 5 }).map((_, i) => (
           <div
             key={i}
             className="absolute rounded-full bg-gradient-to-r from-purple-300/10 to-blue-300/10 blur-3xl"

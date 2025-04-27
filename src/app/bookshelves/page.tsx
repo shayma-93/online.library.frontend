@@ -1,17 +1,12 @@
 "use client"
 import type React from "react"
 import { useState, useEffect } from "react"
-import Link from "next/link"
-import Image from "next/image"
-import { Button } from "../components/ui/button"
 import {
-  ChevronRight,
   Heart,
   TrendingUp,
   Brain,
   Award,
 } from "lucide-react"
-import { motion } from "framer-motion"
 import { useMobile } from "../../hooks/use-mobile"
 import { Sparkles, Star } from "lucide-react"
 import "../../styles/globals.css"
@@ -20,6 +15,7 @@ import Footer from "../components/footer"
 import Header from "../components/header"
 import CreateBookshelfCard from "../components/bookCard"
 import BookshelfSection from "../components/bookshelfSection"
+import { StarRating2 } from "../components/starRating2" 
 // Book data structure
 interface Book {
   id: number
@@ -431,25 +427,7 @@ const books = {
   ],
 }
 
-// Star rating component
-const StarRating2 = ({ rating }: { rating: number }) => {
-  const fullStars = Math.floor(rating)
-  const hasHalfStar = rating % 1 !== 0
 
-  return (
-    <div className="flex text-yellow-400">
-      {[...Array(fullStars)].map((_, i) => (
-        <span key={i}>★</span>
-      ))}
-      {hasHalfStar && <span>½</span>}
-      {[...Array(5 - fullStars - (hasHalfStar ? 1 : 0))].map((_, i) => (
-        <span key={i + fullStars + (hasHalfStar ? 1 : 0)} className="text-gray-300">
-          ★
-        </span>
-      ))}
-    </div>
-  )
-}
 
 // Book component
 const Book = ({ book }: { book: any }) => {
@@ -512,23 +490,6 @@ export default function BookshelvesPage({}: BookshelvesPageProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState("")
   const isMobile = useMobile()
-
-  // Filter books based on search query
-  const getFilteredBooks = (books: Book[]) => {
-    if (!searchQuery) return books
-
-    const query = searchQuery.toLowerCase()
-    return books.filter((book) => book.title.toLowerCase().includes(query) || book.author.toLowerCase().includes(query))
-  }
-
-  // Group books into rows for display
-  const getBooksInRows = (books: Book[], booksPerRow: number) => {
-    const rows = []
-    for (let i = 0; i < books.length; i += booksPerRow) {
-      rows.push(books.slice(i, i + booksPerRow))
-    }
-    return rows
-  }
 
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-b from-purple-50 to-blue-50 text-purple-900 font-sans relative overflow-hidden">

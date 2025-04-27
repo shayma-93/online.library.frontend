@@ -5,7 +5,7 @@ import { Button } from "./ui/button";
 import { ChevronRight } from "lucide-react";
 import { useMobile } from "../../hooks/use-mobile"
 import { useState, useEffect } from "react"
-import { Sparkles, Star } from "lucide-react"
+import { StarRating } from "./starRating";
 
 interface Book {
   id: number;
@@ -25,21 +25,7 @@ interface BookshelfSectionProps {
   booksPerRowDesktop: number;
 }
 
-// Component for rendering star ratings
-const StarRating = ({ rating }: { rating: number }) => {
-    return (
-      <div className="flex">
-        {[1, 2, 3, 4, 5].map((star) => (
-          <Star
-            key={star}
-            className={`h-3 w-3 ${
-              star <= Math.round(rating) ? "text-amber-400 fill-amber-400" : "text-gray-300 fill-gray-300"
-            }`}
-          />
-        ))}
-      </div>
-    )
-  }
+
 
 export default function BookshelfSection({
   icon,
