@@ -1,6 +1,6 @@
 const HeroBackground = () => {
     return (
-<div className="absolute inset-0 overflow-hidden w-full flex flex-col justify-center items-center">
+<div className="absolute inset-0 overflow-hidden w-full flex flex-col justify-center items-center relative">
 {Array.from({ length: 5 }).map((_, i) => (
           <div
             key={i}

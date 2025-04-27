@@ -4,7 +4,9 @@
 @tailwind utilities;
 
 @import "tailwindcss";
-
+@import url('https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&family=Caveat+Brush&family=Grechen+Fuemen&family=Permanent+Marker&family=Satisfy&family=Sedgwick+Ave+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&family=Bangers&family=Caveat+Brush&family=Chicle&family=DM+Serif+Text:ital@0;1&family=Dancing+Script:wght@400..700&family=Grechen+Fuemen&family=Jersey+15&family=Kaushan+Script&family=Lobster&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Pacifico&family=Permanent+Marker&family=Playwrite+AU+SA:wght@100..400&family=Roboto:ital,wght@0,100..900;1,100..900&family=Satisfy&family=Sedgwick+Ave+Display&display=swap');
 @layer base {
   :root {
     --background: 260 100% 98%;
@@ -38,8 +40,14 @@
     --radius: 1.5rem;
 
     /* Define font family variables */
-    --font-display: 'YourDisplayFont', sans-serif;
-    --font-script: 'YourScriptFont', cursive;
+    --font-display: "Sedgwick Ave Display", cursive;
+    --font-dancing-script: 'Dancing Script', cursive;
+    --font-caveat-brush: 'Caveat Brush', cursive;
+    --font-akaya-kanadaka: 'Akaya Kanadaka', sans-serif;
+    --font-satisfy: 'Satisfy', cursive;
+    --font-permanent-marker: 'Permanent Marker', cursive;
+    --font-grechen-fuemen: 'Grechen Fuemen', cursive;
+    --font-sedgwick-ave-display: 'Sedgwick Ave Display', cursive;
   }
 }
 
@@ -208,7 +216,7 @@
 }
 
 .nav-3d {
-  font-family: 'Display', sans-serif;
+  font-family: var(--font-display), cursive;
   font-weight: bold;
   font-size: 1.125rem;
   text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.5), 0px 1px 0px rgba(168, 85, 247, 0.1);
@@ -338,7 +346,7 @@
 }
 
 .section-title {
-  font-family: 'Script', sans-serif;
+  font-family: var(--font-dancing-script), cursive;
   font-size: 1.875rem;
   letter-spacing: 0.02em;
   color: #7e3af2;
@@ -458,4 +466,19 @@
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: #a855f7;
+}
+.font-dancing-script {
+  font-family: var(--font-dancing-script);
+}
+.font-display {
+  font-family: var(--font-display); /* Fix the variable reference here */
+}
+.font-satisfy {
+  font-family: var(--font-satisfy);
+}
+.font-permanent-marker {
+   font-family: var(--font-permanent-marker);
+  }
+.font-akaya-kanadaka
+{  font-family: var(--font-akaya-kanadaka);
 }

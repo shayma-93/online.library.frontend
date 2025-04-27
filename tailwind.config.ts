@@ -8,7 +8,6 @@ const config = {
     "./components/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
-    "*.{js,ts,jsx,tsx,mdx}",
     "./src/styles/globals.css",
   ],
   prefix: "",
@@ -76,12 +75,16 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       fontFamily: {
-        sans: ["var(--font-sans)"],
-        display: ["var(--font-display)"],
-        script: ["var(--font-script)"],
-        serif: ["var(--font-serif)"],
-        
-      },
+        "dancing-script": ["'Dancing Script'", "cursive"],
+        "display": ["'Sedgwick Ave Display'", "cursive"],
+        "caveat-brush": ["'Caveat Brush'", "cursive"],
+        "akaya-kanadaka": ["'Akaya Kanadaka'", "system-ui"],
+        "satisfy": ["'Satisfy'", "cursive"],
+        "grechen-fuemen": ["'Grechen Fuemen'", "cursive"],
+        "sedgwick-ave-display": ["'Sedgwick Ave Display'", "cursive"],
+      }
+      
+      
     },
   },
   plugins: [require("tailwindcss-animate")],

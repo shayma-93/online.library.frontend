@@ -5,11 +5,11 @@ import HeroMoodBoard from "./moodBoard";
 
 const Hero = () => {
   return (
-    <section className="w-full flex flex-col justify-start items-center py-12 md:py-24 lg:py-32 bg-gradient-to-b from-purple-50 via-blue-50 to-purple-100 relative overflow-hidden">
-      <HeroBackground />
-      <div className="container  w-full flex flex-col justify-center items-center px-4 md:px-6 relative z-10">
-      <div className="flex justify-center">
-      <div className="grid gap-6 lg:grid-cols-12 lg:gap-12 items-center text-center lg:text-left mx-auto">
+<section className="w-full flex flex-col justify-center items-center py-12 md:py-16 lg:py-8 bg-gradient-to-b from-purple-50 via-blue-50 to-purple-100 relative overflow-hidden">
+<HeroBackground />
+      <div className=" w-full flex flex-col justify-center items-center px-4 md:px-6 relative z-10">
+      <div className="w-full flex justify-center">
+      <div className="w-full mx-auto grid gap-6 lg:grid-cols-12 lg:gap-12 items-center text-center lg:text-left ">
   <div className="col-span-12 lg:col-span-6">
     <HeroContent />
   </div>

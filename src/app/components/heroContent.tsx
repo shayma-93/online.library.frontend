@@ -18,7 +18,7 @@ const HeroContent = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="text-4xl md:text-5xl lg:text-6xl font-script magical-gradient-text drop-shadow-[0_1px_0px_rgba(255,255,255,0.5)]"
+        className="text-4xl md:text-5xl lg:text-6xl font-dancing-script magical-gradient-text drop-shadow-[0_1px_0px_rgba(255,255,255,0.5)]"
       >
         Discover Your Magical Library
       </motion.h1>

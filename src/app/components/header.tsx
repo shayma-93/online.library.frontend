@@ -18,7 +18,7 @@ const Header = () => {
               <BookOpen className="h-8 w-8 text-purple-600" />
               <div className="absolute -top-1 -right-1 w-3 h-3 bg-blue-400 rounded-full animate-pulse" />
             </div>
-            <span className="text-2xl font-script font-bold logo-gradient tracking-wide">
+            <span className="text-2xl font-dancing-script font-bold logo-gradient tracking-wide">
               EnchantedReads
             </span>
           </Link>
@@ -41,13 +41,13 @@ const Header = () => {
 
         {/* Navigation Bar (Centered with more space) */}
         <nav className="md:flex hidden flex-grow justify-start gap-12">
-          <Link href="/" className="nav-3d text-purple-900">
+          <Link href="/" className="nav-3d font-display text-purple-900">
             Home
           </Link>
-          <Link href="/books" className="nav-3d text-purple-700">
+          <Link href="/books" className="nav-3d font-display text-purple-700">
             Books
           </Link>
-          <Link href="/bookshelves" className="nav-3d text-purple-700">
+          <Link href="/bookshelves" className="nav-3d font-display text-purple-700">
             Bookshelves
           </Link>
         </nav>
