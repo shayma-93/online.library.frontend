@@ -14,7 +14,7 @@ const allBooks = [
     title: "The Enchanted Forest",
     author: "Mystic Author",
     rating: 4.5,
-    coverUrl: "/images/book-covers/enchanted-forest.png",
+    coverUrl: "https://covers.openlibrary.org/b/id/10200092-L.jpg",
     genre: "Fantasy",
     year: 2020,
     pages: 320,
@@ -24,7 +24,7 @@ const allBooks = [
     title: "Whispers of Magic",
     author: "Luna Spellbound",
     rating: 5,
-    coverUrl: "/images/book-covers/whispers-magic.png",
+    coverUrl: "https://covers.openlibrary.org/b/id/10200091-L.jpg",
     genre: "Magic",
     year: 2019,
     pages: 280,
@@ -34,107 +34,179 @@ const allBooks = [
     title: "Crystal Spellbook",
     author: "Orion Starweaver",
     rating: 4.8,
-    coverUrl: "/placeholder.svg?height=300&width=200",
+    coverUrl: "https://covers.openlibrary.org/b/id/10200090-L.jpg",
     genre: "Spells",
     year: 2021,
     pages: 350,
   },
   {
-    id: "4",
-    title: "Moonlit Pages",
-    author: "Elara Nightshade",
-    rating: 4.2,
-    coverUrl: "/placeholder.svg?height=300&width=200",
-    genre: "Mystery",
-    year: 2018,
-    pages: 290,
+    id: "13",
+    title: "The Dragon's Hoard",
+    author: "Aldric Dragonheart",
+    rating: 4.6,
+    coverUrl: "https://covers.openlibrary.org/b/id/10200095-L.jpg",
+    genre: "Fantasy",
+    year: 2023,
+    pages: 450,
   },
   {
-    id: "5",
-    title: "Enchanted Realms",
-    author: "Thorne Willowbrook",
+    id: "14",
+    title: "Witch's Brew",
+    author: "Seraphina Vood",
     rating: 4.7,
-    coverUrl: "/placeholder.svg?height=300&width=200",
-    genre: "Adventure",
+    coverUrl: "https://covers.openlibrary.org/b/id/10200093-L.jpg",
+    genre: "Horror",
     year: 2022,
-    pages: 410,
+    pages: 370,
   },
   {
-    id: "6",
-    title: "Astral Chronicles",
-    author: "Zephyr Moonshadow",
+    id: "15",
+    title: "Fables from the Forest",
+    author: "Bramble Thorn",
     rating: 4.4,
-    coverUrl: "/placeholder.svg?height=300&width=200",
+    coverUrl: "https://covers.openlibrary.org/b/id/10200097-L.jpg",
+    genre: "Adventure",
+    year: 2018,
+    pages: 300,
+  },
+  {
+    id: "16",
+    title: "Secrets of the Elders",
+    author: "Liora Windstrider",
+    rating: 4.9,
+    coverUrl: "https://covers.openlibrary.org/b/id/10200099-L.jpg",
+    genre: "Mystery",
+    year: 2024,
+    pages: 480,
+  },
+  {
+    id: "17",
+    title: "Arcane Legacy",
+    author: "Raven Darkcloud",
+    rating: 4.3,
+    coverUrl: "https://covers.openlibrary.org/b/id/10200094-L.jpg",
     genre: "Fantasy",
     year: 2020,
-    pages: 380,
+    pages: 400,
   },
   {
-    id: "7",
-    title: "The Wizard's Apprentice",
-    author: "Merlin Ambrose",
-    rating: 4.6,
-    coverUrl: "/placeholder.svg?height=300&width=200",
-    genre: "Magic",
+    id: "18",
+    title: "Journeys Through Time",
+    author: "Clara Timekeeper",
+    rating: 4.5,
+    coverUrl: "https://covers.openlibrary.org/b/id/10200096-L.jpg",
+    genre: "Sci-Fi",
     year: 2021,
     pages: 340,
   },
   {
-    id: "8",
-    title: "Potions & Possibilities",
-    author: "Sage Willowroot",
-    rating: 4.3,
-    coverUrl: "/placeholder.svg?height=300&width=200",
-    genre: "Spells",
-    year: 2019,
-    pages: 300,
+    id: "19",
+    title: "The Sorcerer's Code",
+    author: "Isolde Frost",
+    rating: 4.6,
+    coverUrl: "https://covers.openlibrary.org/b/id/10200098-L.jpg",
+    genre: "Fantasy",
+    year: 2023,
+    pages: 410,
   },
   {
-    id: "9",
-    title: "Mythical Creatures Guide",
-    author: "Fauna Beastkeeper",
-    rating: 4.9,
-    coverUrl: "/placeholder.svg?height=300&width=200",
-    genre: "Creatures",
-    year: 2022,
+    id: "20",
+    title: "Echoes of the Past",
+    author: "Dorian Graves",
+    rating: 4.8,
+    coverUrl: "https://covers.openlibrary.org/b/id/10200100-L.jpg",
+    genre: "Historical Fiction",
+    year: 2019,
+    pages: 370,
+  },
+  // Additional books
+  {
+    id: "21",
+    title: "The Shattered Crown",
+    author: "Elara Moonshadow",
+    rating: 4.7,
+    coverUrl: "https://covers.openlibrary.org/b/id/10200101-L.jpg",
+    genre: "Fantasy",
+    year: 2024,
+    pages: 500,
+  },
+  {
+    id: "22",
+    title: "Veil of Shadows",
+    author: "Galen Blackthorn",
+    rating: 4.5,
+    coverUrl: "https://covers.openlibrary.org/b/id/10200102-L.jpg",
+    genre: "Thriller",
+    year: 2023,
     pages: 420,
   },
   {
-    id: "10",
-    title: "Ancient Runes Decoded",
-    author: "Runic Scholar",
-    rating: 4.7,
-    coverUrl: "/placeholder.svg?height=300&width=200",
-    genre: "History",
-    year: 2018,
+    id: "23",
+    title: "The Timekeeper's Daughter",
+    author: "Sylvia Starlight",
+    rating: 4.8,
+    coverUrl: "https://covers.openlibrary.org/b/id/10200103-L.jpg",
+    genre: "Time Travel",
+    year: 2022,
+    pages: 375,
+  },
+  {
+    id: "24",
+    title: "The Moonlit Path",
+    author: "Daphne Nightshade",
+    rating: 4.9,
+    coverUrl: "https://covers.openlibrary.org/b/id/10200104-L.jpg",
+    genre: "Romance",
+    year: 2024,
+    pages: 310,
+  },
+  {
+    id: "25",
+    title: "Dark Wings",
+    author: "Lucian Shadowmere",
+    rating: 4.6,
+    coverUrl: "https://covers.openlibrary.org/b/id/10200105-L.jpg",
+    genre: "Fantasy",
+    year: 2021,
     pages: 380,
   },
   {
-    id: "11",
-    title: "Herbology Essentials",
-    author: "Flora Greenthumb",
-    rating: 4.5,
-    coverUrl: "/placeholder.svg?height=300&width=200",
-    genre: "Nature",
-    year: 2020,
-    pages: 290,
+    id: "26",
+    title: "The Forbidden Realm",
+    author: "Mira Windwhisper",
+    rating: 4.7,
+    coverUrl: "https://covers.openlibrary.org/b/id/10200106-L.jpg",
+    genre: "Adventure",
+    year: 2023,
+    pages: 450,
   },
   {
-    id: "12",
-    title: "Divination: Seeing Beyond",
-    author: "Cassandra Seer",
-    rating: 4.2,
-    coverUrl: "/placeholder.svg?height=300&width=200",
-    genre: "Divination",
-    year: 2021,
-    pages: 260,
+    id: "27",
+    title: "Firestorm",
+    author: "Kieran Blaze",
+    rating: 4.5,
+    coverUrl: "https://covers.openlibrary.org/b/id/10200107-L.jpg",
+    genre: "Sci-Fi",
+    year: 2022,
+    pages: 330,
+  },
+  {
+    id: "28",
+    title: "Winds of Fate",
+    author: "Seraphina Stormrider",
+    rating: 4.8,
+    coverUrl: "https://covers.openlibrary.org/b/id/10200108-L.jpg",
+    genre: "Fantasy",
+    year: 2023,
+    pages: 460,
   },
 ]
+
 
 export default function BooksList() {
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid")
   const [currentPage, setCurrentPage] = useState(1)
-  const booksPerPage = 9
+  const booksPerPage = 15
 
   // Pagination
   const indexOfLastBook = currentPage * booksPerPage
@@ -202,122 +274,122 @@ export default function BooksList() {
           </Button>
         </div>
       </div>
+{/* Books Display */}
+{viewMode === "grid" ? (
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+    {currentBooks.map((book) => (
+      <Link href={`/books/${book.id}`} key={book.id} className="group relative flex flex-col">
+        {/* Photo frame effect */}
+        <div
+          className="relative bg-white p-2 shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100"
+          style={{
+            transform: `rotate(${getRandomRotation(book.id)}deg)`,
+            transformOrigin: "center top",
+          }}
+        >
+          {/* Pin/clip decoration */}
+          <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-yellow-100 rounded-full border border-yellow-200 shadow-sm z-10"></div>
 
-      {/* Books Display */}
-      {viewMode === "grid" ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {currentBooks.map((book) => (
-            <Link href={`/books/${book.id}`} key={book.id} className="group relative flex flex-col">
-              {/* Photo frame effect */}
-              <div
-                className="relative bg-white p-2 shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100"
-                style={{
-                  transform: `rotate(${getRandomRotation(book.id)}deg)`,
-                  transformOrigin: "center top",
-                }}
-              >
-                {/* Pin/clip decoration */}
-                <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-yellow-100 rounded-full border border-yellow-200 shadow-sm z-10"></div>
+          {/* Book cover */}
+          <div className="relative h-[220px] overflow-hidden mb-2">
+            <div className="absolute top-2 right-2 w-2 h-2 rounded-full bg-purple-300"></div>
+            <Image src={book.coverUrl || "/placeholder.svg"} alt={book.title} fill className="object-cover" />
+          </div>
 
-                {/* Book cover */}
-                <div className="relative h-[220px] overflow-hidden mb-2">
-                  <div className="absolute top-2 right-2 w-2 h-2 rounded-full bg-purple-300"></div>
-                  <Image src={book.coverUrl || "/placeholder.svg"} alt={book.title} fill className="object-cover" />
-                </div>
-
-                {/* Book info */}
-                <div className="p-2 flex-1 flex flex-col">
-                  <h3 className="font-medium text-purple-700 group-hover:text-purple-500 transition-colors">
-                    {book.title}
-                  </h3>
-                  <p className="text-sm text-purple-500">{book.author}</p>
-                  <div className="flex mt-2 mb-2">{renderStars(book.rating)}</div>
-                  <div className="flex justify-between mt-auto pt-2 border-t border-purple-50">
-                    <span className="text-xs text-purple-400 bg-purple-50 px-2 py-0.5 rounded-sm">{book.genre}</span>
-                    <span className="text-xs text-purple-500">{book.pages} pages</span>
-                  </div>
-                </div>
-              </div>
-            </Link>
-          ))}
-        </div>
-      ) : (
-        <div className="space-y-4">
-          {currentBooks.map((book) => (
-            <Link
-              href={`/books/${book.id}`}
-              key={book.id}
-              className="flex bg-white rounded-sm overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 group"
-              style={{
-                transform: `rotate(${getRandomRotation(book.id) * 0.5}deg)`, // Smaller rotation for list view
-                transformOrigin: "center left",
-              }}
-            >
-              <div className="relative w-[100px] h-[150px] flex-shrink-0 overflow-hidden">
-                <Image src={book.coverUrl || "/placeholder.svg"} alt={book.title} fill className="object-cover" />
-              </div>
-              <div className="p-4 flex-1">
-                <h3 className="font-medium text-purple-700 group-hover:text-purple-500 transition-colors">
-                  {book.title}
-                </h3>
-                <p className="text-sm text-purple-500">{book.author}</p>
-                <div className="flex mt-2">{renderStars(book.rating)}</div>
-                <div className="flex flex-wrap gap-2 mt-3">
-                  <span className="text-xs text-purple-400 bg-purple-50 px-2 py-0.5 rounded-sm">{book.genre}</span>
-                  <span className="text-xs text-purple-500">{book.year}</span>
-                  <span className="text-xs text-purple-500">{book.pages} pages</span>
-                </div>
-              </div>
-            </Link>
-          ))}
-        </div>
-      )}
-
-      {/* Pagination */}
-      {totalPages > 1 && (
-        <div className="flex justify-center mt-8">
-          <div className="flex items-center space-x-2">
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-              disabled={currentPage === 1}
-              className="border-purple-200 text-purple-400 hover:bg-purple-50 rounded-sm"
-            >
-              <ChevronLeft className="h-4 w-4" />
-            </Button>
-
-            <div className="flex items-center space-x-1">
-              {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-                <Button
-                  key={page}
-                  variant={currentPage === page ? "default" : "outline"}
-                  size="sm"
-                  onClick={() => setCurrentPage(page)}
-                  className={cn(
-                    "rounded-sm min-w-[2rem] px-2",
-                    currentPage === page
-                      ? "bg-purple-300 hover:bg-purple-400 text-white"
-                      : "border-purple-200 text-purple-400 hover:bg-purple-50",
-                  )}
-                >
-                  {page}
-                </Button>
-              ))}
+          {/* Book info */}
+          <div className="p-2 flex-1 flex flex-col">
+            <h3 className="font-medium text-purple-700 group-hover:text-purple-500 transition-colors">
+              {book.title}
+            </h3>
+            <p className="text-sm text-purple-500">{book.author}</p>
+            <div className="flex mt-2 mb-2">{renderStars(book.rating)}</div>
+            <div className="flex justify-between mt-auto pt-2 border-t border-purple-50">
+              <span className="text-xs text-purple-400 bg-purple-50 px-2 py-0.5 rounded-sm">{book.genre}</span>
+              <span className="text-xs text-purple-500">{book.pages} pages</span>
             </div>
-
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
-              disabled={currentPage === totalPages}
-              className="border-purple-200 text-purple-400 hover:bg-purple-50 rounded-sm"
-            >
-              <ChevronRight className="h-4 w-4" />
-            </Button>
           </div>
         </div>
-      )}
+      </Link>
+    ))}
+  </div>
+) : (
+  <div className="space-y-4">
+    {currentBooks.map((book) => (
+      <Link
+        href={`/books/${book.id}`}
+        key={book.id}
+        className="flex bg-white rounded-sm overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 group"
+        style={{
+          transform: `rotate(${getRandomRotation(book.id) * 0.5}deg)`, // Smaller rotation for list view
+          transformOrigin: "center left",
+        }}
+      >
+        <div className="relative w-[100px] h-[150px] flex-shrink-0 overflow-hidden">
+          <Image src={book.coverUrl || "/placeholder.svg"} alt={book.title} fill className="object-cover" />
+        </div>
+        <div className="p-4 flex-1">
+          <h3 className="font-medium text-purple-700 group-hover:text-purple-500 transition-colors">
+            {book.title}
+          </h3>
+          <p className="text-sm text-purple-500">{book.author}</p>
+          <div className="flex mt-2">{renderStars(book.rating)}</div>
+          <div className="flex flex-wrap gap-2 mt-3">
+            <span className="text-xs text-purple-400 bg-purple-50 px-2 py-0.5 rounded-sm">{book.genre}</span>
+            <span className="text-xs text-purple-500">{book.year}</span>
+            <span className="text-xs text-purple-500">{book.pages} pages</span>
+          </div>
+        </div>
+      </Link>
+    ))}
+  </div>
+)}
+
+{/* Pagination */}
+{totalPages > 1 && (
+  <div className="flex justify-center mt-8">
+    <div className="flex items-center space-x-2">
+      <Button
+        variant="outline"
+        size="sm"
+        onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+        disabled={currentPage === 1}
+        className="border-purple-200 text-purple-400 hover:bg-purple-50 rounded-sm"
+      >
+        <ChevronLeft className="h-4 w-4" />
+      </Button>
+
+      <div className="flex items-center space-x-1">
+        {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+          <Button
+            key={page}
+            variant={currentPage === page ? "default" : "outline"}
+            size="sm"
+            onClick={() => setCurrentPage(page)}
+            className={cn(
+              "rounded-sm min-w-[2rem] px-2",
+              currentPage === page
+                ? "bg-purple-300 hover:bg-purple-400 text-white"
+                : "border-purple-200 text-purple-400 hover:bg-purple-50",
+            )}
+          >
+            {page}
+          </Button>
+        ))}
+      </div>
+
+      <Button
+        variant="outline"
+        size="sm"
+        onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+        disabled={currentPage === totalPages}
+        className="border-purple-200 text-purple-400 hover:bg-purple-50 rounded-sm"
+      >
+        <ChevronRight className="h-4 w-4" />
+      </Button>
+    </div>
+  </div>
+)}
+
     </div>
   )
 }

@@ -33,7 +33,7 @@ export default function BooksPage() {
           </div>
 
           {/* Books Grid */}
-          <div className="w-full flex flex-col justify-center items-center flex-1">
+          <div className="w-full flex flex-col justify-start items-center flex-1">
             <BooksList />
           </div>
         </div>
