@@ -1,63 +1,77 @@
 import React, { useEffect, useState } from 'react';
 import { Input } from './ui/input';
+import { Sparkles } from "lucide-react"
+import { Button } from "./ui/button"
 
-interface NewsletterSectionProps {}
+export default function NewsletterSection() {
+  const [email, setEmail] = useState("")
+  const [isSubmitted, setIsSubmitted] = useState(false)
 
-interface BlobStyle {
-  width: string;
-  height: string;
-  top: string;
-  left: string;
-  opacity: number;
-  transform: string;
-}
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (email) {
+      // In a real app, this would connect to a newsletter service
+      console.log("Subscribing email:", email)
+      setIsSubmitted(true)
+      setEmail("")
 
-const NewsletterSection: React.FC<NewsletterSectionProps> = () => {
-  const [blobs, setBlobs] = useState<BlobStyle[]>([]);
-
-  useEffect(() => {
-    const generatedBlobs = Array.from({ length: 5 }).map(() => ({
-      width: `${Math.random() * 30 + 20}%`,
-      height: `${Math.random() * 30 + 20}%`,
-      top: `${Math.random() * 100}%`,
-      left: `${Math.random() * 100}%`,
-      opacity: 0.3,
-      transform: `rotate(${Math.random() * 360}deg)`,
-    }));
-    setBlobs(generatedBlobs);
-  }, []);
+      // Reset the submitted state after 3 seconds
+      setTimeout(() => {
+        setIsSubmitted(false)
+      }, 3000)
+    }
+  }
 
   return (
-    <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-r from-purple-50 via-blue-50 to-purple-100 relative overflow-hidden flex items-center justify-center">
-      <div className="absolute inset-0 overflow-hidden">
-        {blobs.map((style, i) => (
-          <div
-            key={i}
-            className="absolute rounded-full bg-gradient-to-r from-purple-300/10 to-blue-300/10 blur-3xl"
-            style={style}
-          />
-        ))}
-      </div>
-      <div className="container px-4 md:px-6 relative z-10">
-        <div className="neumorphic p-8 max-w-4xl mx-auto rounded-3xl">
-          <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center justify-center">
-            <div className="space-y-4 text-center lg:text-left">
-              <h2 className="section-title">Stay Enchanted</h2>
-              <p className="text-purple-700 md:text-lg">
-                Subscribe to our magical newsletter to receive updates on new books, reading lists, and special spells.
-              </p>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
-              <Input type="email" placeholder="Enter your email" className="magical-input flex-1 h-12 text-lg" />
-              <button className="bubble-button bg-gradient-to-r from-purple-300 to-blue-300 text-purple-800">
-                Subscribe
-              </button>
+    <section className="w-full flex flex-col justify-center items-center py-16 bg-gradient-to-r from-purple-50 to-lavender-50">
+      <div className="container px-4 md:px-6">
+      <div className="max-w-4xl min-h-[300px] mx-auto bg-white/80 backdrop-blur-sm rounded-sm shadow-md border border-purple-100 p-6 md:p-8 relative overflow-hidden flex flex-col justify-center items-center text-center">
+      {/* Decorative elements */}
+          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-200 via-purple-300 to-purple-200"></div>
+          <div className="absolute -top-12 -right-12 w-24 h-24 bg-purple-100 rounded-full opacity-50"></div>
+          <div className="absolute -bottom-8 -left-8 w-16 h-16 bg-purple-100 rounded-full opacity-50"></div>
+
+          <div className="relative z-10">
+            <h2 className="font-dancing-script text-3xl font-bold text-center text-purple-600 mb-2">Stay Enchanted</h2>
+
+            <p className="text-purple-400 text-center mb-6">
+              Subscribe to our magical newsletter to receive updates on new books, reading lists, and special spells.
+            </p>
+
+            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+              <div className="relative flex-1">
+                <Input
+                  type="email"
+                  placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  className="border-purple-200 focus-visible:ring-purple-300 rounded-sm pl-8 pr-4 bg-white/90"
+                />
+                <div className="absolute left-2.5 top-1/2 transform -translate-y-1/2 w-3 h-3 bg-purple-200 rounded-full"></div>
+              </div>
+
+              <Button
+                type="submit"
+                className="bg-purple-300 hover:bg-purple-400 text-white rounded-sm relative overflow-hidden group"
+                disabled={isSubmitted}
+              >
+                <span className="relative z-10">{isSubmitted ? "Subscribed!" : "Subscribe"}</span>
+                <span className="absolute inset-0 bg-gradient-to-r from-purple-300 via-purple-200 to-purple-300 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                <Sparkles className="absolute right-2 h-4 w-4 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
+              </Button>
+            </form>
+
+            <div className="mt-4 text-center text-xs text-purple-400">
+              Join our community of magical readers and never miss an enchanted update
             </div>
           </div>
+
+          {/* Magical sparkles */}
+          <div className="absolute top-1/4 right-8 w-2 h-2 bg-purple-200 rounded-full animate-pulse"></div>
+          <div className="absolute bottom-1/3 left-10 w-2 h-2 bg-purple-200 rounded-full animate-pulse delay-300"></div>
         </div>
       </div>
     </section>
-  );
-};
-
-export default NewsletterSection;
+  )
+}

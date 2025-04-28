@@ -6,6 +6,7 @@ import { BookOpen, Menu } from "lucide-react";
 import { Button } from "./ui/button";
 import { Search } from "lucide-react";
 import { Input } from "./ui/input"; // Assuming you have an Input component
+import { Sparkles } from "lucide-react"
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -57,19 +58,26 @@ const Header = () => {
 
         {/* Auth Buttons & Mobile Toggle (Aligned Right) */}
         <div className="flex items-center gap-2">
-          <Link href="/sign-in">
-            <Button
-              variant="outline"
-              className="border-purple-200 text-purple-700 hover:bg-purple-100 hover:text-purple-800 rounded-md"
-            >
-              Sign In
-            </Button>
-          </Link>
-          <Link href="/sign-up">
-            <Button className="bg-purple-600 text-white hover:bg-purple-700 rounded-md">
-              Sign Up
-            </Button>
-          </Link>
+    
+<Link href="/sign-in">
+  <Button
+    className="bg-purple-400 hover:bg-purple-300 text-white rounded-sm relative overflow-hidden group"
+  >
+    <span className="relative z-10">Sign In</span>
+    <span className="absolute inset-0 bg-gradient-to-r from-purple-300 via-purple-200 to-purple-300 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+    <Sparkles className="absolute right-2 h-4 w-4 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
+  </Button>
+</Link>
+
+<Link href="/sign-up">
+  <Button
+    className="bg-purple-500 hover:bg-purple-400 text-white rounded-sm relative overflow-hidden group"
+  >
+    <span className="relative z-10">Sign Up</span>
+    <span className="absolute inset-0 bg-gradient-to-r from-purple-600 via-purple-500 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+    <Sparkles className="absolute right-2 h-4 w-4 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
+  </Button>
+</Link>
           <Button
             variant="ghost"
             size="icon"

@@ -156,13 +156,14 @@ export default function BookshelvesPage() {
       </p>
       <div className="mt-8 flex flex-wrap justify-center gap-4">
       <Link href="/create-bookshelf">
-      <Button className="rounded-full bg-purple-600 text-white hover:bg-purple-700">
-            <Plus className="h-4 w-4 mr-2" />
+      <Button className="bg-purple-600 hover:bg-purple-500 text-white rounded-sm relative overflow-hidden group">
+      
+      <Plus className="h-4 w-4 mr-2" />
             Create Your Own Bookshelf
           </Button>
         </Link>
         <Link href="/library-card">
-          <Button variant="outline" className="rounded-full border-purple-200 text-purple-700 hover:bg-purple-100">
+          <Button variant="outline" className="rounded-sm border-purple-200 text-purple-700 hover:bg-purple-100">
             <BookOpen className="h-4 w-4 mr-2" />
             My Library Card
           </Button>
@@ -189,7 +190,7 @@ export default function BookshelvesPage() {
           <Link href={`/bookshelves/${bookshelf.id}`}>
             <Button
               variant="outline"
-              className="rounded-full border-purple-200 text-purple-700 hover:bg-purple-100"
+              className="rounded-sm border-purple-200 text-purple-700 hover:bg-purple-100"
             >
               View All Books in this Shelf
               <ArrowRight className="h-4 w-4 ml-2" />

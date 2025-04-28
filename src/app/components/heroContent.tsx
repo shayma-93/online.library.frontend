@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import Link from "next/link"
+import { Button } from "./ui/button" 
 
 const HeroContent = () => {
   return (
@@ -39,10 +41,21 @@ const HeroContent = () => {
         transition={{ duration: 0.8, delay: 0.6 }}
         className="flex flex-col sm:flex-row gap-3 justify-center"
       >
-        <button className="bubble-button bg-gradient-to-r from-purple-300 to-blue-300 text-purple-800">
-          Begin Your Adventure
-        </button>
-        <button className="bubble-button">Explore Magical Books</button>
+             <div className="flex flex-col sm:flex-row gap-3">
+                <Link href="/sign-up">
+                  <Button className="rounded-md bg-purple-600 text-white hover:bg-purple-700">
+                    Begin Your Adventure
+                  </Button>
+                </Link>
+                <Link href="/books">
+                  <Button
+                    variant="outline"
+                    className="rounded-md border-purple-200 text-purple-700 hover:bg-purple-100 hover:text-purple-800"
+                  >
+                    Explore Magical Books
+                  </Button>
+                </Link>
+              </div>
       </motion.div>
     </div>
   );
