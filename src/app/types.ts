@@ -8,5 +8,6 @@ export interface Book {
     rating: number;
     reviews?: number; // Optional, because not all books may have a review count
     imageSrc?: string; // Optional, in case the book does not have an image in your static data
+  
   }
   
