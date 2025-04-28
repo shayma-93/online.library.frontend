@@ -5,6 +5,7 @@ import BookshelfDisplay from "../components/bookshelf-display"
 import Header from "../components/header"
 import Footer from "../components/footer"
 import {BookshelfProps} from "../components/enhanced-bookshelf-display"
+import CreateBookshelf from "../create-bookshelf/page"
 
 // Sample data for demonstration
 const bookshelves: BookshelfProps[] = [
@@ -154,8 +155,8 @@ export default function BookshelvesPage() {
         Explore our enchanted collection of curated bookshelves, each filled with magical stories waiting to be discovered
       </p>
       <div className="mt-8 flex flex-wrap justify-center gap-4">
-        <Link href="/create-bookshelf">
-          <Button className="rounded-full bg-purple-600 text-white hover:bg-purple-700">
+      <Link href="/create-bookshelf">
+      <Button className="rounded-full bg-purple-600 text-white hover:bg-purple-700">
             <Plus className="h-4 w-4 mr-2" />
             Create Your Own Bookshelf
           </Button>

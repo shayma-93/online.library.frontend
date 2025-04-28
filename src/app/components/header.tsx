@@ -12,7 +12,7 @@ const Header = () => {
 
   return (
     <header className="w-full border-b bg-white/50 backdrop-blur-sm sticky top-0 z-50">
-      <div className="w-full flex h-16 items-center justify-between px-4 md:px-8">
+      <div className="w-full flex h-20 items-center justify-between px-4 md:px-8">
         {/* Logo and Search Bar Section */}
         <div className="flex items-center gap-4 w-full max-w-3xl">
           {" "}
