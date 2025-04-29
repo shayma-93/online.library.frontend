@@ -25,7 +25,7 @@ const PopularMagicalBooks = ({ books }: { books: Book[] }) => {
   const displayedBooks = showMore ? books.slice(0, 20) : books.slice(0, 10);
 
   return (
-    <section className="w-full py-12 md:py-20 lg:py-24 relative bg-gradient-to-b from-purple-50 to-blue-50">
+    <section className="w-full relative bg-gradient-to-b from-purple-100  to-blue-100">
       <div className="container px-4 md:px-6 mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-10 text-center md:text-left">
           <div>

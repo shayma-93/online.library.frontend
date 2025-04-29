@@ -12,7 +12,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="w-full border-b bg-white/50 backdrop-blur-sm sticky top-0 z-50">
+    <header className="w-full border-b bg-purple-100 backdrop-blur-sm sticky top-0 z-50">
       <div className="w-full flex h-20 items-center justify-between px-4 md:px-8">
         {/* Logo and Search Bar Section */}
         <div className="flex items-center gap-4 w-full max-w-3xl">
@@ -42,52 +42,58 @@ const Header = () => {
 
         {/* Navigation Bar (Centered with more space) */}
         <nav className="md:flex hidden flex-grow justify-start gap-12">
-          <Link href="/" className="nav-3d font-display text-purple-900">
-            Home
-          </Link>
-          <Link href="/books" className="nav-3d font-display text-purple-700">
-            Books
-          </Link>
-          <Link
-            href="/bookshelves"
-            className="nav-3d font-display text-purple-700"
-          >
-            Bookshelves
-          </Link>
-        </nav>
+      {[
+        { href: "/", label: "Home", textColor: "text-purple-900" },
+        { href: "/books", label: "Books", textColor: "text-purple-700" },
+        { href: "/bookshelves", label: "Bookshelves", textColor: "text-purple-700" },
+      ].map((link) => (
+        <Link
+          key={link.href}
+          href={link.href}
+          className={`relative group font-permanent-marker ${link.textColor}`}
+        >
+          <span className="relative z-10">{link.label}</span>
+          {/* Sparkles */}
+          <Sparkles className="absolute right-[-1rem] top-1/2 transform -translate-y-1/2 h-4 w-4 text-purple-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+        </Link>
+      ))}
+    </nav>
 
         {/* Auth Buttons & Mobile Toggle (Aligned Right) */}
         <div className="flex items-center gap-2">
-    
-<Link href="/sign-in">
-  <Button
-    className="bg-purple-400 hover:bg-purple-300 text-white rounded-sm relative overflow-hidden group"
-  >
-    <span className="relative z-10">Sign In</span>
-    <span className="absolute inset-0 bg-gradient-to-r from-purple-300 via-purple-200 to-purple-300 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-    <Sparkles className="absolute right-2 h-4 w-4 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
-  </Button>
-</Link>
+  
+  <Link href="/sign-in">
+    <Button
+      className="bg-purple-400 hover:bg-purple-300 text-blue-900 text-bold rounded-lg relative overflow-hidden group w-full px-8"
+    >
+      <span className="relative z-10">Sign In</span>
+      <span className="absolute inset-0 bg-gradient-to-r from-purple-300 via-purple-200 to-purple-300 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+      <Sparkles className="absolute right-2 h-4 w-4 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
+    </Button>
+  </Link>
 
-<Link href="/sign-up">
+  <Link href="/sign-up">
+    <Button
+      className="bg-blue-300 hover:bg-blue-200 text-purple-900 text-bold rounded-lg relative overflow-hidden group w-full px-8"
+    >
+      <span className="relative z-10">Sign Up</span>
+      <span className="absolute inset-0 bg-gradient-to-r from-blue-300 to-blue-200 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+      <Sparkles className="absolute right-2 h-4 w-4 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
+    </Button>
+  </Link>
+
   <Button
-    className="bg-purple-500 hover:bg-purple-400 text-white rounded-sm relative overflow-hidden group"
+    variant="ghost"
+    size="icon"
+    className="md:hidden text-purple-700"
+    onClick={() => setIsMenuOpen(!isMenuOpen)}
   >
-    <span className="relative z-10">Sign Up</span>
-    <span className="absolute inset-0 bg-gradient-to-r from-purple-600 via-purple-500 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-    <Sparkles className="absolute right-2 h-4 w-4 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
+    <Menu className="h-6 w-6" />
+    <span className="sr-only">Toggle menu</span>
   </Button>
-</Link>
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden text-purple-700"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            <Menu className="h-6 w-6" />
-            <span className="sr-only">Toggle menu</span>
-          </Button>
-        </div>
+</div>
+
+
       </div>
     </header>
   );

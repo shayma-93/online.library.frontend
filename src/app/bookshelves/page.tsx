@@ -133,7 +133,7 @@ export default function BookshelvesPage() {
   return (
     <div>
       <Header/>
-      <div className="min-h-screen bg-gradient-to-b from-lavender-50 to-purple-50/30 pb-16">
+      <div className="min-h-screen bg-gradient-to-b from-blue-100 via-lavender-50 to-purple-100 pb-16">
   <section className="w-full py-12 md:py-16 relative overflow-hidden">
     {/* Background floating dots */}
     <div className="absolute top-0 left-0 w-full h-full">
@@ -156,17 +156,26 @@ export default function BookshelvesPage() {
       </p>
       <div className="mt-8 flex flex-wrap justify-center gap-4">
       <Link href="/create-bookshelf">
-      <Button className="bg-purple-600 hover:bg-purple-500 text-white rounded-sm relative overflow-hidden group">
-      
-      <Plus className="h-4 w-4 mr-2" />
-            Create Your Own Bookshelf
-          </Button>
+      <Button className="bg-blue-300 hover:bg-blue-200 text-purple-900 font-bold rounded-lg relative overflow-hidden group w-full px-8">
+  <span className="relative z-10 flex items-center">
+    <Plus className="h-4 w-4 mr-2" />
+    Create Your Own Bookshelf
+  </span>
+  <span className="absolute inset-0 bg-gradient-to-r from-blue-300 to-blue-200 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+  <Sparkles className="absolute right-2 h-4 w-4 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
+</Button>
+
         </Link>
         <Link href="/library-card">
-          <Button variant="outline" className="rounded-sm border-purple-200 text-purple-700 hover:bg-purple-100">
-            <BookOpen className="h-4 w-4 mr-2" />
-            My Library Card
-          </Button>
+        <Button className="bg-purple-400 hover:bg-purple-300 text-blue-900 font-bold rounded-lg relative overflow-hidden group w-full px-8">
+  <span className="relative z-10 flex items-center">
+    <BookOpen className="h-4 w-4 mr-2" />
+    My Library Card
+  </span>
+  <span className="absolute inset-0 bg-gradient-to-r from-purple-300 via-purple-200 to-purple-300 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+  <Sparkles className="absolute right-2 h-4 w-4 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
+</Button>
+
         </Link>
       </div>
     </div>

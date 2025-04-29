@@ -38,8 +38,8 @@ export default function SignIn() {
   return (
     <div>   
       <Header/>
-      <div className="w-full flex flex-col md:flex-row items-start justify-center min-h-[calc(100vh-2rem)] py-36">
-      <div className="w-full max-w-lg px-10 py-12 bg-white/60 backdrop-blur-sm rounded-xl shadow-lg border border-purple-100 md:mr-8 relative overflow-hidden">
+      <div className="w-full flex flex-col md:flex-row items-start justify-center bg-gradient-to-b from-blue-100 via-lavender-50 to-purple-100 min-h-[calc(100vh-2rem)] py-36 bg-cover bg-center">
+      <div className="w-full max-w-lg px-10 py-12  backdrop-blur-sm rounded-xl shadow-lg border border-purple-100 md:mr-8 relative overflow-hidden">
       {/* Mystical decorative elements */}
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-300 via-purple-600 to-purple-300 rounded-t-3xl"></div>
         <div className="absolute -top-12 -right-12 w-24 h-24 bg-purple-100 rounded-full opacity-50"></div>
@@ -68,7 +68,7 @@ export default function SignIn() {
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  className="border-purple-200 focus-visible:ring-purple-500 rounded-md pl-8"
+                  className="border-purple-200 bg-white opacity-50 focus-visible:ring-purple-500 rounded-md pl-8"
                 />
                 <div className="absolute left-2.5 top-1/2 transform -translate-y-1/2 w-3 h-3 bg-purple-200 rounded-full"></div>
               </div>
@@ -93,7 +93,7 @@ export default function SignIn() {
                   required
                   value={formData.password}
                   onChange={handleChange}
-                  className="border-purple-200 focus-visible:ring-purple-500 rounded-md pl-8"
+                  className="border-purple-200 bg-white opacity-50 focus-visible:ring-purple-500 rounded-md pl-8"
                 />
                 <div className="absolute left-2.5 top-1/2 transform -translate-y-1/2 w-3 h-3 bg-purple-200 rounded-full"></div>
               </div>
@@ -104,7 +104,7 @@ export default function SignIn() {
                 id="rememberMe"
                 checked={formData.rememberMe}
                 onCheckedChange={handleCheckboxChange}
-                className="border-purple-300 data-[state=checked]:bg-purple-600 rounded-sm"
+                className="border-purple-300 bg-white opacity-50  data-[state=checked]:bg-purple-600 rounded-sm"
               />
               <Label
                 htmlFor="rememberMe"
@@ -115,13 +115,20 @@ export default function SignIn() {
             </div>
 
             <Button
-              type="submit"
-              className="w-full bg-purple-600 text-white hover:bg-purple-700 rounded-md relative overflow-hidden group"
-            >
-              <span className="relative z-10">Sign In</span>
-              <span className="absolute inset-0 bg-gradient-to-r from-purple-600 via-purple-500 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-              <Sparkles className="absolute right-4 h-4 w-4 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
-            </Button>
+  type="submit"
+  className="w-full bg-purple-400 hover:bg-purple-300 text-blue-900 font-bold rounded-lg relative overflow-hidden group px-8 py-2"
+>
+  <span className="relative z-10">Sign In</span>
+
+  {/* Hover gradient background */}
+  <span className="absolute inset-0 bg-gradient-to-r from-purple-300 via-purple-200 to-purple-300 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+
+  {/* Sparkles on hover */}
+  <Sparkles className="absolute right-2 top-1/2 -translate-y-1/2 h-4 w-4 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
+</Button>
+
+
+
           </form>
 
           <div className="mt-6 text-center text-sm">
@@ -143,12 +150,12 @@ export default function SignIn() {
       <div className="hidden md:block w-full ml-12 max-w-md">
   <div className="relative h-[400px]">
     {/* Image container with more tilt */}
-    <div className="absolute right-0 top-[60%] -translate-y-1/2 w-[400px] h-[500px] bg-purple-100/80 rounded-lg shadow-lg transform rotate-[10deg]">
-      <div className="absolute inset-0 flex items-center justify-center">
+    <div className="absolute right-0 top-[60%] -translate-y-1/2 w-[400px] h-[500px] bg-purple-100/80 rounded-xl shadow-lg transform rotate-[10deg]">
+      <div className="absolute inset-0 flex items-center justify-center ">
         <img 
           src="/assets/images/bg,f8f8f8-flat,750x,075,f-pad,750x1000,f8f8f8.jpg" 
           alt="Your description" 
-          className="w-full h-full object-cover" 
+          className="w-full h-full rounded-2xl object-cover" 
         />
       </div>
     </div>

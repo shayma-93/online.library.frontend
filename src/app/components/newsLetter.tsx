@@ -23,7 +23,7 @@ export default function NewsletterSection() {
   }
 
   return (
-    <section className="w-full flex flex-col justify-center items-center py-16 bg-gradient-to-r from-purple-50 to-lavender-50">
+    <section className="w-full flex flex-col justify-center items-center py-16 bg-gradient-to-b from-blue-100 via-purple-100 to-lavender-50 ">
       <div className="container px-4 md:px-6">
       <div className="max-w-4xl min-h-[300px] mx-auto bg-white/80 backdrop-blur-sm rounded-sm shadow-md border border-purple-100 p-6 md:p-8 relative overflow-hidden flex flex-col justify-center items-center text-center">
       {/* Decorative elements */}

@@ -12,6 +12,7 @@ import { ArrowLeft, Sparkles } from "lucide-react";
 import TarotThemeCard from "../components/tarot-theme-card";
 import BookshelfDisplay from "../components/bookshelf-display";
 import Header from "../components/header";
+import { Footer } from "react-day-picker";
 // Define tarot-themed bookshelf themes
 const tarotThemes = [
   {
@@ -125,7 +126,7 @@ export default function CreateBookshelf() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-purple-50 to-purple-100/30 pb-16">
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-lavender-50 to-purple-100  pb-16">
       <Header />
       <section className="w-full py-8 md:py-12">
         <div className="container px-4 md:px-6">
@@ -137,7 +138,7 @@ export default function CreateBookshelf() {
             Back to Bookshelves
           </Link>
 
-          <div className="space-y-2">
+          <div className="w-full flex flex-col justify-center items-center space-y-2">
             <h1 className="font-dancing-script text-3xl md:text-4xl font-bold text-purple-800">
               Create Your Magical Bookshelf
             </h1>
@@ -153,7 +154,7 @@ export default function CreateBookshelf() {
     <section className="w-full flex justify-center items-center min-h-screen px-4 md:px-6 py-8">
   <form onSubmit={handleSubmit} className="space-y-12 w-full px-6 sm:px-8 md:px-12 lg:px-16">
     {/* Basic Information */}
-    <div className="bg-white/80 backdrop-blur-sm rounded-lg shadow-md p-6 border border-purple-100">
+    <div className="bg-gradient-to-b from-purple-100 to-blue-50 rounded-xl backdrop-blur-sm  shadow-md p-6 border border-purple-100">
       <h2 className="text-xl font-bold text-purple-800 mb-4">
         Bookshelf Details
       </h2>
@@ -169,7 +170,7 @@ export default function CreateBookshelf() {
             onChange={handleChange}
             placeholder="Enter a magical name for your bookshelf"
             required
-            className="border-purple-200 focus-visible:ring-purple-500"
+            className="bg-white opacity-50 border-purple-200 bg-white opacity-50 focus-visible:ring-purple-500"
           />
         </div>
         <div className="space-y-2">
@@ -182,14 +183,14 @@ export default function CreateBookshelf() {
             value={formData.description}
             onChange={handleChange}
             placeholder="Describe the theme or purpose of your bookshelf"
-            className="min-h-[100px] border-purple-200 focus-visible:ring-purple-500"
+            className="min-h-[100px] border-purple-200 bg-white opacity-50 focus-visible:ring-purple-500"
           />
         </div>
       </div>
     </div>
 
     {/* Choose Aesthetic */}
-    <div className="bg-white/80 backdrop-blur-sm rounded-lg shadow-md p-6 border border-purple-100">
+    <div className="bg-gradient-to-b from-purple-100 to-blue-50 rounded-xl backdrop-blur-sm  shadow-md p-6 border border-purple-100">
       <h2 className="text-xl font-bold text-purple-800 mb-4">
         Choose Your Bookshelf Aesthetic
       </h2>
@@ -216,7 +217,7 @@ export default function CreateBookshelf() {
     </div>
 
     {/* MyShelf Preview Section */}
-    <div className="bg-white/80 backdrop-blur-sm rounded-lg shadow-md p-6 border border-purple-100">
+    <div className="bg-gradient-to-b from-purple-100 to-blue-50 rounded-xl backdrop-blur-sm  shadow-md p-6 border border-purple-100">
       <h2 className="text-xl font-bold text-purple-800 mb-4">
         MyShelf Preview
       </h2>
@@ -239,18 +240,28 @@ export default function CreateBookshelf() {
 
     {/* Submit Button */}
     <div className="flex justify-center">
-      <Button
-        type="submit"
-        className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-2 rounded-full text-lg"
-      >
-        <Sparkles className="h-5 w-5 mr-2" />
-        Create Magical Bookshelf
-      </Button>
+    <Button
+  type="submit"
+  className=" bg-purple-400 hover:bg-purple-300 text-purple-900 font-bold rounded-lg relative overflow-hidden group px-8 py-2 transition-all duration-300"
+>
+  {/* Main Button Text */}
+  <span className="relative z-10 flex items-center justify-center">
+    <Sparkles className="h-5 w-5 mr-2" />
+    Create Magical Bookshelf
+  </span>
+
+  {/* Hover Gradient Overlay */}
+  <span className="absolute inset-0 bg-gradient-to-r from-purple-400 to-purple-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+
+  {/* Sparkles on Hover (Floating) */}
+  <Sparkles className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+</Button>
+
     </div>
   </form>
 </section>
 
-
+<Footer/>
     </div>
   );
 }

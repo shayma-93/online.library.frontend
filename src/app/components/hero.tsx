@@ -5,7 +5,7 @@ import HeroMoodBoard from "./moodBoard";
 
 const Hero = () => {
   return (
-<section className="w-full flex flex-col justify-center items-center py-12 md:py-16 lg:py-8 bg-gradient-to-b from-purple-50 via-blue-50 to-purple-100 relative overflow-hidden">
+<section className="w-full flex flex-col justify-center items-center py-12 md:py-16 lg:py-8 bg-gradient-to-b from-purple-50 via-blue-50 to-purple-200 relative overflow-hidden">
 <HeroBackground />
       <div className=" w-full flex flex-col justify-center items-center px-4 md:px-6 relative z-10">
       <div className="w-full flex justify-center">

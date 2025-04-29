@@ -771,13 +771,7 @@ export default function BookshelfDisplay({
             <div className={cn("absolute -bottom-3 left-[10%] w-4 h-6", shelfStyle.edge)}></div>
             <div className={cn("absolute -bottom-3 right-[10%] w-4 h-6", shelfStyle.edge)}></div>
           </div>
-        </div>
-
-        {/* Bookshelf Information */}
-        <div className="mt-4">
-          <h2 className="text-xl font-semibold">{bookshelf.name}</h2>
-          <p className="text-gray-600">{bookshelf.description}</p>
-        </div>
+        </div>    
       </div>
 
       {/* Add Book Dialog */}

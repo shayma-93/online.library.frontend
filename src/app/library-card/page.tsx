@@ -29,6 +29,7 @@ import {
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import Header from "../components/header";
+import { Footer } from "react-day-picker";
 
 // Sample borrowed books data
 const borrowedBooks = [
@@ -131,328 +132,333 @@ export default function LibraryCardPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-purple-50 to-purple-100/30 pb-16">
+    <div className="min-h-screen bg-gradient-to-b from-purple-100 via-lavender-50 to-blue-100  pb-16">
       <Header />
-      <section className="w-full flex flex-col justify-center items-center py-8 md:py-12 bg-gradient-to-r from-purple-100 to-purple-50 text-center">
-  <div className="w-full px-4 md:px-6 mx-auto">
-    <Link
-      href="/bookshelves"
-      className="w-full flex justify-start inline-flex items-center text-purple-700 hover:text-purple-600 mb-6 mx-auto"
-    >
-      <ArrowLeft className="h-4 w-4 mr-2" />
-      Back to Bookshelves
-    </Link>
-
-    <div className="w-full flex flex-col md:flex-row md:items-center md:justify-between gap-4 ">
-      <div>
-        <h1 className="font-dancing-script text-3xl md:text-4xl font-bold text-purple-800">
-          Your Magical Library Card
-        </h1>
-        <p className="text-purple-700 mt-2">
-          Track your borrowed books and reading journey
-        </p>
-      </div>
-
-      <Card className="w-full flex md:w-auto bg-white/80 backdrop-blur-sm border-purple-100 ml-auto">
-  <CardContent className="p-4">
-    <div className="flex items-center justify-between gap-8">
-      <div className="flex items-center gap-3">
-        <div className="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center">
-          <BookOpen className="h-5 w-5 text-purple-600" />
-        </div>
-        <div>
-          <p className="text-sm font-medium text-purple-800">
-            Currently Borrowed
-          </p>
-          <p className="text-2xl font-bold text-purple-900">
-            {activeBooks.length}
-          </p>
-        </div>
-      </div>
-
-      <div className="flex items-center gap-3">
-        <div className="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center">
-          <History className="h-5 w-5 text-purple-600" />
-        </div>
-        <div>
-          <p className="text-sm font-medium text-purple-800">
-            Total Borrowed
-          </p>
-          <p className="text-2xl font-bold text-purple-900">
-            {borrowingHistory.length + activeBooks.length}
-          </p>
-        </div>
-      </div>
-    </div>
-  </CardContent>
-</Card>
-
-    </div>
-  </div>
-</section>
-
-
-<section className="container mx-auto px-4 md:px-6 py-8">
-  <div className="relative max-w-4xl mx-auto">
-    {/* Physical card background */}
-    <div className="absolute inset-0 bg-gradient-to-br from-purple-600 via-purple-500 to-indigo-600 rounded-xl shadow-xl transform rotate-1"></div>
-
-    {/* Card holographic effect */}
-    <div className="absolute inset-0 bg-gradient-to-tr from-purple-300/10 via-white/30 to-indigo-300/10 rounded-xl opacity-50"></div>
-
-    {/* Card texture */}
-    <div className="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1IiBoZWlnaHQ9IjUiPgo8cmVjdCB3aWR0aD0iNSIgaGVpZ2h0PSI1IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMSI+PC9yZWN0Pgo8cGF0aCBkPSJNMCA1TDUgMFpNNiA0TDQgNlpNLTEgMUwxIC0xWiIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utb3BhY2l0eT0iMC4yIj48L3BhdGg+Cjwvc3ZnPg==')]"></div>
-
-    {/* Card content */}
-    <div className="relative bg-white/90 backdrop-blur-sm rounded-lg shadow-lg p-6 md:p-8 border border-purple-100 transform -rotate-1">
-      <div className="absolute top-4 right-4">
-        <div className="w-16 h-16 rounded-full bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center">
-          <Sparkles className="h-8 w-8 text-white" />
-        </div>
-      </div>
-
-      <div className="mb-6">
-        <h2 className="text-2xl font-bold text-purple-800 font-dancing-script">
-          Enchanted Reads
-        </h2>
-        <p className="text-purple-600 text-sm">Member since 2023</p>
-      </div>
-
-      <div className="grid grid-cols-2 gap-4 mb-6">
-        <div>
-          <p className="text-sm text-purple-600">Card Holder</p>
-          <p className="text-lg font-medium text-purple-900">
-            Magical Reader
-          </p>
-        </div>
-        <div>
-          <p className="text-sm text-purple-600">Member ID</p>
-          <p className="text-lg font-medium text-purple-900">
-            ER-2023-0042
-          </p>
-        </div>
-      </div>
-
-      <div className="w-full h-12 bg-gradient-to-r from-purple-900/20 to-indigo-900/20 rounded-md mb-6"></div>
-
-      <Tabs defaultValue="current" className="w-full">
-        <TabsList className="grid w-full md:w-[400px] grid-cols-2 mb-8">
-          <TabsTrigger
-            value="current"
-            className="data-[state=active]:bg-purple-100 data-[state=active]:text-purple-900"
+      <section className="w-full flex flex-col justify-center items-center py-8 md:py-12  text-center">
+        <div className="w-full px-4 md:px-6 mx-auto">
+          <Link
+            href="/bookshelves"
+            className="w-full flex justify-start inline-flex items-center text-purple-700 hover:text-purple-600 mb-6 mx-auto"
           >
-            <BookMarked className="h-4 w-4 mr-2" />
-            Currently Borrowed
-          </TabsTrigger>
-          <TabsTrigger
-            value="history"
-            className="data-[state=active]:bg-purple-100 data-[state=active]:text-purple-900"
-          >
-            <History className="h-4 w-4 mr-2" />
-            Borrowing History
-          </TabsTrigger>
-        </TabsList>
+            <ArrowLeft className="h-4 w-4 mr-2" />
+            Back to Bookshelves
+          </Link>
 
-        <TabsContent value="current" className="mt-0">
-          {activeBooks.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {activeBooks.map((book) => {
-                const daysRemaining = getDaysRemaining(book.returnDate);
+          <div className="w-full flex flex-col md:flex-row md:items-center md:justify-between gap-4 ">
+            <div>
+              <h1 className="font-dancing-script text-3xl md:text-4xl font-bold text-purple-800">
+                Your Magical Library Card
+              </h1>
+              <p className="text-purple-700 mt-2">
+                Track your borrowed books and reading journey
+              </p>
+            </div>
 
-                return (
-                  <Card
-                    key={book.id}
-                    className="overflow-hidden border-purple-100 bg-white/90 backdrop-blur-sm transform transition-transform hover:scale-105 hover:shadow-lg"
-                  >
-                    <div
-                      className="h-3 w-full"
-                      style={{ background: book.coverColor }}
-                    ></div>
-                    <CardHeader className="pb-3">
-                      <CardTitle className="text-lg text-purple-800">
-                        {book.title}
-                      </CardTitle>
-                      <CardDescription>{book.author}</CardDescription>
-                    </CardHeader>
-                    <CardContent className="pb-3">
-                      <div className="space-y-3 text-sm">
-                        <div className="flex justify-between">
-                          <span className="text-purple-700">
-                            From Shelf:
-                          </span>
-                          <span className="font-medium text-purple-900">
-                            {book.shelfName}
-                          </span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span className="text-purple-700">Owner:</span>
-                          <span className="font-medium text-purple-900">
-                            {book.shelfOwner}
-                          </span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span className="text-purple-700">
-                            Borrowed On:
-                          </span>
-                          <span className="font-medium text-purple-900">
-                            {new Date(
-                              book.borrowDate
-                            ).toLocaleDateString()}
-                          </span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span className="text-purple-700">
-                            Due Date:
-                          </span>
-                          <span className="font-medium text-purple-900">
-                            {new Date(
-                              book.returnDate
-                            ).toLocaleDateString()}
-                          </span>
-                        </div>
+            <Card className="w-full flex md:w-auto bg-purple-200 backdrop-blur-sm rounded-xl border-4 border-white rounded-xl border-4 border-white shadow-sm border-purple-100 ml-auto">
+              <CardContent className="p-4">
+                <div className="flex items-center justify-between gap-8">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center">
+                      <BookOpen className="h-5 w-5 text-purple-600" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium text-purple-800">
+                        Currently Borrowed
+                      </p>
+                      <p className="text-2xl font-bold text-purple-900">
+                        {activeBooks.length}
+                      </p>
+                    </div>
+                  </div>
 
-                        <div className="mt-2 pt-2 border-t border-purple-100">
-                          {daysRemaining > 3 ? (
-                            <div className="flex items-center text-green-600">
-                              <CheckCircle2 className="h-4 w-4 mr-1" />
-                              <span>{daysRemaining} days remaining</span>
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center">
+                      <History className="h-5 w-5 text-purple-600" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium text-purple-800">
+                        Total Borrowed
+                      </p>
+                      <p className="text-2xl font-bold text-purple-900">
+                        {borrowingHistory.length + activeBooks.length}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      <section className="container mx-auto px-4 md:px-6 py-8 ">
+        <div className="relative max-w-4xl mx-auto">
+          {/* Physical card background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-400 via-purple-300 to-indigo-200 rounded-xl  border-4 border-white shadow-sm border-purple-100 transform rotate-5"></div>
+
+          {/* Card holographic effect */}
+          <div className="absolute inset-0 bg-gradient-to-tr from-purple-300/10 via-white/30 to-indigo-300/10 rounded-xl border-4 border-white shadow-sm opacity-50 transform rotate--20"></div>
+
+          {/* Card texture */}
+          <div className="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1IiBoZWlnaHQ9IjUiPgo8cmVjdCB3aWR0aD0iNSIgaGVpZ2h0PSI1IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMSI+PC9yZWN0Pgo8cGF0aCBkPSJNMCA1TDUgMFpNNiA0TDQgNlpNLTEgMUwxIC0xWiIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utb3BhY2l0eT0iMC4yIj48L3BhdGg+Cjwvc3ZnPg==')]"></div>
+
+          {/* Card content */}
+          <div className="relative bg-white/90 backdrop-blur-sm rounded-lg shadow-lg p-6 md:p-8 border border-purple-100 transform -rotate-1">
+            <div className="absolute top-4 right-4">
+              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center">
+                <Sparkles className="h-8 w-8 text-white" />
+              </div>
+            </div>
+
+            <div className="mb-6">
+              <h2 className="text-2xl font-bold text-purple-800 font-dancing-script">
+                Enchanted Reads
+              </h2>
+              <p className="text-purple-600 text-sm">Member since 2023</p>
+            </div>
+
+            <div className="grid grid-cols-2 gap-4 mb-6">
+              <div>
+                <p className="text-sm text-purple-600">Card Holder</p>
+                <p className="text-lg font-medium text-purple-900">
+                  Magical Reader
+                </p>
+              </div>
+              <div>
+                <p className="text-sm text-purple-600">Member ID</p>
+                <p className="text-lg font-medium text-purple-900">
+                  ER-2023-0042
+                </p>
+              </div>
+            </div>
+
+
+            <Tabs defaultValue="current" className="w-full">
+              <TabsList className="grid w-full md:w-[400px] grid-cols-2 mb-8">
+                <TabsTrigger
+                  value="current"
+                  className="data-[state=active]:bg-purple-100 data-[state=active]:text-purple-900"
+                >
+                  <BookMarked className="h-4 w-4 mr-2" />
+                  Currently Borrowed
+                </TabsTrigger>
+                <TabsTrigger
+                  value="history"
+                  className="data-[state=active]:bg-purple-100 data-[state=active]:text-purple-900"
+                >
+                  <History className="h-4 w-4 mr-2" />
+                  Borrowing History
+                </TabsTrigger>
+              </TabsList>
+
+              <TabsContent value="current" className="mt-0">
+                {activeBooks.length > 0 ? (
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {activeBooks.map((book) => {
+                      const daysRemaining = getDaysRemaining(book.returnDate);
+
+                      return (
+                        <Card
+                          key={book.id}
+                          className="overflow-hidden border-purple-100 bg-white/90 backdrop-blur-sm transform transition-transform hover:scale-105 hover:shadow-lg"
+                        >
+                          <div
+                            className="h-3 w-full"
+                            style={{ background: book.coverColor }}
+                          ></div>
+                          <CardHeader className="pb-3">
+                            <CardTitle className="text-lg text-purple-800">
+                              {book.title}
+                            </CardTitle>
+                            <CardDescription>{book.author}</CardDescription>
+                          </CardHeader>
+                          <CardContent className="pb-3">
+                            <div className="space-y-3 text-sm">
+                              <div className="flex justify-between">
+                                <span className="text-purple-700">
+                                  From Shelf:
+                                </span>
+                                <span className="font-medium text-purple-900">
+                                  {book.shelfName}
+                                </span>
+                              </div>
+                              <div className="flex justify-between">
+                                <span className="text-purple-700">Owner:</span>
+                                <span className="font-medium text-purple-900">
+                                  {book.shelfOwner}
+                                </span>
+                              </div>
+                              <div className="flex justify-between">
+                                <span className="text-purple-700">
+                                  Borrowed On:
+                                </span>
+                                <span className="font-medium text-purple-900">
+                                  {new Date(
+                                    book.borrowDate
+                                  ).toLocaleDateString()}
+                                </span>
+                              </div>
+                              <div className="flex justify-between">
+                                <span className="text-purple-700">
+                                  Due Date:
+                                </span>
+                                <span className="font-medium text-purple-900">
+                                  {new Date(
+                                    book.returnDate
+                                  ).toLocaleDateString()}
+                                </span>
+                              </div>
+
+                              <div className="mt-2 pt-2 border-t border-purple-100">
+                                {daysRemaining > 3 ? (
+                                  <div className="flex items-center text-green-600">
+                                    <CheckCircle2 className="h-4 w-4 mr-1" />
+                                    <span>{daysRemaining} days remaining</span>
+                                  </div>
+                                ) : daysRemaining > 0 ? (
+                                  <div className="flex items-center text-amber-600">
+                                    <Clock className="h-4 w-4 mr-1" />
+                                    <span>Due soon ({daysRemaining} days)</span>
+                                  </div>
+                                ) : (
+                                  <div className="flex items-center text-red-600">
+                                    <AlertCircle className="h-4 w-4 mr-1" />
+                                    <span>
+                                      Overdue by {Math.abs(daysRemaining)} days
+                                    </span>
+                                  </div>
+                                )}
+                              </div>
                             </div>
-                          ) : daysRemaining > 0 ? (
-                            <div className="flex items-center text-amber-600">
-                              <Clock className="h-4 w-4 mr-1" />
-                              <span>Due soon ({daysRemaining} days)</span>
-                            </div>
-                          ) : (
-                            <div className="flex items-center text-red-600">
-                              <AlertCircle className="h-4 w-4 mr-1" />
-                              <span>
-                                Overdue by {Math.abs(daysRemaining)} days
+                          </CardContent>
+                          <CardFooter>
+                            <Button
+                              onClick={() => handleReturnBook(book.id)}
+                              className="w-full bg-purple-400 hover:bg-purple-300 text-purple-900 font-bold rounded-lg relative overflow-hidden group px-6 py-2 transition-all duration-300"
+                            >
+                              {/* Main Button Text */}
+                              <span className="relative z-10">Return Book</span>
+
+                              {/* Hover Gradient Overlay */}
+                              <span className="absolute inset-0 bg-gradient-to-r from-purple-400 to-purple-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+
+                              {/* Sparkles on Hover */}
+                              <Sparkles className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                            </Button>
+                          </CardFooter>
+                        </Card>
+                      );
+                    })}
+                  </div>
+                ) : (
+                  <div className="text-center py-12">
+                    <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-purple-100 flex items-center justify-center">
+                      <BookOpen className="h-8 w-8 text-purple-600" />
+                    </div>
+                    <h3 className="text-xl font-medium text-purple-800 mb-2">
+                      No Books Currently Borrowed
+                    </h3>
+                    <p className="text-purple-700 mb-6">
+                      Your magical reading journey awaits! Explore our enchanted
+                      bookshelves to find your next adventure.
+                    </p>
+                    <Link href="/bookshelves">
+                      <Button className="bg-purple-600 hover:bg-purple-700 text-white">
+                        Browse Bookshelves
+                      </Button>
+                    </Link>
+                  </div>
+                )}
+              </TabsContent>
+
+              <TabsContent value="history" className="mt-0">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {borrowingHistory.map((book) => {
+                    const isReturnedOnTime =
+                      new Date(book.actualReturnDate) <=
+                      new Date(book.returnDate);
+
+                    return (
+                      <Card
+                        key={book.id}
+                        className="overflow-hidden border-purple-100 bg-white/90 backdrop-blur-sm transform transition-transform hover:scale-105 hover:shadow-lg"
+                      >
+                        <div
+                          className="h-3 w-full"
+                          style={{ background: book.coverColor }}
+                        ></div>
+                        <CardHeader className="pb-3">
+                          <CardTitle className="text-lg text-purple-800">
+                            {book.title}
+                          </CardTitle>
+                          <CardDescription>{book.author}</CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                          <div className="space-y-3 text-sm">
+                            <div className="flex justify-between">
+                              <span className="text-purple-700">
+                                From Shelf:
+                              </span>
+                              <span className="font-medium text-purple-900">
+                                {book.shelfName}
                               </span>
                             </div>
-                          )}
-                        </div>
-                      </div>
-                    </CardContent>
-                    <CardFooter>
-                      <Button
-                        onClick={() => handleReturnBook(book.id)}
-                        className="w-full bg-purple-600 hover:bg-purple-700 text-white"
-                      >
-                        Return Book
-                      </Button>
-                    </CardFooter>
-                  </Card>
-                );
-              })}
-            </div>
-          ) : (
-            <div className="text-center py-12">
-              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-purple-100 flex items-center justify-center">
-                <BookOpen className="h-8 w-8 text-purple-600" />
-              </div>
-              <h3 className="text-xl font-medium text-purple-800 mb-2">
-                No Books Currently Borrowed
-              </h3>
-              <p className="text-purple-700 mb-6">
-                Your magical reading journey awaits! Explore our enchanted
-                bookshelves to find your next adventure.
-              </p>
-              <Link href="/bookshelves">
-                <Button className="bg-purple-600 hover:bg-purple-700 text-white">
-                  Browse Bookshelves
-                </Button>
-              </Link>
-            </div>
-          )}
-        </TabsContent>
+                            <div className="flex justify-between">
+                              <span className="text-purple-700">Owner:</span>
+                              <span className="font-medium text-purple-900">
+                                {book.shelfOwner}
+                              </span>
+                            </div>
+                            <div className="flex justify-between">
+                              <span className="text-purple-700">
+                                Borrowed On:
+                              </span>
+                              <span className="font-medium text-purple-900">
+                                {new Date(book.borrowDate).toLocaleDateString()}
+                              </span>
+                            </div>
+                            <div className="flex justify-between">
+                              <span className="text-purple-700">Due Date:</span>
+                              <span className="font-medium text-purple-900">
+                                {new Date(book.returnDate).toLocaleDateString()}
+                              </span>
+                            </div>
+                            <div className="flex justify-between">
+                              <span className="text-purple-700">
+                                Returned On:
+                              </span>
+                              <span className="font-medium text-purple-900">
+                                {new Date(
+                                  book.actualReturnDate
+                                ).toLocaleDateString()}
+                              </span>
+                            </div>
 
-        <TabsContent value="history" className="mt-0">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {borrowingHistory.map((book) => {
-              const isReturnedOnTime =
-                new Date(book.actualReturnDate) <= new Date(book.returnDate);
-
-              return (
-                <Card
-                  key={book.id}
-                  className="overflow-hidden border-purple-100 bg-white/90 backdrop-blur-sm transform transition-transform hover:scale-105 hover:shadow-lg"
-                >
-                  <div
-                    className="h-3 w-full"
-                    style={{ background: book.coverColor }}
-                  ></div>
-                  <CardHeader className="pb-3">
-                    <CardTitle className="text-lg text-purple-800">
-                      {book.title}
-                    </CardTitle>
-                    <CardDescription>{book.author}</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-3 text-sm">
-                      <div className="flex justify-between">
-                        <span className="text-purple-700">
-                          From Shelf:
-                        </span>
-                        <span className="font-medium text-purple-900">
-                          {book.shelfName}
-                        </span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-purple-700">Owner:</span>
-                        <span className="font-medium text-purple-900">
-                          {book.shelfOwner}
-                        </span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-purple-700">
-                          Borrowed On:
-                        </span>
-                        <span className="font-medium text-purple-900">
-                          {new Date(book.borrowDate).toLocaleDateString()}
-                        </span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-purple-700">Due Date:</span>
-                        <span className="font-medium text-purple-900">
-                          {new Date(book.returnDate).toLocaleDateString()}
-                        </span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-purple-700">
-                          Returned On:
-                        </span>
-                        <span className="font-medium text-purple-900">
-                          {new Date(
-                            book.actualReturnDate
-                          ).toLocaleDateString()}
-                        </span>
-                      </div>
-
-                      <div className="mt-2 pt-2 border-t border-purple-100">
-                        {isReturnedOnTime ? (
-                          <div className="flex items-center text-green-600">
-                            <CheckCircle2 className="h-4 w-4 mr-1" />
-                            <span>Returned on time</span>
+                            <div className="mt-2 pt-2 border-t border-purple-100">
+                              {isReturnedOnTime ? (
+                                <div className="flex items-center text-green-600">
+                                  <CheckCircle2 className="h-4 w-4 mr-1" />
+                                  <span>Returned on time</span>
+                                </div>
+                              ) : (
+                                <div className="flex items-center text-amber-600">
+                                  <Clock className="h-4 w-4 mr-1" />
+                                  <span>Returned late</span>
+                                </div>
+                              )}
+                            </div>
                           </div>
-                        ) : (
-                          <div className="flex items-center text-amber-600">
-                            <Clock className="h-4 w-4 mr-1" />
-                            <span>Returned late</span>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              );
-            })}
+                        </CardContent>
+                      </Card>
+                    );
+                  })}
+                </div>
+              </TabsContent>
+            </Tabs>
           </div>
-        </TabsContent>
-      </Tabs>
-    </div>
-  </div>
-</section>
-
+        </div>
+      </section>
+      <Footer />
     </div>
   );
 }

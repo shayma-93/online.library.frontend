@@ -113,6 +113,19 @@ export default function Home() {
       
       <main className="flex-1 flex flex-col justify-center items-center">
         <Hero/>
+        <div className="w-full bg-gradient-to-b from-purple-200 to-purple-50 overflow-hidden leading-none">
+  <svg
+    viewBox="0 0 500 150"
+    preserveAspectRatio="none"
+    className="w-full h-[200px]" // <-- increased height here
+  >
+    <path
+      d="M0.00,49.98 C150.00,150.00 349.00,-50.00 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"
+      style={{ stroke: "none", fill: "#f3e8ff" }}
+    ></path>
+  </svg>
+</div>
+
         <PopularMagicalBooks books={books} />
         <NewsletterSection/>
       </main>

@@ -110,13 +110,13 @@ const HeroMoodBoard = () => {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.7 }}
-          className="absolute bottom-[5%] left-[0%] w-[50%] h-auto z-40 bg-white p-4 rounded-lg shadow-lg transform rotate-10"
+          className="absolute bottom-[5%] left-[0%] w-[50%] h-auto text-center  z-40 bg-gradient-to-r from-purple-200 to-blue-200 p-4 rounded-xl  border-4 border-white shadow-lg transform rotate-10"
         >
-          <p className="font-permanent-marker text-purple-700 text-lg font-bold">
+          <p className="-font-permanent-marker text-purple-700 text-lg font-bold">
             "A reader lives a thousand lives..."
           </p>
 
-          <p className="text-purple-600 text-sm mt-1">- George R.R. Martin</p>
+          <p className="-font-permanent-marker text-bold text-purple-600 text-sm mt-1">- George R.R. Martin</p>
         </motion.div>
 
         {/* Icons */}

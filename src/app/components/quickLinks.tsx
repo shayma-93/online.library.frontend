@@ -11,11 +11,6 @@ const QuickLinks = () => {
           </Link>
         </li>
         <li>
-          <Link href="/about" className="text-purple-700 hover:text-purple-900 transition-colors">
-            About
-          </Link>
-        </li>
-        <li>
           <Link href="/books" className="text-purple-700 hover:text-purple-900 transition-colors">
             Books
           </Link>

@@ -7,9 +7,9 @@ import Footer from "../components/footer"
 
 export default function BooksPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-lavender-50 to-white pb-16">
+    <div className="min-h-screen bg-gradient-to-b from-blue-100 via-lavender-50 to-purple-100 pb-16">
 <Header/>
-<section className="w-full flex flex-col justify-center items-start md:pt-12 md:pb-0 bg-gradient-to-r from-purple-50 to-lavender-50">
+<section className="w-full flex flex-col justify-center items-start  md:pt-12 md:pb-0 ">
         <div className="w-full flex flex-col justify-center items-center  px-4 md:px-6">
           <div className="w-full flex flex-col justify-center items-center text-center max-w-3xl mx-auto">
           
