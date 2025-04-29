@@ -126,23 +126,29 @@ export default function CreateBookshelf() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-lavender-50 to-purple-100  pb-16">
+    <div className="min-h-screen bg-gradient-to-b from-purple-100 to-blue-100 pb-16">
       <Header />
       <section className="w-full py-8 md:py-12">
-        <div className="container px-4 md:px-6">
+        <div className="w-full px-4 md:px-6">
           <Link
             href="/bookshelves"
-            className="inline-flex items-center text-purple-700 hover:text-purple-600 mb-6"
+            className="inline-flex items-center text-purple-900 font-akaya-kanadaka text-xl md:text-lg hover:text-purple-600 mb-6"
           >
-            <ArrowLeft className="h-4 w-4 mr-2" />
+            <ArrowLeft className="h-4 w-4  mr-2" />
             Back to Bookshelves
           </Link>
 
           <div className="w-full flex flex-col justify-center items-center space-y-2">
-            <h1 className="font-dancing-script text-3xl md:text-4xl font-bold text-purple-800">
+          <div className="flex items-center justify-center md:justify-start gap-2 mb-2">
+              <span className="decorative-flourish">✦</span>
+              <span className="decorative-dot"></span>
+              <span className="decorative-flourish">✦</span>
+            </div>
+            <h1 className="font-dancing-script magical-gradient text-5xl pb-4 md:text-5xl font-bold text-purple-700 mb-4">
               Create Your Magical Bookshelf
             </h1>
-            <p className="text-purple-700">
+            <div className="decorative-line mx-auto " />
+            <p className="text-purple-900 font-akaya-kanadaka text-xl md:text-lg mb-6">
               Design a personalized bookshelf to showcase your favorite magical
               reads
             </p>

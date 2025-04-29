@@ -144,19 +144,23 @@ export default function BookshelvesPage() {
 
     <div className="container mx-auto px-4 md:px-6 text-center relative z-10">
       <div className="flex items-center justify-center mb-4">
-        <div className="h-px w-12 bg-purple-300"></div>
-        <Sparkles className="h-5 w-5 mx-2 text-purple-500" />
-        <div className="h-px w-12 bg-purple-300"></div>
+      <div className="flex items-center justify-center md:justify-start gap-2 mb-2">
+              <span className="decorative-flourish">✦</span>
+              <span className="decorative-dot"></span>
+              <span className="decorative-flourish">✦</span>
+            </div>
       </div>
-      <h1 className="font-dancing-script text-4xl md:text-5xl font-bold text-purple-800 mb-4">
+      <h1 className=" font-dancing-script magical-gradient text-5xl pb-4">
         Magical Bookshelves
       </h1>
-      <p className="text-purple-700 md:text-lg max-w-2xl mx-auto">
+      <div className="decorative-line mx-auto " />
+
+      <p className="text-purple-900 font-akaya-kanadaka text-xl md:text-lg">
         Explore our enchanted collection of curated bookshelves, each filled with magical stories waiting to be discovered
       </p>
       <div className="mt-8 flex flex-wrap justify-center gap-4">
       <Link href="/create-bookshelf">
-      <Button className="bg-blue-300 hover:bg-blue-200 text-purple-900 font-bold rounded-lg relative overflow-hidden group w-full px-8">
+      <Button className="bg-blue-300 hover:bg-blue-200 text-purple-900 font-akaya-kanadaka text-lg rounded-lg relative overflow-hidden group w-full px-8">
   <span className="relative z-10 flex items-center">
     <Plus className="h-4 w-4 mr-2" />
     Create Your Own Bookshelf
@@ -167,7 +171,7 @@ export default function BookshelvesPage() {
 
         </Link>
         <Link href="/library-card">
-        <Button className="bg-purple-400 hover:bg-purple-300 text-blue-900 font-bold rounded-lg relative overflow-hidden group w-full px-8">
+        <Button className="bg-purple-400 hover:bg-purple-300 text-blue-900 text-lg  font-akaya-kanadaka rounded-lg relative overflow-hidden group w-full px-8">
   <span className="relative z-10 flex items-center">
     <BookOpen className="h-4 w-4 mr-2" />
     My Library Card

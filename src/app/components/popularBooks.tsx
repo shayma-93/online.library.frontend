@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from "./ui/button";
-import { ChevronRight, Star } from 'lucide-react';
+import { ChevronRight, Star, Sparkles } from 'lucide-react';
 
 interface Book {
   id: number;
@@ -28,22 +28,23 @@ const PopularMagicalBooks = ({ books }: { books: Book[] }) => {
     <section className="w-full relative bg-gradient-to-b from-purple-100  to-blue-100">
       <div className="container px-4 md:px-6 mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-10 text-center md:text-left">
-          <div>
+          <div className='w-full flex flex-col justify-center items-center '>
             <div className="flex items-center justify-center md:justify-start gap-2 mb-2">
               <span className="decorative-flourish">✦</span>
               <span className="decorative-dot"></span>
               <span className="decorative-flourish">✦</span>
             </div>
-            <h2 className="section-title">Popular Magical Books</h2>
-            <div className="decorative-line mx-auto md:ml-0" />
-            <p className="text-purple-700 md:text-lg">
+            <h2 className="font-dancing-script magical-gradient text-5xl pb-4">
+Popular Magical Books</h2>
+            <div className="decorative-line mx-auto " />
+            <p className="text-purple-900 font-akaya-kanadaka text-xl md:text-lg">
               Discover what other wizards and witches are reading
             </p>
           </div>
           <Link href="/books" className="mt-4 md:mt-0">
             <Button
               variant="ghost"
-              className="text-purple-400 hover:text-purple-600 hover:bg-purple-50 rounded-sm group"
+              className="text-purple-600 font-akaya-kanadaka text-lg hover:text-purple-800  rounded-lg group"
             >
               View All Books
               <ChevronRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -71,13 +72,17 @@ const PopularMagicalBooks = ({ books }: { books: Book[] }) => {
 
           {/* Always Display the "View More / View Less" Button */}
           <div className="flex justify-center mt-10">
-            <Button
-              variant="ghost"
-              onClick={() => setShowMore(!showMore)}
-              className="text-purple-500 hover:text-purple-700 hover:bg-purple-100 transition rounded-md"
-            >
-              {showMore ? 'View Less' : 'View More'}
-            </Button>
+          <Button
+  onClick={() => setShowMore(!showMore)}
+  className="bg-blue-300 hover:bg-blue-200 rounded-lg relative overflow-hidden group  px-8"
+>
+  <span className="relative z-10 text-purple-900 font-akaya-kanadaka text-xl tracking-wider">
+    {showMore ? 'View Less' : 'View More'}
+  </span>
+  <span className="absolute inset-0  bg-gradient-to-r from-blue-300 to-blue-200 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+  <Sparkles className="absolute right-2 h-4 w-4 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
+</Button>
+
           </div>
         </div>
       </div>
@@ -105,17 +110,28 @@ const BookCard = ({ book }: { book: Book }) => {
         />
       </div>
       <div className="p-3 bg-white rounded-md text-center">
-        <h3 className="font-serif italic font-bold truncate text-purple-700 text-base md:text-lg">{book.title}</h3>
-        <p className="text-sm text-purple-600">{book.author}</p>
+        <h3 className="italic font-bold truncate text-purple-900 font-akaya-kanadaka text-xl md:text-lg md:text-lg">{book.title}</h3>
+        <p className="text-lg  font-akaya-kanadaka  text-purple-800">{book.author}</p>
         <div className="flex justify-center items-center mt-2">
           <div className="flex">
             {[1, 2, 3, 4, 5].map((star) => (
-              <Star
-                key={star}
-                className={`h-4 w-4 ${
-                  star <= book.rating ? 'text-purple-500 fill-purple-500' : 'text-purple-300'
-                }`}
-              />
+            <svg
+            key={star}
+            xmlns="http://www.w3.org/2000/svg"
+            fill={star <= book.rating ? "url(#starGradient)" : "#D8B4FE"}
+            viewBox="0 0 24 24"
+            stroke="none"
+            className="h-6 w-6"
+          >
+            <defs>
+              <linearGradient id="starGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#A855F7" />  
+                <stop offset="100%" stopColor="#60A5FA" /> 
+              </linearGradient>
+            </defs>
+            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+          </svg>
+          
             ))}
           </div>
           <span className="text-sm text-purple-600 ml-1">({book.reviews || 0})</span>

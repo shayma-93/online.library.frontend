@@ -116,7 +116,7 @@ export default function SignIn() {
 
             <Button
   type="submit"
-  className="w-full bg-purple-400 hover:bg-purple-300 text-blue-900 font-bold rounded-lg relative overflow-hidden group px-8 py-2"
+  className="w-full bg-purple-400 hover:bg-purple-300 text-blue-900  font-akaya-kanadaka text-xl rounded-lg relative overflow-hidden group px-8 py-2"
 >
   <span className="relative z-10">Sign In</span>
 
@@ -161,9 +161,9 @@ export default function SignIn() {
     </div>
 
 {/* Quote Box */}
-<div className="absolute left-0 bottom-[-95px] w-[350px] bg-white/90 rounded-lg p-4 shadow-lg">
-  <p className="text-purple-700 text-center italic text-sm">"Reading is a discount ticket to everywhere."</p>
-  <p className="text-purple-600 text-center text-xs mt-1">- Mary Schmich</p>
+<div className="absolute left-[-20px] bottom-[-120px] w-[350px]  bg-gradient-to-r from-purple-200 to-blue-200 border-4 border-white rounded-lg p-4 shadow-lg transform -rotate-5">
+  <p className="font-permanent-marker text-blue-900 text-xl">"Reading is a discount ticket to everywhere."</p>
+  <p className="font-permanent-marker text-purple-800 text-xl mt-1">- Mary Schmich</p>
 </div>
 
 <div className="absolute right-[-60px] bottom-[20%] w-[100px] h-[100px]">

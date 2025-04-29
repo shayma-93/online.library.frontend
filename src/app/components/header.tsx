@@ -43,18 +43,18 @@ const Header = () => {
         {/* Navigation Bar (Centered with more space) */}
         <nav className="md:flex hidden flex-grow justify-start gap-12">
       {[
-        { href: "/", label: "Home", textColor: "text-purple-900" },
-        { href: "/books", label: "Books", textColor: "text-purple-700" },
-        { href: "/bookshelves", label: "Bookshelves", textColor: "text-purple-700" },
+        { href: "/", label: "Home" },
+        { href: "/books", label: "Books" },
+        { href: "/bookshelves", label: "Bookshelves" },
       ].map((link) => (
         <Link
           key={link.href}
           href={link.href}
-          className={`relative group font-permanent-marker ${link.textColor}`}
+          className={`relative group`}
         >
-          <span className="relative z-10">{link.label}</span>
-          {/* Sparkles */}
-          <Sparkles className="absolute right-[-1rem] top-1/2 transform -translate-y-1/2 h-4 w-4 text-purple-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+<span className="relative z-10 nav-gradient font-bold font-satisfy text-2xl">{link.label}</span>
+{/* Sparkles */}
+          <Sparkles className="absolute right-[-1rem] top-1 transform -translate-y-1/2 h-4 w-4 text-purple-400 opacity-0 group-hover:opacity-100 transition-opacity" />
         </Link>
       ))}
     </nav>
@@ -64,23 +64,26 @@ const Header = () => {
   
   <Link href="/sign-in">
     <Button
-      className="bg-purple-400 hover:bg-purple-300 text-blue-900 text-bold rounded-lg relative overflow-hidden group w-full px-8"
+      className="bg-purple-400 hover:bg-purple-300 rounded-lg relative overflow-hidden group w-full px-8"
     >
-      <span className="relative z-10">Sign In</span>
+      <span className="relative z-10 text-blue-900   font-akaya-kanadaka text-xl tracking-wider">Sign In</span>
       <span className="absolute inset-0 bg-gradient-to-r from-purple-300 via-purple-200 to-purple-300 opacity-0 group-hover:opacity-100 transition-opacity"></span>
       <Sparkles className="absolute right-2 h-4 w-4 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
     </Button>
   </Link>
 
   <Link href="/sign-up">
-    <Button
-      className="bg-blue-300 hover:bg-blue-200 text-purple-900 text-bold rounded-lg relative overflow-hidden group w-full px-8"
-    >
-      <span className="relative z-10">Sign Up</span>
-      <span className="absolute inset-0 bg-gradient-to-r from-blue-300 to-blue-200 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-      <Sparkles className="absolute right-2 h-4 w-4 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
-    </Button>
-  </Link>
+  <Button
+    className="bg-blue-300 hover:bg-blue-200 rounded-lg relative overflow-hidden group w-full px-8"
+  >
+    <span className="relative z-10 text-purple-900 font-akaya-kanadaka text-xl tracking-wider">
+      Sign Up
+    </span>
+    <span className="absolute inset-0 bg-gradient-to-r from-blue-300 to-blue-200 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+    <Sparkles className="absolute right-2 h-4 w-4 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
+  </Button>
+</Link>
+
 
   <Button
     variant="ghost"

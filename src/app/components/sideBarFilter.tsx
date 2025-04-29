@@ -119,11 +119,11 @@ export default function FilterSidebar() {
         <div className="absolute -bottom-4 -left-4 w-8 h-8 bg-purple-100 rounded-full opacity-30"></div>
 
         <div className="relative">
-          <h3 className="font-dancing-script text-2xl font-bold text-purple-600 flex items-center">
-            <Wand2 className="h-5 w-5 mr-2 text-purple-400" />
+          <h3 className="font-dancing-script text-2xl font-bold text-purple-900 flex items-center">
+            <Wand2 className="h-5 w-5 mr-2 text-purple-700" />
             Magical Filters
           </h3>
-          <p className="text-purple-400 text-sm mt-1 italic">
+          <p className="text-purple-700 text-sm mt-1 italic">
             Cast your filtering spells
           </p>
 
@@ -155,8 +155,8 @@ export default function FilterSidebar() {
             className="flex items-center justify-between cursor-pointer group"
             onClick={() => toggleSection("genres")}
           >
-            <h4 className="font-dancing-script text-xl text-purple-500 flex items-center">
-              <BookOpen className="h-4 w-4 mr-2 text-purple-400" />
+            <h4 className="font-dancing-script text-xl font-bold text-purple-900 flex items-center">
+              <BookOpen className="h-4 w-4 mr-2 text-purple-700" />
               Magical Genres
             </h4>
             <div className="h-6 w-6 rounded-full bg-purple-50 flex items-center justify-center group-hover:bg-purple-100 transition-colors">
@@ -180,11 +180,11 @@ export default function FilterSidebar() {
                       id={`genre-${genre.id}`}
                       checked={selectedGenres.includes(genre.id)}
                       onCheckedChange={() => toggleGenre(genre.id)}
-                      className="border-purple-500 data-[state=checked]:bg-purple-200 data-[state=checked]:text-purple-600 rounded-sm"
+                      className="border-purple-700 data-[state=checked]:bg-purple-200 data-[state=checked]:text-purple-600 rounded-sm"
                     />
                     <Label
                       htmlFor={`genre-${genre.id}`}
-                      className="text-sm text-purple-500 cursor-pointer group-hover:text-purple-600 transition-colors"
+                      className="text-lg text-purple-700 cursor-pointer group-hover:text-purple-600 transition-colors"
                     >
                       {genre.label}
                     </Label>
@@ -195,7 +195,7 @@ export default function FilterSidebar() {
           )}
 
           {/* Decorative divider */}
-          <div className="h-px bg-gradient-to-r from-transparent via-purple-200 to-transparent"></div>
+          <div className="h-px bg-gradient-to-r from-transparent via-purple-400 to-transparent"></div>
         </div>
 
         {/* Years section */}
@@ -204,8 +204,8 @@ export default function FilterSidebar() {
             className="flex items-center justify-between cursor-pointer group"
             onClick={() => toggleSection("years")}
           >
-            <h4 className="font-dancing-script text-xl text-purple-500 flex items-center">
-              <Calendar className="h-4 w-4 mr-2 text-purple-400" />
+            <h4 className="font-dancing-script font-bold text-xl text-purple-900 flex items-center">
+              <Calendar className="h-4 w-4 mr-2  text-purple-700" />
               Publication Year
             </h4>
             <div className="h-6 w-6 rounded-full bg-purple-50 flex items-center justify-center group-hover:bg-purple-100 transition-colors">
@@ -228,20 +228,17 @@ export default function FilterSidebar() {
                   onValueChange={setYearValue}
                   className="w-full bg-gradient-to-r from-blue-200 to-purple-200 rounded-xl"
                 />
-                <div className="flex justify-between text-xs text-purple-500 mt-2">
+                <div className="flex justify-between font-permanent-marker text-s text-purple-900 mt-2">
                   <span>{formatYearValue(yearValue[0])}</span>
                   <span>{formatYearValue(yearValue[1])}</span>
                 </div>
-                <div className="flex justify-between text-[10px] text-purple-400 mt-1">
-                  <span>{yearRange.min}</span>
-                  <span>{yearRange.max}</span>
-                </div>
+           
               </div>
             </div>
           )}
 
           {/* Decorative divider */}
-          <div className="h-px bg-gradient-to-r from-transparent via-purple-200 to-transparent"></div>
+          <div className="h-px bg-gradient-to-r from-transparent via-purple-400 to-transparent"></div>
         </div>
 
         {/* Rating section */}
@@ -250,8 +247,8 @@ export default function FilterSidebar() {
             className="flex items-center justify-between cursor-pointer group"
             onClick={() => toggleSection("rating")}
           >
-            <h4 className="font-dancing-script text-xl text-purple-500 flex items-center">
-              <Star className="h-4 w-4 mr-2 text-purple-400" />
+            <h4 className="font-dancing-script text-xl font-bold text-purple-900 flex items-center">
+              <Star className="h-4 w-4 mr-2 text-purple-700" />
               Magical Rating
             </h4>
             <div className="h-6 w-6 rounded-full bg-purple-50 flex items-center justify-center group-hover:bg-purple-100 transition-colors">
@@ -274,37 +271,23 @@ export default function FilterSidebar() {
                   onValueChange={setRatingRange}
                   className="w-full bg-gradient-to-r from-blue-200 to-purple-200 rounded-xl  "
                 />
-                <div className="flex justify-between text-xs text-purple-500 mt-2">
+                <div className="font-permanent-marker flex justify-between text-s text-purple-900 mt-2">
                   <div className="flex items-center">
                     <span>{ratingRange[0]}</span>
-                    <Star className="h-3 w-3 ml-1 text-purple-300" />
+                    <Star className="h-4 w-4 ml-1 text-purple-700" />
                   </div>
                   <div className="flex items-center">
                     <span>{ratingRange[1]}</span>
-                    <Star className="h-3 w-3 ml-1 text-purple-300" />
+                    <Star className="h-4 w-4 ml-1 text-purple-700" />
                   </div>
                 </div>
-                <div className="flex justify-center mt-2">
-                  <div className="flex">
-                    {[1, 2, 3, 4, 5].map((star) => (
-                      <Star
-                        key={star}
-                        className={`h-4 w-4 ${
-                          star <= Math.ceil(ratingRange[1]) &&
-                          star >= Math.floor(ratingRange[0])
-                            ? "text-purple-300 fill-purple-200"
-                            : "text-purple-100"
-                        }`}
-                      />
-                    ))}
-                  </div>
-                </div>
+           
               </div>
             </div>
           )}
 
           {/* Decorative divider */}
-          <div className="h-px bg-gradient-to-r from-transparent via-purple-200 to-transparent"></div>
+          <div className="h-px bg-gradient-to-r from-transparent via-purple-400 to-transparent"></div>
         </div>
 
         {/* Pages section */}
@@ -313,8 +296,8 @@ export default function FilterSidebar() {
             className="flex items-center justify-between cursor-pointer group"
             onClick={() => toggleSection("pages")}
           >
-            <h4 className="font-dancing-script text-xl text-purple-500 flex items-center">
-              <BookMarked className="h-4 w-4 mr-2 text-purple-400" />
+            <h4 className="font-dancing-script text-xl font-bold text-purple-900 flex items-center">
+              <BookMarked className="h-4 w-4 mr-2 text-purple-700" />
               Page Count
             </h4>
             <div className="h-6 w-6 rounded-full bg-purple-50 flex items-center justify-center group-hover:bg-purple-100 transition-colors">
@@ -337,20 +320,17 @@ export default function FilterSidebar() {
                   onValueChange={setPagesRange}
                   className="w-full bg-gradient-to-r from-blue-200 to-purple-200 rounded-xl"
                 />
-                <div className="flex justify-between text-xs text-purple-500 mt-2">
+                <div className="font-permanent-marker flex justify-between text-s text-purple-900 mt-2">
                   <span>{pagesRange[0]} pages</span>
                   <span>{pagesRange[1]} pages</span>
                 </div>
-                <div className="flex justify-between text-[10px] text-purple-400 mt-1">
-                  <span>50</span>
-                  <span>1000</span>
-                </div>
+           
               </div>
             </div>
           )}
 
           {/* Decorative divider */}
-          <div className="h-px bg-gradient-to-r from-transparent via-purple-200 to-transparent"></div>
+          <div className="h-px bg-gradient-to-r from-transparent via-purple-400 to-transparent"></div>
         </div>
 
         {/* Availability section */}
@@ -359,8 +339,8 @@ export default function FilterSidebar() {
             className="flex items-center justify-between cursor-pointer group"
             onClick={() => toggleSection("availability")}
           >
-            <h4 className="font-dancing-script text-xl text-purple-500 flex items-center">
-              <Feather className="h-4 w-4 mr-2 text-purple-400" />
+            <h4 className="font-dancing-script text-xl text-purple-900 font-bold flex items-center">
+              <Feather className="h-4 w-4 mr-2 text-purple-700" />
               Availability
             </h4>
             <div className="h-6 w-6 rounded-full bg-purple-50 flex items-center justify-center group-hover:bg-purple-100 transition-colors">
@@ -383,7 +363,7 @@ export default function FilterSidebar() {
                 />
                 <Label
                   htmlFor="availability-available"
-                  className="text-sm text-purple-500 cursor-pointer group-hover:text-purple-600 transition-colors"
+                  className="text-lg text-purple-700 cursor-pointer group-hover:text-purple-600 transition-colors"
                 >
                   Available Now
                 </Label>
@@ -397,7 +377,7 @@ export default function FilterSidebar() {
                 />
                 <Label
                   htmlFor="availability-rare"
-                  className="text-sm text-purple-500 cursor-pointer group-hover:text-purple-600 transition-colors"
+                  className="text-lg text-purple-700 cursor-pointer group-hover:text-purple-600 transition-colors"
                 >
                   Rare Editions
                 </Label>
@@ -411,7 +391,7 @@ export default function FilterSidebar() {
                 />
                 <Label
                   htmlFor="availability-limited"
-                  className="text-sm text-purple-500 cursor-pointer group-hover:text-purple-600 transition-colors"
+                  className="text-lg text-purple-700 cursor-pointer group-hover:text-purple-600 transition-colors"
                 >
                   Limited Edition
                 </Label>
@@ -423,7 +403,7 @@ export default function FilterSidebar() {
 
       {/* Action buttons */}
       <div className="p-6  space-y-3 ">
-      <Button className="w-full bg-purple-400 hover:bg-purple-300 text-blue-900 font-bold rounded-lg relative overflow-hidden group">
+      <Button className="w-full bg-purple-400 hover:bg-purple-300 text-blue-900 rounded-lg relative overflow-hidden group">
   <span className="relative z-10">Apply Magical Filters</span>
  {/* Sparkles Icon */}
  <Sparkles className="absolute left-10 h-4 w-4 text-white opacity-0 group-hover:opacity-100 transition-opacity z-20" />
@@ -438,7 +418,7 @@ export default function FilterSidebar() {
 
 
 <Button
-  className="w-full bg-blue-300 hover:bg-blue-200 text-purple-900 text-bold rounded-lg  relative overflow-hidden group"
+  className="w-full bg-blue-300 hover:bg-blue-200 text-purple-900  rounded-lg  relative overflow-hidden group"
   onClick={resetFilters}
 >
   <span className="relative z-10">Clear All Spells</span>

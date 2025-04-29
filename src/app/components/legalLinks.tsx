@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 const LegalLinks = () => {
   return (
-    <div className="flex gap-4 text-xs justify-center md:justify-start">
+    <div className="flex gap-4 pb-8 text-xs justify-center md:justify-start">
       <Link href="/terms" className="text-purple-700 hover:text-purple-900 transition-colors">
         Terms of Service
       </Link>

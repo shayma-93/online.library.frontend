@@ -266,10 +266,10 @@ export default function BooksList() {
               </div>
 
               <div className="p-2 flex-1 flex flex-col">
-                <h3 className="font-medium text-purple-700 group-hover:text-purple-500 transition-colors">
+                <h3 className="italic font-bold text-purple-900 font-akaya-kanadaka text-xl group-hover:text-purple-500 transition-colors">
                   {book.title}
                 </h3>
-                <p className="text-sm text-purple-500">{book.author}</p>
+                <p className="text-lg  font-akaya-kanadaka  text-purple-800">{book.author}</p>
                 <div className="flex mt-2 mb-2">{renderStars(book.rating)}</div>
                 <div className="flex justify-between mt-auto pt-2 border-t border-purple-50">
                   <span className="text-xs text-purple-400 bg-purple-50 px-2 py-0.5 rounded-sm">{book.genre}</span>

@@ -129,7 +129,7 @@ export default function SignUp() {
             </div>
 <Button
   type="submit"
-  className="w-full bg-blue-300 hover:bg-blue-200 text-purple-900 font-bold rounded-lg relative overflow-hidden group px-8 py-2 transition-all duration-300"
+  className="w-full bg-blue-300 hover:bg-blue-200 text-purple-900 font-akaya-kanadaka text-xl rounded-lg relative overflow-hidden group px-8 py-2 transition-all duration-300"
 >
   <span className="relative z-10">Sign Up</span>
 
@@ -160,7 +160,7 @@ export default function SignUp() {
          <div className="hidden md:block w-full  ml-36 max-w-md">
   <div className="relative h-[600px]"> {/* Increased height */}
     {/* Image container with more tilt */}
-    <div className="absolute right-0 top-[55%] -translate-y-1/2 w-[500px] h-[600px] bg-purple-100/80 rounded-lg shadow-lg transform rotate-[10deg]"> {/* Increased width and height */}
+    <div className="absolute right-0 top-[50%] -translate-y-1/2 w-[500px] h-[600px] bg-purple-100/80 rounded-lg shadow-lg transform rotate-[10deg]"> {/* Increased width and height */}
       <div className="absolute inset-0 flex items-center justify-center">
         <img 
           src="/assets/images/il_fullxfull.5899612498_gs22.jpg" 
@@ -169,11 +169,10 @@ export default function SignUp() {
         />
       </div>
     </div>
-
-  <div className="absolute left-[-99px] bottom-[-20px] w-[350px] bg-white/90 rounded-lg p-4 shadow-lg">
-  <p className="text-purple-700 text-center italic text-sm">"Books are a uniquely portable magic."</p>
-            <p className="text-purple-600 text-center text-xs mt-1">- Stephen King</p>
-          </div>
+    <div className="absolute left-[-99px] bottom-[-35px] w-[350px] bg-gradient-to-r from-purple-200 to-blue-200 border-4 border-white rounded-lg p-4 shadow-lg transform -rotate-5">
+  <p className="font-permanent-marker text-blue-900 text-xl">"Books are a uniquely portable magic."</p>
+  <p className="font-permanent-marker text-purple-800 text-xl mt-1">- Stephen King</p>
+</div>
 
            {/* Sparkles moved lower */}
            <div className="absolute left-[-12%] top-[-10%] w-[100px] h-[100px]">

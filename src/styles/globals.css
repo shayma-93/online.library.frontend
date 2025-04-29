@@ -67,7 +67,6 @@
 }
 body {
   background-color: hsl(var(--background));
-  color: hsl(var(--foreground));
   font-family: var(--font-display), sans-serif;
   background-image: url("/assets/images/stars-bg.svg");
   background-attachment: fixed;
@@ -185,8 +184,14 @@ h4 {
 }
 
 /* Custom gradient text */
-.magical-gradient-text {
-  background: linear-gradient(to right, #9d7cd8, #8e8ad8, #7f97d8);
+.magical-gradient {
+  background: linear-gradient(to right, #5d2964, #b774df, #7ca3dd);
+  background-clip: text;
+  color: transparent;
+}
+
+.nav-gradient {
+  background: linear-gradient(to right, #a159b3,  #326ec9);
   background-clip: text;
   color: transparent;
 }
@@ -357,9 +362,7 @@ h4 {
 
 .section-title {
   font-family: var(--font-dancing-script), cursive;
-  font-size: 1.875rem;
   letter-spacing: 0.02em;
-  color: #7e3af2;
 }
 
 .decorative-flourish {

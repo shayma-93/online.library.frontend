@@ -134,52 +134,43 @@ export default function LibraryCardPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-purple-100 via-lavender-50 to-blue-100  pb-16">
       <Header />
-      <section className="w-full flex flex-col justify-center items-center py-8 md:py-12  text-center">
+      <section className="w-full py-8 md:py-12">
         <div className="w-full px-4 md:px-6 mx-auto">
+        <div className="w-full flex">
+
           <Link
             href="/bookshelves"
-            className="w-full flex justify-start inline-flex items-center text-purple-700 hover:text-purple-600 mb-6 mx-auto"
+            className="w-full flex justify-start inline-flex items-start text-purple-900 font-akaya-kanadaka text-xl hover:text-purple-600 mb-6 mx-auto"
           >
             <ArrowLeft className="h-4 w-4 mr-2" />
             Back to Bookshelves
           </Link>
-
-          <div className="w-full flex flex-col md:flex-row md:items-center md:justify-between gap-4 ">
-            <div>
-              <h1 className="font-dancing-script text-3xl md:text-4xl font-bold text-purple-800">
-                Your Magical Library Card
-              </h1>
-              <p className="text-purple-700 mt-2">
-                Track your borrowed books and reading journey
-              </p>
-            </div>
-
-            <Card className="w-full flex md:w-auto bg-purple-200 backdrop-blur-sm rounded-xl border-4 border-white rounded-xl border-4 border-white shadow-sm border-purple-100 ml-auto">
-              <CardContent className="p-4">
-                <div className="flex items-center justify-between gap-8">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center">
-                      <BookOpen className="h-5 w-5 text-purple-600" />
+          <Card className="w-full h-50 md:w-[600px] flex flex-col justify-end bg-purple-200 backdrop-blur-sm rounded-xl border-4 border-white shadow-sm border-purple-100 ml-auto">
+          <CardContent className="w-full h-full flex flex-col items-center justify-center p-4">
+  <div className="w-full flex items-center justify-center gap-3">
+    <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center">
+                      <BookOpen className="h-6 w-6 text-purple-600" />
                     </div>
                     <div>
-                      <p className="text-sm font-medium text-purple-800">
+                      <p className="text-xl font-akaya-kanadaka font-bold  text-purple-900">
                         Currently Borrowed
                       </p>
-                      <p className="text-2xl font-bold text-purple-900">
+                      <p className="text-2xl font-akaya-kanadaka text-center font-bold text-purple-900">
                         {activeBooks.length}
                       </p>
                     </div>
                   </div>
 
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center">
-                      <History className="h-5 w-5 text-purple-600" />
+                  <div className="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center">
+                  <History className="h-6 w-6 text-purple-600" />
                     </div>
                     <div>
-                      <p className="text-sm font-medium text-purple-800">
-                        Total Borrowed
+                    <p className="text-xl font-akaya-kanadaka font-bold  text-purple-900">
+                    Total Borrowed
                       </p>
-                      <p className="text-2xl font-bold text-purple-900">
+                      <p className="text-2xl font-akaya-kanadaka text-center font-bold text-purple-900">
                         {borrowingHistory.length + activeBooks.length}
                       </p>
                     </div>
@@ -187,8 +178,24 @@ export default function LibraryCardPage() {
                 </div>
               </CardContent>
             </Card>
+            </div>
+          <div className="w-full flex flex-col justify-center items-center space-y-2">
+          <div className="flex items-center justify-center md:justify-start gap-2 mb-2">
+              <span className="decorative-flourish">✦</span>
+              <span className="decorative-dot"></span>
+              <span className="decorative-flourish">✦</span>
+            </div>
+              <h1 className="font-dancing-script magical-gradient text-5xl pb-4 md:text-5xl font-bold text-purple-700 mb-4">
+                Your Magical Library Card
+              </h1>
+              <div className="decorative-line mx-auto " />
+              <p className="text-purple-900 font-akaya-kanadaka text-xl md:text-lg mb-6">
+                Track your borrowed books and reading journey
+              </p>
+            </div>
+
+
           </div>
-        </div>
       </section>
 
       <section className="container mx-auto px-4 md:px-6 py-8 ">

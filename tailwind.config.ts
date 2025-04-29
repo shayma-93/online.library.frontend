@@ -80,6 +80,7 @@ const config = {
         "satisfy": ["'Satisfy'", "cursive"],
         "grechen-fuemen": ["'Grechen Fuemen'", "cursive"],
         "sedgwick-ave-display": ["'Sedgwick Ave Display'", "cursive"],
+        "permanent-marker": ["'Permanent Marker'", "cursive"], 
       },
       borderRadius: {
         lg: "var(--radius)",

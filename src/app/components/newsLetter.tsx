@@ -37,7 +37,7 @@ export default function NewsletterSection() {
           <div className="relative z-10">
             <h2 className="font-dancing-script text-3xl font-bold text-center text-purple-600 mb-2">Stay Enchanted</h2>
 
-            <p className="text-blue-800 text-center mb-6">
+            <p className="text-blue-800 font-akaya-kanadaka text-xl text-center mb-6">
               Subscribe to our magical newsletter to receive updates on new books, reading lists, and special spells.
             </p>
 
@@ -56,16 +56,16 @@ export default function NewsletterSection() {
 
               <Button
                 type="submit"
-                className="bg-blue-300 hover:bg-blue-200 text-purple-900 font-bold rounded-lg relative overflow-hidden group"
+                className="bg-blue-300 hover:bg-blue-200 text-purple-900 f rounded-lg relative overflow-hidden group"
                 disabled={isSubmitted}
               >
-                <span className="relative z-10">{isSubmitted ? "Subscribed!" : "Subscribe"}</span>
+                <span className="relative  text-purple-900 font-akaya-kanadaka text-lg tracking-wider z-10">{isSubmitted ? "Subscribed!" : "Subscribe"}</span>
                 <span className="absolute inset-0 bg-gradient-to-r from-blue-300 to-blue-200 opacity-0 group-hover:opacity-100 transition-opacity"></span>
                 <Sparkles className="absolute right-2 h-4 w-4 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
               </Button>
             </form>
 
-            <div className="mt-4 text-center text-xs text-blue-800">
+            <div className="mt-4 text-center font-akaya-kanadaka text-lg  text-blue-800">
               Join our community of magical readers and never miss an enchanted update
             </div>
           </div>
