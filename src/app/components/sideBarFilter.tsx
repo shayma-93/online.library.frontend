@@ -12,7 +12,6 @@ import {
   Sparkles,
   BookOpen,
   Wand2,
-  Bookmark,
   Star,
   Filter,
   ChevronDown,

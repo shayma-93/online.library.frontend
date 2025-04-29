@@ -70,7 +70,7 @@ export default function CreateBookshelf() {
     description: "",
     theme: "magical",
   });
-  const [books, setBooks] = useState([]);
+  const [books] = useState([]);
 
   // Create a preview bookshelf object that updates as the user makes changes
   const previewBookshelf = {

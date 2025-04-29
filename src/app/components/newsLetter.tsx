@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {  useState } from 'react';
 import { Input } from './ui/input';
 import { Sparkles } from "lucide-react"
 import { Button } from "./ui/button"

@@ -1,8 +1,7 @@
 import type React from "react";
 import "../styles/globals.css"; // adjust path based on your folder structure
 import {
-  Quicksand,
-  Fredoka,
+
   Dancing_Script,
   Sedgwick_Ave_Display,
   Permanent_Marker,
@@ -10,20 +9,11 @@ import {
   Akaya_Kanadaka,
   Satisfy,
   Grechen_Fuemen,
-  Playfair_Display,
 } from "next/font/google";
 import { ThemeProvider } from "./components/theme-provider";
 import "../styles/globals.css";
 
-const quicksand = Quicksand({
-  subsets: ["latin"],
-  variable: "--font-sans",
-});
 
-const fredoka = Fredoka({
-  subsets: ["latin"],
-  variable: "--font-display",
-});
 
 const dancingScript = Dancing_Script({
   subsets: ["latin"],
@@ -68,10 +58,7 @@ const grechenFuemen = Grechen_Fuemen({
   display: "swap",
 });
 
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-serif",
-});
+
 
 export const metadata = {
   title: "EnchantedReads - Your Magical Digital Library",

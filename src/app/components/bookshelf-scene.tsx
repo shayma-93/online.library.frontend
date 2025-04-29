@@ -26,7 +26,7 @@ type BookModelProps = {
   scale?: number;
 };
 
-function BookModel({ scale = 1 }: BookModelProps) {
+function BookModel({ }: BookModelProps) {
   return (
     <group>
         <mesh position={[0, 0, 0]} rotation={[0, 0, 0]} scale={0.8}>

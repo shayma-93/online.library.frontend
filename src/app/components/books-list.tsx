@@ -4,7 +4,7 @@ import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "./ui/button"
-import { Star, Grid, List, ChevronLeft, ChevronRight } from "lucide-react"
+import { Star, ChevronLeft, ChevronRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 // Sample book data - expanded from popular books
@@ -204,7 +204,6 @@ const allBooks = [
 
 
 export default function BooksList() {
-  const [viewMode, setViewMode] = useState<"grid" | "list">("grid")
   const [currentPage, setCurrentPage] = useState(1)
   const booksPerPage = 15
 
