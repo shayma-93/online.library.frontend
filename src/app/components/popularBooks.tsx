@@ -92,7 +92,7 @@ const BookCard = ({ book }: { book: Book }) => {
     <motion.div
       whileHover={{ scale: 1.05, rotate: rotation }}
       transition={{ type: 'spring', stiffness: 300 }}
-      className="photo-pin relative w-[180px] md:w-[220px] lg:w-[240px]"
+      className="photo-pin relative rounded-xl shadow-lg w-[180px] md:w-[220px] lg:w-[240px]"
       style={{ transform: `rotate(${rotation})` }}
     >
       <div className="aspect-[4/5] overflow-hidden rounded-xl shadow-lg mb-4">

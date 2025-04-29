@@ -72,6 +72,15 @@ const config = {
           100: "#ede9fe",
         },
       },
+      fontFamily: {
+        "dancing-script": ["'Dancing Script'", "cursive"],
+        "display": ["'Sedgwick Ave Display'", "cursive"],
+        "caveat-brush": ["'Caveat Brush'", "cursive"],
+        "akaya-kanadaka": ["'Akaya Kanadaka'", "system-ui"],
+        "satisfy": ["'Satisfy'", "cursive"],
+        "grechen-fuemen": ["'Grechen Fuemen'", "cursive"],
+        "sedgwick-ave-display": ["'Sedgwick Ave Display'", "cursive"],
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)", 
@@ -91,15 +100,7 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
-      fontFamily: {
-        "dancing-script": ["'Dancing Script'", "cursive"],
-        "display": ["'Sedgwick Ave Display'", "cursive"],
-        "caveat-brush": ["'Caveat Brush'", "cursive"],
-        "akaya-kanadaka": ["'Akaya Kanadaka'", "system-ui"],
-        "satisfy": ["'Satisfy'", "cursive"],
-        "grechen-fuemen": ["'Grechen Fuemen'", "cursive"],
-        "sedgwick-ave-display": ["'Sedgwick Ave Display'", "cursive"],
-      },
+ 
     },
   },
   plugins: [tailwindcssAnimate],

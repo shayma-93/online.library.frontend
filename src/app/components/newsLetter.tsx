@@ -25,7 +25,10 @@ export default function NewsletterSection() {
   return (
     <section className="w-full flex flex-col justify-center items-center py-16 bg-gradient-to-b from-blue-100 via-purple-100 to-lavender-50 ">
       <div className="container px-4 md:px-6">
-      <div className="max-w-4xl min-h-[300px] mx-auto bg-white/80 backdrop-blur-sm rounded-sm shadow-md border border-purple-100 p-6 md:p-8 relative overflow-hidden flex flex-col justify-center items-center text-center">
+      <div
+  className="max-w-4xl min-h-[300px] mx-auto bg-white/80 backdrop-blur-sm rounded-2xl shadow-md border border-purple-100 p-6 md:p-8 relative overflow-hidden flex flex-col justify-center items-center text-center
+    bg-[url('/assets/images/02429ad821287ebbe8f1ab4edf7ce293.gif')] bg-cover bg-center bg-no-repeat"
+>
       {/* Decorative elements */}
           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-200 via-purple-300 to-purple-200"></div>
           <div className="absolute -top-12 -right-12 w-24 h-24 bg-purple-100 rounded-full opacity-50"></div>
@@ -34,7 +37,7 @@ export default function NewsletterSection() {
           <div className="relative z-10">
             <h2 className="font-dancing-script text-3xl font-bold text-center text-purple-600 mb-2">Stay Enchanted</h2>
 
-            <p className="text-purple-400 text-center mb-6">
+            <p className="text-blue-800 text-center mb-6">
               Subscribe to our magical newsletter to receive updates on new books, reading lists, and special spells.
             </p>
 
@@ -46,23 +49,23 @@ export default function NewsletterSection() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="border-purple-200 focus-visible:ring-purple-300 rounded-sm pl-8 pr-4 bg-white/90"
+                  className="border-purple-200 focus-visible:ring-purple-300 rounded-lg pl-8 pr-4 bg-white/90"
                 />
                 <div className="absolute left-2.5 top-1/2 transform -translate-y-1/2 w-3 h-3 bg-purple-200 rounded-full"></div>
               </div>
 
               <Button
                 type="submit"
-                className="bg-purple-300 hover:bg-purple-400 text-white rounded-sm relative overflow-hidden group"
+                className="bg-blue-300 hover:bg-blue-200 text-purple-900 font-bold rounded-lg relative overflow-hidden group"
                 disabled={isSubmitted}
               >
                 <span className="relative z-10">{isSubmitted ? "Subscribed!" : "Subscribe"}</span>
-                <span className="absolute inset-0 bg-gradient-to-r from-purple-300 via-purple-200 to-purple-300 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                <span className="absolute inset-0 bg-gradient-to-r from-blue-300 to-blue-200 opacity-0 group-hover:opacity-100 transition-opacity"></span>
                 <Sparkles className="absolute right-2 h-4 w-4 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
               </Button>
             </form>
 
-            <div className="mt-4 text-center text-xs text-purple-400">
+            <div className="mt-4 text-center text-xs text-blue-800">
               Join our community of magical readers and never miss an enchanted update
             </div>
           </div>

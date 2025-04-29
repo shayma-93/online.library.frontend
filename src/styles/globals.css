@@ -1,7 +1,5 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&family=Caveat+Brush&family=Grechen+Fuemen&family=Permanent+Marker&family=Satisfy&family=Sedgwick+Ave+Display&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&family=Bangers&family=Caveat+Brush&family=Chicle&family=DM+Serif+Text:ital@0;1&family=Dancing+Script:wght@400..700&family=Grechen+Fuemen&family=Jersey+15&family=Kaushan+Script&family=Lobster&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Pacifico&family=Permanent+Marker&family=Playwrite+AU+SA:wght@100..400&family=Roboto:ital,wght@0,100..900;1,100..900&family=Satisfy&family=Sedgwick+Ave+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&family=Caveat+Brush&family=Grechen+Fuemen&family=Permanent+Marker&family=Satisfy&family=Sedgwick+Ave+Display&family=Dancing+Script&display=swap');
 
 
 @tailwind base;
@@ -479,6 +477,13 @@ h4 {
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: #a855f7;
 }
+
+.custom-slider-thumb {
+  background: linear-gradient(to right, #c084fc, #60a5fa);
+  border-radius: 9999px;
+  box-shadow: 0 0 5px rgba(129, 140, 248, 0.6);
+}
+
 .font-dancing-script {
   font-family: var(--font-dancing-script);
 }

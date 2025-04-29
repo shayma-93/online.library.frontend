@@ -1,7 +1,5 @@
-import Link from "next/link"
-import { ChevronRight } from "lucide-react"
 import BooksList from "../components/books-list"
-import FilterSidebar from "../components/filter-sidebar"
+import FilterSidebar from "../components/sideBarFilter"
 import Header from "../components/header"
 import Footer from "../components/footer"
 
@@ -26,9 +24,9 @@ export default function BooksPage() {
 
       {/* Main Content */}
       <section className="w-full  md:px-6 py-8">
-        <div className="flex flex-col md:flex-row gap-8">
+        <div className="w-full flex flex-col md:flex-row gap-4">
           {/* Sidebar */}
-          <div className="w-full md:w-64 lg:w-72">
+          <div className="w-full md:w-64 lg:w-100 md:sticky md:top-20 md:self-start">
             <FilterSidebar />
           </div>
 
