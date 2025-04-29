@@ -33,9 +33,9 @@ const Header = () => {
               <Input
                 type="text"
                 placeholder="Search for magical books..."
-                className="w-90 pl-10 h-10 border-1 border-purple-400 bg-white/80 focus-visible:ring-purple-500 rounded-lg placeholder-purple-300"
+                className="w-90 pl-10 h-10 border-1 border-purple-400 bg-white/80 focus-visible:ring-purple-500 rounded-lg  font-akaya-kanadaka text-xl tracking-wider placeholder-purple-800"
               />
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-purple-400" />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-purple-900" />
             </div>
           </div>
         </div>

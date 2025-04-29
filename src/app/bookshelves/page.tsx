@@ -1,11 +1,10 @@
 import Link from "next/link"
-import { Button } from "../components/ui/button"
 import { Sparkles, Plus, ArrowRight, BookOpen } from "lucide-react"
 import BookshelfDisplay from "../components/bookshelf-display"
 import Header from "../components/header"
 import Footer from "../components/footer"
 import {BookshelfProps} from "../components/enhanced-bookshelf-display"
-import CreateBookshelf from "../create-bookshelf/page"
+import { Button } from "../components/ui/button"
 
 // Sample data for demonstration
 const bookshelves: BookshelfProps[] = [

@@ -248,11 +248,10 @@ export default function CreateBookshelf() {
     <div className="flex justify-center">
     <Button
   type="submit"
-  className=" bg-purple-400 hover:bg-purple-300 text-purple-900 font-bold rounded-lg relative overflow-hidden group px-8 py-2 transition-all duration-300"
+  className=" bg-purple-400 hover:bg-purple-300  rounded-lg relative overflow-hidden group px-8 py-2 transition-all duration-300"
 >
   {/* Main Button Text */}
-  <span className="relative z-10 flex items-center justify-center">
-    <Sparkles className="h-5 w-5 mr-2" />
+  <span className="relative z-10 flex items-center justify-center  text-blue-900   font-akaya-kanadaka text-xl tracking-wider">
     Create Magical Bookshelf
   </span>
 

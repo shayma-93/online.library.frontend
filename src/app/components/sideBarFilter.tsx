@@ -169,7 +169,7 @@ export default function FilterSidebar() {
           </div>
 
           {expandedSections.genres && (
-            <div className="pl-6 space-y-3 mt-2 max-h-[200px] overflow-y-auto scrollbar-thin scrollbar-thumb-purple-200 scrollbar-track-transparent pr-2">
+            <div className="pl-6 space-y-3 pt-4 pb-4 rounded-xl bg-purple-50/50   pr-2">
               <div className="grid grid-cols-2 gap-x-2 gap-y-3">
                 {genres.map((genre) => (
                   <div
@@ -353,7 +353,7 @@ export default function FilterSidebar() {
           </div>
 
           {expandedSections.availability && (
-            <div className="pl-6 space-y-3 mt-2">
+            <div className="pl-6 space-y-3 pt-4 pb-4 rounded-xl bg-purple-50/50   pr-2">
               <div className="flex items-center space-x-2 group">
                 <Checkbox
                   id="availability-available"
@@ -404,7 +404,7 @@ export default function FilterSidebar() {
       {/* Action buttons */}
       <div className="p-6  space-y-3 ">
       <Button className="w-full bg-purple-400 hover:bg-purple-300 text-blue-900 rounded-lg relative overflow-hidden group">
-  <span className="relative z-10">Apply Magical Filters</span>
+  <span className="relative z-10  text-blue-900   font-akaya-kanadaka text-xl tracking-wide">Apply Magical Filters</span>
  {/* Sparkles Icon */}
  <Sparkles className="absolute left-10 h-4 w-4 text-white opacity-0 group-hover:opacity-100 transition-opacity z-20" />
 
@@ -421,7 +421,7 @@ export default function FilterSidebar() {
   className="w-full bg-blue-300 hover:bg-blue-200 text-purple-900  rounded-lg  relative overflow-hidden group"
   onClick={resetFilters}
 >
-  <span className="relative z-10">Clear All Spells</span>
+  <span className="relative z-10  text-blue-900   font-akaya-kanadaka text-xl tracking-wide">Clear All Spells</span>
   <span className="absolute inset-0 bg-gradient-to-r from-blue-300 to-blue-200 opacity-0 group-hover:opacity-100 transition-opacity"></span>
   <Sparkles className="absolute right-2 h-4 w-4 text-white opacity-0 group-hover:opacity-100 transition-opacity z-20" />
 </Button>
