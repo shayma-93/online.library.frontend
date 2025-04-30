@@ -25,8 +25,8 @@ const Header = () => {
             </span>
           </Link>
 
-          {/* Search Bar - visible on mobile, tablet, and above */}
-          <div className="relative flex md:flex-row md:w-auto items-center w-full md:hidden">
+          {/* Search Bar - visible on mobile and above */}
+          <div className="relative flex md:hidden items-center w-full">
             <Input
               type="text"
               placeholder="Search for magical books..."
@@ -35,7 +35,7 @@ const Header = () => {
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-purple-900" />
           </div>
 
-          {/* Desktop Search Bar - hidden on mobile, tablet */}
+          {/* Desktop Search Bar - hidden on mobile */}
           <div className="relative hidden md:flex items-center">
             <div className="relative">
               <Input
@@ -66,9 +66,10 @@ const Header = () => {
 
         {/* Auth Buttons & Mobile Menu Toggle */}
         <div className="flex items-center gap-2">
+          {/* Desktop Auth Buttons */}
           <div className="hidden md:flex gap-2">
             <Link href="/sign-in">
-              <Button className="bg-purple-400 hover:bg-purple-300 rounded-lg relative overflow-hidden group w-full px-8">
+              <Button className="bg-purple-400 hover:bg-purple-300 rounded-lg relative overflow-hidden group w-full px-8 md:px-6">
                 <span className="relative z-10 text-blue-900 font-akaya-kanadaka text-xl tracking-wider">
                   Sign In
                 </span>
@@ -78,7 +79,7 @@ const Header = () => {
             </Link>
 
             <Link href="/sign-up">
-              <Button className="bg-blue-300 hover:bg-blue-200 rounded-lg relative overflow-hidden group w-full px-8">
+              <Button className="bg-blue-300 hover:bg-blue-200 rounded-lg relative overflow-hidden group w-full px-8 md:px-6">
                 <span className="relative z-10 text-purple-900 font-akaya-kanadaka text-xl tracking-wider">
                   Sign Up
                 </span>
@@ -101,7 +102,7 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Mobile Dropdown */}
+      {/* Mobile Dropdown with Auth Buttons */}
       {isMenuOpen && (
         <div className="md:hidden bg-purple-100 px-4 py-4 shadow-md">
           <nav className="flex flex-col gap-4 mb-4">
@@ -114,24 +115,25 @@ const Header = () => {
                 key={link.href}
                 href={link.href}
                 onClick={closeMenu}
-                className="text-purple-900 font-satisfy text-xl"
+                className="text-center text-purple-900 font-satisfy text-xl"
               >
                 {link.label}
               </Link>
             ))}
           </nav>
 
-          <div className="flex flex-col gap-2">
+          {/* Mobile Auth Buttons - shown only inside toggle */}
+          <div className="w-full flex flex-col items-center gap-2">
             <Link href="/sign-in" onClick={closeMenu}>
-              <Button className="bg-purple-400 hover:bg-purple-300 rounded-lg w-full">
-                <span className="text-blue-900 font-akaya-kanadaka text-lg">
+              <Button className="bg-purple-400 hover:bg-purple-300 rounded-lg w-[13rem] py-2 px-4">
+                <span className="text-blue-900 font-akaya-kanadaka text-sm">
                   Sign In
                 </span>
               </Button>
             </Link>
             <Link href="/sign-up" onClick={closeMenu}>
-              <Button className="bg-blue-300 hover:bg-blue-200 rounded-lg w-full">
-                <span className="text-purple-900 font-akaya-kanadaka text-lg">
+              <Button className="bg-blue-300 hover:bg-blue-200 rounded-lg w-[13rem] py-2 px-4">
+                <span className="text-purple-900 font-akaya-kanadaka text-sm">
                   Sign Up
                 </span>
               </Button>
