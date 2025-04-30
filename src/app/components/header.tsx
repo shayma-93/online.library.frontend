@@ -12,7 +12,7 @@ const Header = () => {
 
   return (
     <header className="w-full border-b bg-purple-100 backdrop-blur-sm sticky top-0 z-50">
-      <div className="w-full flex h-20 items-center justify-between px-4 md:px-8">
+      <div className="w-full flex h-20 items-center justify-between px-4 xl:px-8">
         {/* Logo and Search Bar Section */}
         <div className="flex items-center gap-4 w-full max-w-3xl">
           <Link href="/" className="flex items-center gap-2">
@@ -25,8 +25,8 @@ const Header = () => {
             </span>
           </Link>
 
-          {/* Search Bar - visible on mobile and above */}
-          <div className="relative flex md:hidden items-center w-full">
+          {/* Mobile & Tablet Search Bar */}
+          <div className="relative flex xl:hidden items-center w-full">
             <Input
               type="text"
               placeholder="Search for magical books..."
@@ -35,8 +35,8 @@ const Header = () => {
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-purple-900" />
           </div>
 
-          {/* Desktop Search Bar - hidden on mobile */}
-          <div className="relative hidden md:flex items-center">
+          {/* Desktop Search Bar */}
+          <div className="relative hidden xl:flex items-center">
             <div className="relative">
               <Input
                 type="text"
@@ -49,7 +49,7 @@ const Header = () => {
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="md:flex hidden flex-grow justify-start gap-12">
+        <nav className="xl:flex hidden flex-grow justify-start gap-12">
           {[
             { href: "/", label: "Home" },
             { href: "/books", label: "Books" },
@@ -67,9 +67,9 @@ const Header = () => {
         {/* Auth Buttons & Mobile Menu Toggle */}
         <div className="flex items-center gap-2">
           {/* Desktop Auth Buttons */}
-          <div className="hidden md:flex gap-2">
+          <div className="hidden xl:flex gap-2">
             <Link href="/sign-in">
-              <Button className="bg-purple-400 hover:bg-purple-300 rounded-lg relative overflow-hidden group w-full px-8 md:px-6">
+              <Button className="bg-purple-400 hover:bg-purple-300 rounded-lg relative overflow-hidden group w-full px-8 xl:px-6">
                 <span className="relative z-10 text-blue-900 font-akaya-kanadaka text-xl tracking-wider">
                   Sign In
                 </span>
@@ -79,7 +79,7 @@ const Header = () => {
             </Link>
 
             <Link href="/sign-up">
-              <Button className="bg-blue-300 hover:bg-blue-200 rounded-lg relative overflow-hidden group w-full px-8 md:px-6">
+              <Button className="bg-blue-300 hover:bg-blue-200 rounded-lg relative overflow-hidden group w-full px-8 xl:px-6">
                 <span className="relative z-10 text-purple-900 font-akaya-kanadaka text-xl tracking-wider">
                   Sign Up
                 </span>
@@ -93,7 +93,7 @@ const Header = () => {
           <Button
             variant="ghost"
             size="icon"
-            className="md:hidden text-purple-700"
+            className="xl:hidden text-purple-700"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             <Menu className="h-6 w-6" />
@@ -104,7 +104,7 @@ const Header = () => {
 
       {/* Mobile Dropdown with Auth Buttons */}
       {isMenuOpen && (
-        <div className="md:hidden bg-purple-100 px-4 py-4 shadow-md">
+        <div className="xl:hidden bg-purple-100 px-4 py-4 shadow-md">
           <nav className="flex flex-col gap-4 mb-4">
             {[
               { href: "/", label: "Home" },
@@ -122,7 +122,7 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Mobile Auth Buttons - shown only inside toggle */}
+          {/* Mobile Auth Buttons */}
           <div className="w-full flex flex-col items-center gap-2">
             <Link href="/sign-in" onClick={closeMenu}>
               <Button className="bg-purple-400 hover:bg-purple-300 rounded-lg w-[13rem] py-2 px-4">
