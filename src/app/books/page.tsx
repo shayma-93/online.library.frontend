@@ -1,16 +1,16 @@
-import BooksList from "../components/books-list"
-import FilterSidebar from "../components/sideBarFilter"
-import Header from "../components/header"
-import Footer from "../components/footer"
+import BooksList from "../components/books-list";
+import FilterSidebar from "../components/sideBarFilter";
+import Header from "../components/header";
+import Footer from "../components/footer";
 
 export default function BooksPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-100 via-lavender-50 to-purple-100 ">
-<Header/>
-<section className="w-full flex flex-col justify-center items-start  md:pt-12 md:pb-0 ">
+      <Header />
+      <section className="w-full flex flex-col justify-center items-start  md:pt-12 md:pb-0 ">
         <div className="w-full flex flex-col justify-center items-center  px-4 md:px-6">
           <div className="w-full flex flex-col justify-center items-center text-center max-w-3xl mx-auto">
-          <div className="flex items-center justify-center md:justify-start gap-2 mb-2">
+            <div className="flex items-center justify-center md:justify-start gap-2 mb-2">
               <span className="decorative-flourish">✦</span>
               <span className="decorative-dot"></span>
               <span className="decorative-flourish">✦</span>
@@ -20,9 +20,9 @@ export default function BooksPage() {
             </h1>
             <div className="decorative-line mx-auto " />
             <p className="text-purple-900 font-akaya-kanadaka text-xl md:text-lg mb-6">
-              Discover magical worlds, ancient spells, and extraordinary adventures in our carefully curated collection
+              Discover magical worlds, ancient spells, and extraordinary
+              adventures in our carefully curated collection
             </p>
-         
           </div>
         </div>
       </section>
@@ -41,7 +41,7 @@ export default function BooksPage() {
           </div>
         </div>
       </section>
-      <Footer/>
+      <Footer />
     </div>
-  )
+  );
 }

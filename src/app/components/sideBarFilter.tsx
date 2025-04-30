@@ -18,22 +18,7 @@ import {
   ChevronUp,
   Moon,
 } from "lucide-react";
-
-// Sample filter data
-const genres = [
-  { id: "fantasy", label: "Fantasy" },
-  { id: "magic", label: "Magic" },
-  { id: "adventure", label: "Adventure" },
-  { id: "mystery", label: "Mystery" },
-  { id: "spells", label: "Spells" },
-  { id: "creatures", label: "Creatures" },
-  { id: "history", label: "History" },
-  { id: "nature", label: "Nature" },
-  { id: "divination", label: "Divination" },
-  { id: "potions", label: "Potions" },
-  { id: "enchantments", label: "Enchantments" },
-  { id: "mythology", label: "Mythology" },
-];
+import genres from "../data/genres.json";
 
 // Expanded years range
 const yearRange = {
@@ -145,7 +130,7 @@ export default function FilterSidebar() {
 
       {/* Filter content */}
       <div className="p-6 space-y-6 relative overflow-visible">
-      {/* Decorative page texture */}
+        {/* Decorative page texture */}
         <div className="absolute inset-0 opacity-5 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCI+PHBhdGggZD0iTTAgMGgyMHYyMEgweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0wIDBoMjB2MUgwem0wIDE5aDIwdjFIMHoiIGZpbGw9IiMwMDAiIGZpbGwtb3BhY2l0eT0iLjA1Ii8+PC9zdmc+')]"></div>
 
         {/* Genres section */}
@@ -170,7 +155,7 @@ export default function FilterSidebar() {
           {expandedSections.genres && (
             <div className="pl-6 space-y-3 pt-4 pb-4 rounded-xl bg-purple-50/50   pr-2">
               <div className="grid grid-cols-2 gap-x-2 gap-y-3">
-                {genres.map((genre) => (
+                {genres.genres.map((genre) => (
                   <div
                     key={genre.id}
                     className="flex items-center space-x-2 group"
@@ -231,7 +216,6 @@ export default function FilterSidebar() {
                   <span>{formatYearValue(yearValue[0])}</span>
                   <span>{formatYearValue(yearValue[1])}</span>
                 </div>
-           
               </div>
             </div>
           )}
@@ -280,7 +264,6 @@ export default function FilterSidebar() {
                     <Star className="h-4 w-4 ml-1 text-purple-700" />
                   </div>
                 </div>
-           
               </div>
             </div>
           )}
@@ -323,7 +306,6 @@ export default function FilterSidebar() {
                   <span>{pagesRange[0]} pages</span>
                   <span>{pagesRange[1]} pages</span>
                 </div>
-           
               </div>
             </div>
           )}
@@ -402,29 +384,30 @@ export default function FilterSidebar() {
 
       {/* Action buttons */}
       <div className="p-6  space-y-3 ">
-      <Button className="w-full bg-purple-400 hover:bg-purple-300 text-blue-900 rounded-lg relative overflow-hidden group">
-  <span className="relative z-10  text-blue-900   font-akaya-kanadaka text-xl tracking-wide">Apply Magical Filters</span>
- {/* Sparkles Icon */}
- <Sparkles className="absolute left-10 h-4 w-4 text-white opacity-0 group-hover:opacity-100 transition-opacity z-20" />
+        <Button className="w-full bg-purple-400 hover:bg-purple-300 text-blue-900 rounded-lg relative overflow-hidden group">
+          <span className="relative z-10  text-blue-900   font-akaya-kanadaka text-xl tracking-wide">
+            Apply Magical Filters
+          </span>
+          {/* Sparkles Icon */}
+          <Sparkles className="absolute left-10 h-4 w-4 text-white opacity-0 group-hover:opacity-100 transition-opacity z-20" />
 
-  {/* Gradient Background on Hover */}
-  <span className="absolute inset-0 bg-gradient-to-r from-purple-300 via-purple-200 to-purple-300 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+          {/* Gradient Background on Hover */}
+          <span className="absolute inset-0 bg-gradient-to-r from-purple-300 via-purple-200 to-purple-300 opacity-0 group-hover:opacity-100 transition-opacity"></span>
 
- 
-  {/* Filter Icon */}
-  <Filter className="absolute right-2 h-4 w-4 text-purple-600 opacity-0 group-hover:opacity-100 transition-opacity z-10" />
-</Button>
+          {/* Filter Icon */}
+          <Filter className="absolute right-2 h-4 w-4 text-purple-600 opacity-0 group-hover:opacity-100 transition-opacity z-10" />
+        </Button>
 
-
-<Button
-  className="w-full bg-blue-300 hover:bg-blue-200 text-purple-900  rounded-lg  relative overflow-hidden group"
-  onClick={resetFilters}
->
-  <span className="relative z-10  text-blue-900   font-akaya-kanadaka text-xl tracking-wide">Clear All Spells</span>
-  <span className="absolute inset-0 bg-gradient-to-r from-blue-300 to-blue-200 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-  <Sparkles className="absolute right-2 h-4 w-4 text-white opacity-0 group-hover:opacity-100 transition-opacity z-20" />
-</Button>
-
+        <Button
+          className="w-full bg-blue-300 hover:bg-blue-200 text-purple-900  rounded-lg  relative overflow-hidden group"
+          onClick={resetFilters}
+        >
+          <span className="relative z-10  text-blue-900   font-akaya-kanadaka text-xl tracking-wide">
+            Clear All Spells
+          </span>
+          <span className="absolute inset-0 bg-gradient-to-r from-blue-300 to-blue-200 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+          <Sparkles className="absolute right-2 h-4 w-4 text-white opacity-0 group-hover:opacity-100 transition-opacity z-20" />
+        </Button>
       </div>
 
       {/* Decorative elements */}

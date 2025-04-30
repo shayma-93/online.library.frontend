@@ -5,10 +5,14 @@ import Link from "next/link";
 import { BookOpen, Menu, Search, Sparkles } from "lucide-react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
+import useSearch from "../../hooks/use-search" 
+import Books from "../data/Books.json"
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const closeMenu = () => setIsMenuOpen(false);
+  const { query, suggestions, handleInputChange } = useSearch(Books.BooksData);  // Now this should work
+
 
   return (
     <header className="w-full border-b bg-purple-100 backdrop-blur-sm sticky top-0 z-50">
@@ -27,23 +31,67 @@ const Header = () => {
 
           {/* Mobile & Tablet Search Bar */}
           <div className="relative flex xl:hidden items-center w-full">
+          <form
+            onSubmit={(e) => e.preventDefault()} 
+            >
             <Input
               type="text"
+              value={query}
+              onChange={handleInputChange}
               placeholder="Search for magical books..."
               className="w-full pl-10 h-10 border-1 border-purple-400 bg-white/80 focus-visible:ring-purple-500 rounded-lg font-akaya-kanadaka text-xl tracking-wider placeholder-purple-800"
             />
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-purple-900" />
+            </form>
+            {suggestions.length > 0 && (
+            <div className="absolute top-16 left-0 w-full bg-white border rounded-lg shadow-lg z-10">
+              <ul>
+                {suggestions.map((item) => (
+                  <li key={item.id} className="p-2 hover:bg-purple-100">
+                    <Link href={`/book/${item.id}`} className="block text-purple-800">
+                      <div className="flex items-center">
+                        <img src={item.imageSrc} alt={item.title} className="w-8 h-12 mr-2" />
+                        <span>{item.title} - {item.author}</span>
+                      </div>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
           </div>
 
           {/* Desktop Search Bar */}
           <div className="relative hidden xl:flex items-center">
             <div className="relative">
+            <form
+            onSubmit={(e) => e.preventDefault()} 
+            >
               <Input
                 type="text"
+                value={query}
+                onChange={handleInputChange}
                 placeholder="Search for magical books..."
                 className="w-90 pl-10 h-10 border-1 border-purple-400 bg-white/80 focus-visible:ring-purple-500 rounded-lg font-akaya-kanadaka text-xl tracking-wider placeholder-purple-800"
               />
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-purple-900" />
+              </form>
+              {suggestions.length > 0 && (
+            <div className="absolute top-16 left-0 w-full bg-white border rounded-lg shadow-lg z-10">
+              <ul>
+                {suggestions.map((item) => (
+                  <li key={item.id} className="p-2 hover:bg-purple-100">
+                    <Link href={`/book/${item.id}`} className="block text-purple-800">
+                      <div className="flex items-center">
+                        <img src={item.imageSrc} alt={item.title} className="w-8 h-12 mr-2" />
+                        <span>{item.title} - {item.author}</span>
+                      </div>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
             </div>
           </div>
         </div>

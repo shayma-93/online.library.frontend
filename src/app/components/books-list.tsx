@@ -5,203 +5,13 @@ import Link from "next/link"
 import Image from "next/image"
 import { Button } from "./ui/button"
 import { Star, ChevronLeft, ChevronRight } from "lucide-react"
-import { cn } from "@/lib/utils"
+import { cn } from "../../lib/utils"
+import Books from "../data/Books.json"
 
-// Sample book data - expanded from popular books
-const allBooks = [
-  {
-    id: "1",
-    title: "The Enchanted Forest",
-    author: "Mystic Author",
-    rating: 4.5,
-    coverUrl: "https://covers.openlibrary.org/b/id/10200092-L.jpg",
-    genre: "Fantasy",
-    year: 2020,
-    pages: 320,
-  },
-  {
-    id: "2",
-    title: "Whispers of Magic",
-    author: "Luna Spellbound",
-    rating: 5,
-    coverUrl: "https://covers.openlibrary.org/b/id/10200091-L.jpg",
-    genre: "Magic",
-    year: 2019,
-    pages: 280,
-  },
-  {
-    id: "3",
-    title: "Crystal Spellbook",
-    author: "Orion Starweaver",
-    rating: 4.8,
-    coverUrl: "https://covers.openlibrary.org/b/id/10200090-L.jpg",
-    genre: "Spells",
-    year: 2021,
-    pages: 350,
-  },
-  {
-    id: "13",
-    title: "The Dragon's Hoard",
-    author: "Aldric Dragonheart",
-    rating: 4.6,
-    coverUrl: "https://covers.openlibrary.org/b/id/10200095-L.jpg",
-    genre: "Fantasy",
-    year: 2023,
-    pages: 450,
-  },
-  {
-    id: "14",
-    title: "Witch's Brew",
-    author: "Seraphina Vood",
-    rating: 4.7,
-    coverUrl: "https://covers.openlibrary.org/b/id/10200093-L.jpg",
-    genre: "Horror",
-    year: 2022,
-    pages: 370,
-  },
-  {
-    id: "15",
-    title: "Fables from the Forest",
-    author: "Bramble Thorn",
-    rating: 4.4,
-    coverUrl: "https://covers.openlibrary.org/b/id/10200097-L.jpg",
-    genre: "Adventure",
-    year: 2018,
-    pages: 300,
-  },
-  {
-    id: "16",
-    title: "Secrets of the Elders",
-    author: "Liora Windstrider",
-    rating: 4.9,
-    coverUrl: "https://covers.openlibrary.org/b/id/10200099-L.jpg",
-    genre: "Mystery",
-    year: 2024,
-    pages: 480,
-  },
-  {
-    id: "17",
-    title: "Arcane Legacy",
-    author: "Raven Darkcloud",
-    rating: 4.3,
-    coverUrl: "https://covers.openlibrary.org/b/id/10200094-L.jpg",
-    genre: "Fantasy",
-    year: 2020,
-    pages: 400,
-  },
-  {
-    id: "18",
-    title: "Journeys Through Time",
-    author: "Clara Timekeeper",
-    rating: 4.5,
-    coverUrl: "https://covers.openlibrary.org/b/id/10200096-L.jpg",
-    genre: "Sci-Fi",
-    year: 2021,
-    pages: 340,
-  },
-  {
-    id: "19",
-    title: "The Sorcerer's Code",
-    author: "Isolde Frost",
-    rating: 4.6,
-    coverUrl: "https://covers.openlibrary.org/b/id/10200098-L.jpg",
-    genre: "Fantasy",
-    year: 2023,
-    pages: 410,
-  },
-  {
-    id: "20",
-    title: "Echoes of the Past",
-    author: "Dorian Graves",
-    rating: 4.8,
-    coverUrl: "https://covers.openlibrary.org/b/id/10200100-L.jpg",
-    genre: "Historical Fiction",
-    year: 2019,
-    pages: 370,
-  },
-  // Additional books
-  {
-    id: "21",
-    title: "The Shattered Crown",
-    author: "Elara Moonshadow",
-    rating: 4.7,
-    coverUrl: "https://covers.openlibrary.org/b/id/10200101-L.jpg",
-    genre: "Fantasy",
-    year: 2024,
-    pages: 500,
-  },
-  {
-    id: "22",
-    title: "Veil of Shadows",
-    author: "Galen Blackthorn",
-    rating: 4.5,
-    coverUrl: "https://covers.openlibrary.org/b/id/10200102-L.jpg",
-    genre: "Thriller",
-    year: 2023,
-    pages: 420,
-  },
-  {
-    id: "23",
-    title: "The Timekeeper's Daughter",
-    author: "Sylvia Starlight",
-    rating: 4.8,
-    coverUrl: "https://covers.openlibrary.org/b/id/10200103-L.jpg",
-    genre: "Time Travel",
-    year: 2022,
-    pages: 375,
-  },
-  {
-    id: "24",
-    title: "The Moonlit Path",
-    author: "Daphne Nightshade",
-    rating: 4.9,
-    coverUrl: "https://covers.openlibrary.org/b/id/10200104-L.jpg",
-    genre: "Romance",
-    year: 2024,
-    pages: 310,
-  },
-  {
-    id: "25",
-    title: "Dark Wings",
-    author: "Lucian Shadowmere",
-    rating: 4.6,
-    coverUrl: "https://covers.openlibrary.org/b/id/10200105-L.jpg",
-    genre: "Fantasy",
-    year: 2021,
-    pages: 380,
-  },
-  {
-    id: "26",
-    title: "The Forbidden Realm",
-    author: "Mira Windwhisper",
-    rating: 4.7,
-    coverUrl: "https://covers.openlibrary.org/b/id/10200106-L.jpg",
-    genre: "Adventure",
-    year: 2023,
-    pages: 450,
-  },
-  {
-    id: "27",
-    title: "Firestorm",
-    author: "Kieran Blaze",
-    rating: 4.5,
-    coverUrl: "https://covers.openlibrary.org/b/id/10200107-L.jpg",
-    genre: "Sci-Fi",
-    year: 2022,
-    pages: 330,
-  },
-  {
-    id: "28",
-    title: "Winds of Fate",
-    author: "Seraphina Stormrider",
-    rating: 4.8,
-    coverUrl: "https://covers.openlibrary.org/b/id/10200108-L.jpg",
-    genre: "Fantasy",
-    year: 2023,
-    pages: 460,
-  },
-]
 
+
+// Accessing BooksData from the imported JSON
+const allBooks = Books.BooksData;
 
 export default function BooksList() {
   const [currentPage, setCurrentPage] = useState(1)
@@ -237,9 +47,9 @@ export default function BooksList() {
   }
 
   // Function to generate a random rotation for the photo effect
-  const getRandomRotation = (id: string) => {
-    // Use the book ID to generate a consistent but seemingly random rotation
-    const charSum = id.split("").reduce((sum, char) => sum + char.charCodeAt(0), 0)
+  const getRandomRotation = (id: number) => {
+    // Convert the ID to a string before splitting and calculating its sum
+    const charSum = id.toString().split("").reduce((sum, char) => sum + char.charCodeAt(0), 0)
     return (charSum % 10) - 4 // Range from -3 to +3 degrees
   }
 
@@ -261,7 +71,7 @@ export default function BooksList() {
 
               <div className="relative h-[220px] rounded-xl shadow-lg overflow-hidden mb-2">
                 <div className="absolute top-2 right-2 w-2 h-2 rounded-full bg-purple-300"></div>
-                <Image src={book.coverUrl || "/placeholder.svg"} alt={book.title} fill className="object-cover shadow-lg" />
+                <Image src={book.imageSrc || "/placeholder.svg"} alt={book.title} fill className="object-cover shadow-lg" />
               </div>
 
               <div className="p-2 flex-1 flex flex-col">
