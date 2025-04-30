@@ -96,11 +96,17 @@ const Header = () => {
                           className="block text-purple-800"
                         >
                           <div className="flex items-center">
-                            <img
-                              src={item.imageSrc}
-                              alt={item.title}
-                              className="w-8 h-12 mr-2"
-                            />
+                            {item.imageSrc ? (
+                              <Image
+                                src={item.imageSrc} // Ensure item.imageSrc is a valid string
+                                alt={item.title}
+                                className="w-8 h-12 mr-2"
+                                width={32} // Define the width for the image
+                                height={48} // Define the height for the image
+                              />
+                            ) : (
+                              <div className="w-8 h-12 mr-2 bg-gray-300" /> // Fallback if imageSrc is missing
+                            )}
                             <span>
                               {item.title} - {item.author}
                             </span>
