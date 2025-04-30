@@ -905,19 +905,7 @@ export default function BookshelfDisplay({
               <Label htmlFor="rating" className="text-right">
                 Rating
               </Label>
-              <div className="grid grid-cols-4 items-center gap-4">
-                <Label htmlFor="file" className="text-right">
-                  Book File
-                </Label>
-                <Input
-                  id="file"
-                  name="file"
-                  type="file"
-                  accept=".pdf,.epub"
-                  onChange={(e) => handleFileChange(e.target.files?.[0])}
-                  className="col-span-3"
-                />
-              </div>
+            
               <div className="col-span-3">
                 <div className="flex items-center space-x-2">
                   <input
@@ -939,7 +927,22 @@ export default function BookshelfDisplay({
             <Button variant="outline" onClick={() => setIsAddBookOpen(false)}>
               Cancel
             </Button>
-            <Button onClick={addBook}>Add Book</Button>
+            <div className="grid grid-cols-4 items-center gap-4">
+            <Button onClick={addBook}>
+                <Label htmlFor="file" className="text-right">
+                Add Book              
+                </Label>
+                <Input
+                  id="file"
+                  name="file"
+                  type="file"
+                  accept=".pdf,.epub"
+                  onChange={(e) => handleFileChange(e.target.files?.[0])}
+                  className="col-span-3"
+                />
+            </Button>
+            </div>
+            
           </DialogFooter>
         </DialogContent>
       </Dialog>
