@@ -1,7 +1,6 @@
-import type React from "react";
-import "../styles/globals.css"; // adjust path based on your folder structure
+// src/app/layout.tsx
+import "../styles/globals.css";
 import {
-
   Dancing_Script,
   Sedgwick_Ave_Display,
   Permanent_Marker,
@@ -10,66 +9,23 @@ import {
   Satisfy,
   Grechen_Fuemen,
 } from "next/font/google";
-import { ThemeProvider } from "./components/theme-provider";
-import "../styles/globals.css";
 
+import ClientLayout from "./clientLayout";
 
-
-const dancingScript = Dancing_Script({
-  subsets: ["latin"],
-  variable: "--font-dancing-script",
-  display: "swap",
-});
-const sedgwickAve = Sedgwick_Ave_Display({
-  weight: "400",
-  subsets: ["latin"],
-  variable: "--font-sedgwick-ave-display",
-  display: "swap",
-});
-const permanentMarker = Permanent_Marker({
-  weight: "400",
-  subsets: ["latin"],
-  variable: "--font-permanent-marker",
-  display: "swap",
-});
-
-const caveatBrush = Caveat_Brush({
-  weight: "400",
-  subsets: ["latin"],
-  variable: "--font-caveat-brush",
-  display: "swap",
-});
-const akayaKanadaka = Akaya_Kanadaka({
-  weight: "400",
-  subsets: ["latin"],
-  variable: "--font-akaya-kanadaka",
-  display: "swap",
-});
-const satisfy = Satisfy({
-  weight: "400",
-  subsets: ["latin"],
-  variable: "--font-satisfy",
-  display: "swap",
-});
-const grechenFuemen = Grechen_Fuemen({
-  weight: "400",
-  subsets: ["latin"],
-  variable: "--font-grechen-fuemen",
-  display: "swap",
-});
-
-
+const dancingScript = Dancing_Script({ subsets: ["latin"], variable: "--font-dancing-script", display: "swap" });
+const sedgwickAve = Sedgwick_Ave_Display({ weight: "400", subsets: ["latin"], variable: "--font-sedgwick-ave-display", display: "swap" });
+const permanentMarker = Permanent_Marker({ weight: "400", subsets: ["latin"], variable: "--font-permanent-marker", display: "swap" });
+const caveatBrush = Caveat_Brush({ weight: "400", subsets: ["latin"], variable: "--font-caveat-brush", display: "swap" });
+const akayaKanadaka = Akaya_Kanadaka({ weight: "400", subsets: ["latin"], variable: "--font-akaya-kanadaka", display: "swap" });
+const satisfy = Satisfy({ weight: "400", subsets: ["latin"], variable: "--font-satisfy", display: "swap" });
+const grechenFuemen = Grechen_Fuemen({ weight: "400", subsets: ["latin"], variable: "--font-grechen-fuemen", display: "swap" });
 
 export const metadata = {
   title: "EnchantedReads - Your Magical Digital Library",
   description: "A magical reading portal",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
       lang="en"
@@ -80,18 +36,11 @@ export default function RootLayout({
         akayaKanadaka.variable,
         satisfy.variable,
         grechenFuemen.variable,
-        permanentMarker.variable
+        permanentMarker.variable,
       ].join(" ")}
     >
       <body>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );
