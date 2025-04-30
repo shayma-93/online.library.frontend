@@ -43,20 +43,22 @@ const HeroContent = () => {
         className="flex flex-col sm:flex-row gap-3 justify-center"
       >
         <div className="flex flex-col sm:flex-row gap-3">
-          <Link href="/books">
-            <Button className="bg-blue-300 hover:bg-blue-200 text-purple-900 rounded-lg relative overflow-hidden group w-full sm:px-4 px-4 py-2 sm:text-xl text-lg">
-              <span className="relative text-purple-900 font-akaya-kanadaka sm:text-xl text-lg tracking-wider z-10">Explore Magical Books</span>
-              <span className="absolute inset-0 bg-gradient-to-r from-blue-300 to-blue-200 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-              <Sparkles className="absolute right-2 h-4 w-4 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
-            </Button>
-          </Link>
-          <Link href="/sign-up">
-            <Button className="bg-purple-400 hover:bg-purple-300 text-blue-900 rounded-lg relative overflow-hidden group w-full sm:px-4 px-4 py-2 sm:text-lg text-sm">
-              <span className="relative text-blue-900 font-akaya-kanadaka sm:text-lg text-sm tracking-wider z-10">Begin Your Adventure</span>
-              <span className="absolute inset-0 bg-gradient-to-r from-purple-300 via-purple-200 to-purple-300 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-              <Sparkles className="absolute right-2 h-4 w-4 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
-            </Button>
-          </Link>
+        <Link href="/books">
+  <Button className="bg-blue-300 hover:bg-blue-200 text-purple-900 rounded-lg relative overflow-hidden group w-[90%] sm:w-fit px-4 py-2 sm:text-xl text-lg mx-auto">
+    <span className="relative text-purple-900 font-akaya-kanadaka sm:text-xl text-lg tracking-wider z-10">Explore Magical Books</span>
+    <span className="absolute inset-0 bg-gradient-to-r from-blue-300 to-blue-200 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+    <Sparkles className="absolute right-2 h-4 w-4 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
+  </Button>
+</Link>
+
+<Link href="/sign-up">
+  <Button className="bg-purple-400 hover:bg-purple-300 text-blue-900 rounded-lg relative overflow-hidden group w-[90%] sm:w-fit px-4 py-2 sm:text-lg text-sm mx-auto">
+    <span className="relative text-blue-900 font-akaya-kanadaka sm:text-xl text-lg tracking-wider z-10">Begin Your Adventure</span>
+    <span className="absolute inset-0 bg-gradient-to-r from-purple-300 via-purple-200 to-purple-300 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+    <Sparkles className="absolute right-2 h-4 w-4 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
+  </Button>
+</Link>
+
         </div>
       </motion.div>
     </div>

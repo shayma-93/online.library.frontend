@@ -776,7 +776,7 @@ export default function BookshelfDisplay({
 
       {/* Add Book Dialog */}
       <Dialog open={isAddBookOpen} onOpenChange={setIsAddBookOpen}>
-        <DialogContent className="sm:max-w-[425px]">
+        <DialogContent className="sm:max-w-[425px] ">
           <DialogHeader>
             <DialogTitle>Add a New Book</DialogTitle>
           </DialogHeader>
