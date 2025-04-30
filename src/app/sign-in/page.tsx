@@ -36,9 +36,9 @@ export default function SignIn() {
   return (
     <div>
       <Header />
-      <div className="w-full flex flex-col md:flex-row items-start justify-center bg-gradient-to-b from-blue-100 via-lavender-50 to-purple-100 min-h-[calc(100vh-2rem)] py-36 bg-cover bg-center">
-        <div className="w-full max-w-lg px-10 py-12 backdrop-blur-sm rounded-xl shadow-lg border border-purple-100 md:mr-8 relative overflow-hidden">
-          {/* Decorative Elements */}
+      <div className="w-full flex flex-col md:flex-row items-center justify-center bg-gradient-to-b from-blue-100 via-lavender-50 to-purple-100 min-h-[calc(100vh-2rem)] py-24 px-4 md:px-12 lg:px-24 bg-cover bg-center gap-12">
+        {/* Form Container */}
+        <div className="w-full max-w-lg px-6 py-10 backdrop-blur-sm rounded-xl shadow-lg border border-purple-100 relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-300 via-purple-600 to-purple-300 rounded-t-3xl"></div>
           <div className="absolute -top-12 -right-12 w-24 h-24 bg-purple-100 rounded-full opacity-50"></div>
           <div className="absolute -bottom-8 -left-8 w-16 h-16 bg-purple-100 rounded-full opacity-50"></div>
@@ -107,10 +107,7 @@ export default function SignIn() {
                   onCheckedChange={handleCheckboxChange}
                   className="border-purple-300 bg-white opacity-50 data-[state=checked]:bg-purple-600 rounded-sm"
                 />
-                <Label
-                  htmlFor="rememberMe"
-                  className="text-sm font-medium text-purple-700"
-                >
+                <Label htmlFor="rememberMe" className="text-sm font-medium text-purple-700">
                   Remember me
                 </Label>
               </div>
@@ -133,39 +130,38 @@ export default function SignIn() {
               </Link>
             </p>
 
-            {/* Sparkles */}
             <div className="absolute bottom-4 right-4 opacity-20">
               <Stars className="h-6 w-6 text-purple-600" />
             </div>
           </div>
         </div>
 
-        {/* Right Panel */}
-        <div className="hidden md:block w-full ml-12 max-w-md">
-          <div className="relative h-[400px]">
-            <div className="absolute right-0 top-[60%] -translate-y-1/2 w-[400px] h-[500px] bg-purple-100/80 rounded-xl shadow-lg transform rotate-[10deg]">
+        {/* Illustration Panel */}
+        <div className="w-full max-w-md md:ml-12 relative">
+          <div className="relative h-[300px] md:h-[400px]">
+            <div className="absolute right-0 top-[60%] -translate-y-1/2 w-[300px] h-[400px] md:w-[400px] md:h-[500px] bg-purple-100/80 rounded-xl shadow-lg transform rotate-[10deg]">
               <div className="absolute inset-0 flex items-center justify-center">
-              <Image
-  src="/assets/images/magical-books.jpg"
-  alt="Magical bookshelf illustration"
-  fill
-  className="rounded-2xl object-cover"
-/>
-
+                <Image
+                  src="/assets/images/bg,f8f8f8-flat,750x,075,f-pad,750x1000,f8f8f8.jpg"
+                  alt="Magical books illustration"
+                  fill
+                  className="rounded-2xl object-cover"
+                />
               </div>
             </div>
 
             {/* Quote */}
-            <div className="absolute left-[-20px] bottom-[-120px] w-[350px] bg-gradient-to-r from-purple-200 to-blue-200 border-4 border-white rounded-lg p-4 shadow-lg transform -rotate-5">
-              <p className="font-permanent-marker text-blue-900 text-xl">&ldquo;Reading is a discount ticket to everywhere..&rdquo;</p>
-              <p className="font-permanent-marker text-purple-800 text-xl mt-1">- Mary Schmich</p>
+            <div className="absolute left-[-10px] bottom-[-100px] w-[280px] md:w-[350px] bg-gradient-to-r from-purple-200 to-blue-200 border-4 border-white rounded-lg p-4 shadow-lg transform -rotate-5">
+              <p className="font-permanent-marker text-blue-900 text-lg md:text-xl">
+                &ldquo;Reading is a discount ticket to everywhere..&rdquo;
+              </p>
+              <p className="font-permanent-marker text-purple-800 text-lg md:text-xl mt-1">- Mary Schmich</p>
             </div>
 
-            {/* Moon & Sparkles */}
-            <div className="absolute right-[-60px] bottom-[20%] w-[100px] h-[100px]">
+            <div className="absolute right-[-40px] bottom-[20%] w-[80px] h-[80px] md:w-[100px] md:h-[100px]">
               <Moon className="h-full w-full text-purple-400 opacity-70" />
             </div>
-            <div className="absolute left-[-5%] top-[-20%] w-[100px] h-[100px]">
+            <div className="absolute left-[-5%] top-[-20%] w-[80px] h-[80px] md:w-[100px] md:h-[100px]">
               <Sparkles className="h-full w-full text-purple-400 opacity-70" />
             </div>
           </div>
