@@ -8,7 +8,7 @@ export interface Book {
   pages: number;
   reviews?: number;
   imageSrc?: string;
-  available?: "available" | "borrowed"; 
+  available?: string;
 }
 
   export interface Genre {

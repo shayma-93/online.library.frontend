@@ -10,6 +10,7 @@ import Footer from "./components/footer"
 import Books from "./data/Books.json"
 
 export default function Home() {
+  
   const [books, setBooks] = useState<Book[]>([])
 
   useEffect(() => {
