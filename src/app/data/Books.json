@@ -8,7 +8,9 @@
       "year": 1997,
       "rating": 4.8,
       "imageSrc": "https://covers.openlibrary.org/b/id/7984916-L.jpg",
-      "pages": 309
+      "pages": 309,
+      "available": "borrowed"
+
     },
     {
       "id": 2,
@@ -18,7 +20,9 @@
       "year": 1937,
       "rating": 4.7,
       "imageSrc": "https://covers.openlibrary.org/b/id/8106662-L.jpg",
-      "pages": 310
+      "pages": 310,
+      "available": "borrowed"
+
     },
     {
       "id": 3,
@@ -28,7 +32,8 @@
       "year": 1996,
       "rating": 4.6,
       "imageSrc": "https://covers.openlibrary.org/b/id/8231856-L.jpg",
-      "pages": 694
+      "pages": 694,
+      "available": "borrowed"
     },
     {
       "id": 4,
@@ -38,7 +43,8 @@
       "year": 2007,
       "rating": 4.7,
       "imageSrc": "https://covers.openlibrary.org/b/id/8225631-L.jpg",
-      "pages": 662
+      "pages": 662,
+      "available": "borrowed"
     },
     {
       "id": 5,
@@ -48,7 +54,8 @@
       "year": 2006,
       "rating": 4.5,
       "imageSrc": "https://covers.openlibrary.org/b/id/6984512-L.jpg",
-      "pages": 541
+      "pages": 541,
+      "available": "borrowed"
     },
     {
       "id": 6,
@@ -58,7 +65,8 @@
       "year": 2011,
       "rating": 4.3,
       "imageSrc": "https://covers.openlibrary.org/b/id/7272061-L.jpg",
-      "pages": 387
+      "pages": 387,
+      "available":"available" 
     },
     {
       "id": 7,
@@ -68,7 +76,8 @@
       "year": 2002,
       "rating": 4.4,
       "imageSrc": "https://covers.openlibrary.org/b/id/240727-L.jpg",
-      "pages": 192
+      "pages": 192,
+      "available":"available" 
     },
     {
       "id": 8,
@@ -78,7 +87,8 @@
       "year": 1995,
       "rating": 4.5,
       "imageSrc": "https://covers.openlibrary.org/b/id/8231996-L.jpg",
-      "pages": 399
+      "pages": 399,
+      "available": "borrowed"
     },
     {
       "id": 9,
@@ -88,7 +98,8 @@
       "year": 2002,
       "rating": 4.3,
       "imageSrc": "https://covers.openlibrary.org/b/id/7278315-L.jpg",
-      "pages": 509
+      "pages": 509,
+      "available":"available" 
     },
     {
       "id": 10,
@@ -98,7 +109,8 @@
       "year": 2009,
       "rating": 4.2,
       "imageSrc": "https://covers.openlibrary.org/b/id/6492436-L.jpg",
-      "pages": 402
+      "pages": 402,
+      "available":"available" 
     },
     {
       "id": 11,
@@ -108,7 +120,8 @@
       "imageSrc": "https://covers.openlibrary.org/b/id/10200092-L.jpg",
       "genre": "Fantasy",
       "year": 2020,
-      "pages": 320
+      "pages": 320,
+      "available":"available" 
     },
     {
       "id": 12,
@@ -118,7 +131,8 @@
       "imageSrc": "https://covers.openlibrary.org/b/id/10200091-L.jpg",
       "genre": "Magic",
       "year": 2019,
-      "pages": 280
+      "pages": 280,
+      "available":"available" 
     },
     {
       "id": 13,
@@ -128,7 +142,8 @@
       "imageSrc": "https://covers.openlibrary.org/b/id/10200090-L.jpg",
       "genre": "Spells",
       "year": 2021,
-      "pages": 350
+      "pages": 350,
+      "available":"available" 
     },
     {
       "id": 14,
@@ -138,7 +153,8 @@
       "imageSrc": "https://covers.openlibrary.org/b/id/10200095-L.jpg",
       "genre": "Fantasy",
       "year": 2023,
-      "pages": 450
+      "pages": 450,
+      "available":"available" 
     },
     {
       "id": 15,
@@ -148,7 +164,8 @@
       "imageSrc": "https://covers.openlibrary.org/b/id/10200093-L.jpg",
       "genre": "Horror",
       "year": 2022,
-      "pages": 370
+      "pages": 370,
+      "available":"available" 
     },
     {
       "id": 16,
@@ -158,7 +175,8 @@
       "imageSrc": "https://covers.openlibrary.org/b/id/10200097-L.jpg",
       "genre": "Adventure",
       "year": 2018,
-      "pages": 300
+      "pages": 300,
+      "available":"available" 
     },
     {
       "id": 17,
@@ -168,7 +186,8 @@
       "imageSrc": "https://covers.openlibrary.org/b/id/10200099-L.jpg",
       "genre": "Mystery",
       "year": 2024,
-      "pages": 480
+      "pages": 480,
+      "available": "borrowed"
     },
     {
       "id": 18,
@@ -178,7 +197,8 @@
       "imageSrc": "https://covers.openlibrary.org/b/id/10200094-L.jpg",
       "genre": "Fantasy",
       "year": 2020,
-      "pages": 400
+      "pages": 400,
+      "available": "borrowed"
     },
     {
       "id": 19,
@@ -188,7 +208,8 @@
       "imageSrc": "https://covers.openlibrary.org/b/id/10200096-L.jpg",
       "genre": "Sci-Fi",
       "year": 2021,
-      "pages": 340
+      "pages": 340,
+      "available":"available" 
     },
     {
       "id": 20,
@@ -198,7 +219,8 @@
       "imageSrc": "https://covers.openlibrary.org/b/id/10200098-L.jpg",
       "genre": "Fantasy",
       "year": 2023,
-      "pages": 410
+      "pages": 410,
+      "available":"available" 
     },
     {
       "id": 21,
@@ -208,7 +230,8 @@
       "imageSrc": "https://covers.openlibrary.org/b/id/10200100-L.jpg",
       "genre": "Historical Fiction",
       "year": 2019,
-      "pages": 370
+      "pages": 370,
+      "available":"available" 
     },
     {
       "id": 22,
@@ -218,7 +241,8 @@
       "imageSrc": "https://covers.openlibrary.org/b/id/10200101-L.jpg",
       "genre": "Fantasy",
       "year": 2024,
-      "pages": 500
+      "pages": 500,
+      "available": "borrowed"
     },
     {
       "id": 23,
@@ -228,7 +252,8 @@
       "imageSrc": "https://covers.openlibrary.org/b/id/10200102-L.jpg",
       "genre": "Thriller",
       "year": 2023,
-      "pages": 420
+      "pages": 420,
+      "available": "borrowed"
     },
     {
       "id": 24,
@@ -238,7 +263,8 @@
       "imageSrc": "https://covers.openlibrary.org/b/id/10200103-L.jpg",
       "genre": "Time Travel",
       "year": 2022,
-      "pages": 375
+      "pages": 375,
+      "available":"available" 
     },
     {
       "id": 25,
@@ -248,7 +274,8 @@
       "imageSrc": "https://covers.openlibrary.org/b/id/10200104-L.jpg",
       "genre": "Romance",
       "year": 2024,
-      "pages": 310
+      "pages": 310,
+      "available": "borrowed"
     },
     {
       "id": 26,
@@ -258,7 +285,8 @@
       "imageSrc": "https://covers.openlibrary.org/b/id/10200105-L.jpg",
       "genre": "Fantasy",
       "year": 2021,
-      "pages": 380
+      "pages": 380,
+      "available": "borrowed"
     },
     {
       "id": 27,
@@ -268,7 +296,8 @@
       "imageSrc": "https://covers.openlibrary.org/b/id/10200106-L.jpg",
       "genre": "Adventure",
       "year": 2023,
-      "pages": 450
+      "pages": 450,
+      "available": "borrowed"
     },
     {
       "id": 28,
@@ -278,7 +307,8 @@
       "imageSrc": "https://covers.openlibrary.org/b/id/10200107-L.jpg",
       "genre": "Sci-Fi",
       "year": 2022,
-      "pages": 330
+      "pages": 330,
+      "available": "borrowed"
     },
     {
       "id": 29,
@@ -289,7 +319,7 @@
       "genre": "Fantasy",
       "year": 2023,
       "pages": 460,
-      "available":  "available" 
+      "available":"available" 
     }
   ]
 }

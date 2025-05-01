@@ -7,11 +7,14 @@ import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import useSearch from "../../hooks/use-search";
 import Books from "../data/Books.json";
+import { Book } from "../data/interfaces";
 
 const Header = () => {
+  const books: Book[] = Books.BooksData as Book[];
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const closeMenu = () => setIsMenuOpen(false);
-  const { query, suggestions, handleInputChange } = useSearch(Books.BooksData); 
+  const { query, suggestions, handleInputChange } = useSearch(books); 
 
   return (
     <header className="w-full border-b bg-purple-100 backdrop-blur-sm sticky top-0 z-50">

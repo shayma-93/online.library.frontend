@@ -25,7 +25,6 @@ export default function FilterSidebar() {
     availability: true,
   });
 
-  const [showAllGenres, setShowAllGenres] = useState(false);
   const [selectedGenres, setSelectedGenres] = useState<string[]>([]);
   const [yearValue, setYearValue] = useState<[number, number]>([1950, 2025]);
   const [ratingRange, setRatingRange] = useState<[number, number]>([0, 5]);

@@ -1,15 +1,16 @@
 export interface Book {
-    id: number;
-    title: string;
-    author: string;
-    genre: string;
-    year: number;
-    rating: number;
-    pages:number;
-    reviews?: number; 
-    imageSrc?: string; 
+  id: number;
+  title: string;
+  author: string;
+  genre: string;
+  year: number;
+  rating: number;
+  pages: number;
+  reviews?: number;
+  imageSrc?: string;
+  available?: "available" | "borrowed"; 
+}
 
-  }
   export interface Genre {
     id: string;
     label: string;
