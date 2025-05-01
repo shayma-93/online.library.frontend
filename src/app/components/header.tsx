@@ -11,7 +11,7 @@ import Books from "../data/Books.json";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const closeMenu = () => setIsMenuOpen(false);
-  const { query, suggestions, handleInputChange } = useSearch(Books.BooksData); // Now this should work
+  const { query, suggestions, handleInputChange } = useSearch(Books.BooksData); 
 
   return (
     <header className="w-full border-b bg-purple-100 backdrop-blur-sm sticky top-0 z-50">
@@ -55,11 +55,11 @@ const Header = () => {
                               src={item.imageSrc}
                               alt={item.title}
                               className="w-8 h-12 mr-2"
-                              width={32} // Set appropriate width for the image
-                              height={48} // Set appropriate height for the image
+                              width={32} 
+                              height={48} 
                             />
                           ) : (
-                            <div className="w-8 h-12 mr-2 bg-gray-300" /> // Placeholder if image is missing
+                            <div className="w-8 h-12 mr-2 bg-gray-300" /> 
                           )}
                           <span>
                             {item.title} - {item.author}
@@ -98,14 +98,14 @@ const Header = () => {
                           <div className="flex items-center">
                             {item.imageSrc ? (
                               <Image
-                                src={item.imageSrc} // Ensure item.imageSrc is a valid string
+                                src={item.imageSrc} 
                                 alt={item.title}
                                 className="w-8 h-12 mr-2"
-                                width={32} // Define the width for the image
-                                height={48} // Define the height for the image
+                                width={32} 
+                                height={48} 
                               />
                             ) : (
-                              <div className="w-8 h-12 mr-2 bg-gray-300" /> // Fallback if imageSrc is missing
+                              <div className="w-8 h-12 mr-2 bg-gray-300" /> 
                             )}
                             <span>
                               {item.title} - {item.author}
