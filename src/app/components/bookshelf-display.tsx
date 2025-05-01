@@ -161,7 +161,7 @@ export default function BookshelfDisplay({
     }
   
     try {
-      const res = await fetch('/api/books', {
+      const res = await fetch('/api/creat-bookshelf', {
         method: 'POST',
         body: formData,
       });
@@ -868,84 +868,92 @@ export default function BookshelfDisplay({
         </div>
       </div>
 
-      {/* Add Book Dialog */}
       <Dialog open={isAddBookOpen} onOpenChange={setIsAddBookOpen}>
-        <DialogContent className="sm:max-w-[425px] ">
-          <DialogHeader>
-            <DialogTitle>Add a New Book</DialogTitle>
-          </DialogHeader>
-          <div className="grid gap-4 py-4">
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="title" className="text-right">
-                Title
-              </Label>
-              <Input
-                id="title"
-                name="title"
-                value={newBook.title}
-                onChange={handleNewBookChange}
-                className="col-span-3"
-                placeholder="Enter book title"
-              />
-            </div>
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="author" className="text-right">
-                Author
-              </Label>
-              <Input
-                id="author"
-                name="author"
-                value={newBook.author}
-                onChange={handleNewBookChange}
-                className="col-span-3"
-                placeholder="Enter author name"
-              />
-            </div>
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="rating" className="text-right">
-                Rating
-              </Label>
-            
-              <div className="col-span-3">
-                <div className="flex items-center space-x-2">
-                  <input
-                    type="range"
-                    min="1"
-                    max="5"
-                    step="0.5"
-                    value={newBook.rating}
-                    onChange={(e) => handleRatingChange(e.target.value)}
-                    className="w-full"
-                  />
-                  <span className="text-sm font-medium">{newBook.rating}</span>
-                </div>
-                <div className="flex mt-1">{renderStars(newBook.rating)}</div>
-              </div>
-            </div>
+  <DialogContent className="sm:max-w-[425px]">
+    <DialogHeader>
+      <DialogTitle>Add a New Book</DialogTitle>
+    </DialogHeader>
+
+    <div className="grid gap-4 py-4">
+      {/* Title */}
+      <div className="grid grid-cols-4 items-center gap-4">
+        <Label htmlFor="title" className="text-right">
+          Title
+        </Label>
+        <Input
+          id="title"
+          name="title"
+          value={newBook.title}
+          onChange={handleNewBookChange}
+          className="col-span-3"
+          placeholder="Enter book title"
+        />
+      </div>
+
+      {/* Author */}
+      <div className="grid grid-cols-4 items-center gap-4">
+        <Label htmlFor="author" className="text-right">
+          Author
+        </Label>
+        <Input
+          id="author"
+          name="author"
+          value={newBook.author}
+          onChange={handleNewBookChange}
+          className="col-span-3"
+          placeholder="Enter author name"
+        />
+      </div>
+
+      {/* Rating */}
+      <div className="grid grid-cols-4 items-center gap-4">
+        <Label htmlFor="rating" className="text-right">
+          Rating
+        </Label>
+        <div className="col-span-3">
+          <div className="flex items-center space-x-2">
+            <input
+              type="range"
+              min="1"
+              max="5"
+              step="0.5"
+              value={newBook.rating}
+              onChange={(e) => handleRatingChange(e.target.value)}
+              className="w-full"
+            />
+            <span className="text-sm font-medium">{newBook.rating}</span>
           </div>
-          <DialogFooter>
-            <Button variant="outline" onClick={() => setIsAddBookOpen(false)}>
-              Cancel
-            </Button>
-            <div className="grid grid-cols-4 items-center gap-4">
-            <Button onClick={addBook}>
-                <Label htmlFor="file" className="text-right">
-                Add Book              
-                </Label>
-                <Input
-                  id="file"
-                  name="file"
-                  type="file"
-                  accept=".pdf,.epub"
-                  onChange={(e) => handleFileChange(e.target.files?.[0])}
-                  className="col-span-3"
-                />
-            </Button>
-            </div>
-            
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
+          <div className="flex mt-1">{renderStars(newBook.rating)}</div>
+        </div>
+      </div>
+
+      {/* File Upload */}
+      <div className="grid grid-cols-4 items-center gap-4">
+  <Label htmlFor="file" className="text-right">
+    Book File
+  </Label>
+  <input
+    id="file"
+    name="file"
+    type="file"
+    accept=".pdf,.epub"
+    onChange={(e) => handleFileChange(e.target.files?.[0])}
+    className="col-span-3 rounded-lg border px-2 py-1 text-center file:mr-4 file:rounded-md file:border-0  file:px-4 file:py-2  file:font-semibold hover:file:bg-violet-100"
+  />
+</div>
+
+    </div>
+
+    {/* Buttons */}
+    <DialogFooter className="flex justify-end gap-2">
+      <Button variant="outline" onClick={() => setIsAddBookOpen(false)}>
+        Cancel
+      </Button>
+      <Button variant="outline" onClick={addBook}>Add Book</Button>
+    </DialogFooter>
+  </DialogContent>
+</Dialog>
+
 
       {/* Lend Book Dialog */}
       <Dialog open={isLendBookOpen} onOpenChange={setIsLendBookOpen}>
