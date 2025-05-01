@@ -2,23 +2,13 @@
 
 import { useState, useEffect } from "react";
 import { Button } from "./ui/button";
-import { Checkbox } from "./ui/checkbox";
-import { Label } from "./ui/label";
-import { Slider } from "./ui/slider";
-import {
-  Calendar,
-  BookMarked,
-  Feather,
-  Sparkles,
-  BookOpen,
-  Wand2,
-  Star,
-  Filter,
-  ChevronDown,
-  ChevronUp,
-  Moon,
-} from "lucide-react";
+import {Sparkles, Wand2, Filter, Moon} from "lucide-react";
 import genres from "../data/genres.json";
+import AvailabilityFilter from "./availability";
+import PagesFilter from "./pages";
+import RatingFilter from "./rating";
+import PublicationYearFilter from "./years";
+import GenreFilter from "./genres";
 
 // Expanded years range
 const yearRange = {
@@ -34,14 +24,14 @@ export default function FilterSidebar() {
     pages: true,
     availability: true,
   });
-  const [showAllGenres, setShowAllGenres] = useState(false);
 
+  const [showAllGenres, setShowAllGenres] = useState(false);
   const [selectedGenres, setSelectedGenres] = useState<string[]>([]);
-  const [yearValue, setYearValue] = useState([2018, 2025]);
-  const [ratingRange, setRatingRange] = useState([0, 5]);
-  const [pagesRange, setPagesRange] = useState([100, 500]);
-  const [availability, setAvailability] = useState<string[]>([]);
+  const [yearValue, setYearValue] = useState<[number, number]>([1950, 2025]);
+  const [ratingRange, setRatingRange] = useState<[number, number]>([0, 5]);
+  const [pagesRange, setPagesRange] = useState<[number, number]>([50, 990]);
   const [activeFilters, setActiveFilters] = useState(0);
+  const [availability, setAvailability] = useState<string[]>([]);
 
   // Calculate active filters count
   useEffect(() => {
@@ -72,7 +62,9 @@ export default function FilterSidebar() {
 
   const toggleAvailability = (value: string) => {
     setAvailability((prev) =>
-      prev.includes(value) ? prev.filter((v) => v !== value) : [...prev, value]
+      prev.includes(value)
+        ? prev.filter((item) => item !== value)
+        : [...prev, value]
     );
   };
 
@@ -135,266 +127,65 @@ export default function FilterSidebar() {
         <div className="absolute inset-0 opacity-5 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCI+PHBhdGggZD0iTTAgMGgyMHYyMEgweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0wIDBoMjB2MUgwem0wIDE5aDIwdjFIMHoiIGZpbGw9IiMwMDAiIGZpbGwtb3BhY2l0eT0iLjA1Ii8+PC9zdmc+')]"></div>
 
         {/* Genres section */}
-        <div className="space-y-4 relative">
-          <div
-            className="flex items-center justify-between cursor-pointer group"
-            onClick={() => toggleSection("genres")}
-          >
-            <h4 className="font-dancing-script text-xl font-bold text-purple-900 flex items-center">
-              <BookOpen className="h-4 w-4 mr-2 text-purple-700" />
-              Magical Genres
-            </h4>
-            <div className="h-6 w-6 rounded-full bg-purple-50 flex items-center justify-center group-hover:bg-purple-100 transition-colors">
-              {expandedSections.genres ? (
-                <ChevronUp className="h-4 w-4 text-purple-300" />
-              ) : (
-                <ChevronDown className="h-4 w-4 text-purple-300" />
-              )}
-            </div>
-          </div>
-
-          {expandedSections.genres && (
-  <div className="pl-6 pt-4 pb-2 rounded-xl bg-purple-50/50 pr-2">
-    <div className="grid grid-cols-2 gap-x-2 gap-y-3">
-      {(showAllGenres ? genres.genres : genres.genres.slice(0, 8)).map(
-        (genre) => (
-          <div key={genre.id} className="flex items-center space-x-2 group">
-            <Checkbox
-              id={`genre-${genre.id}`}
-              checked={selectedGenres.includes(genre.id)}
-              onCheckedChange={() => toggleGenre(genre.id)}
-              className="border-purple-700 data-[state=checked]:bg-purple-200 data-[state=checked]:text-purple-600 rounded-sm"
-            />
-            <Label
-              htmlFor={`genre-${genre.id}`}
-              className="text-lg text-purple-700 cursor-pointer group-hover:text-purple-600 transition-colors"
-            >
-              {genre.label}
-            </Label>
-          </div>
-        )
-      )}
-    </div>
-
-    {genres.genres.length > 8 && (
-      <div className="flex justify-center pt-3">
-        <div
-          onClick={() => setShowAllGenres((prev) => !prev)}
-          className="h-8 w-8 rounded-full bg-purple-100 hover:bg-purple-200 cursor-pointer flex items-center justify-center transition-colors"
-        >
-          {showAllGenres ? (
-            <ChevronUp className="h-5 w-5 text-purple-600" />
-          ) : (
-            <ChevronDown className="h-5 w-5 text-purple-600" />
-          )}
-        </div>
-      </div>
-    )}
-  </div>
-)}
-
-
+        <div className="space-y-6">
+        <GenreFilter
+        genres={genres}
+        selectedGenres={selectedGenres}
+        toggleGenre={toggleGenre}
+      />
           {/* Decorative divider */}
           <div className="h-px bg-gradient-to-r from-transparent via-purple-400 to-transparent"></div>
         </div>
 
         {/* Years section */}
-        <div className="space-y-4 relative">
-          <div
-            className="flex items-center justify-between cursor-pointer group"
-            onClick={() => toggleSection("years")}
-          >
-            <h4 className="font-dancing-script font-bold text-xl text-purple-900 flex items-center">
-              <Calendar className="h-4 w-4 mr-2  text-purple-700" />
-              Publication Year
-            </h4>
-            <div className="h-6 w-6 rounded-full bg-purple-50 flex items-center justify-center group-hover:bg-purple-100 transition-colors">
-              {expandedSections.years ? (
-                <ChevronUp className="h-4 w-4 text-purple-300" />
-              ) : (
-                <ChevronDown className="h-4 w-4 text-purple-300" />
-              )}
-            </div>
-          </div>
-
-          {expandedSections.years && (
-            <div className="pl-6 space-y-4 mt-2">
-              <div className="bg-purple-50/50 p-3 rounded-md border border-purple-100">
-                <Slider
-                  value={yearValue}
-                  min={yearRange.min}
-                  max={yearRange.max}
-                  step={1}
-                  onValueChange={setYearValue}
-                  className="w-full bg-gradient-to-r from-blue-200 to-purple-200 rounded-xl"
-                />
-                <div className="flex justify-between font-permanent-marker text-s text-purple-900 mt-2">
-                  <span>{formatYearValue(yearValue[0])}</span>
-                  <span>{formatYearValue(yearValue[1])}</span>
-                </div>
-              </div>
-            </div>
-          )}
+        <div className="space-y-6">
+          <PublicationYearFilter
+            expandedSections={expandedSections}
+            yearValue={yearValue}
+            yearRange={yearRange}
+            formatYearValue={formatYearValue}
+            toggleSection={toggleSection}
+            setYearValue={setYearValue}
+          />
 
           {/* Decorative divider */}
           <div className="h-px bg-gradient-to-r from-transparent via-purple-400 to-transparent"></div>
         </div>
 
         {/* Rating section */}
-        <div className="space-y-4 relative">
-          <div
-            className="flex items-center justify-between cursor-pointer group"
-            onClick={() => toggleSection("rating")}
-          >
-            <h4 className="font-dancing-script text-xl font-bold text-purple-900 flex items-center">
-              <Star className="h-4 w-4 mr-2 text-purple-700" />
-              Magical Rating
-            </h4>
-            <div className="h-6 w-6 rounded-full bg-purple-50 flex items-center justify-center group-hover:bg-purple-100 transition-colors">
-              {expandedSections.rating ? (
-                <ChevronUp className="h-4 w-4 text-purple-300" />
-              ) : (
-                <ChevronDown className="h-4 w-4 text-purple-300" />
-              )}
-            </div>
-          </div>
-
-          {expandedSections.rating && (
-            <div className="pl-6 space-y-4 mt-2">
-              <div className="bg-purple-50/50 p-3 rounded-md border border-purple-100">
-                <Slider
-                  defaultValue={ratingRange}
-                  min={0}
-                  max={5}
-                  step={0.5}
-                  onValueChange={setRatingRange}
-                  className="w-full bg-gradient-to-r from-blue-200 to-purple-200 rounded-xl  "
-                />
-                <div className="font-permanent-marker flex justify-between text-s text-purple-900 mt-2">
-                  <div className="flex items-center">
-                    <span>{ratingRange[0]}</span>
-                    <Star className="h-4 w-4 ml-1 text-purple-700" />
-                  </div>
-                  <div className="flex items-center">
-                    <span>{ratingRange[1]}</span>
-                    <Star className="h-4 w-4 ml-1 text-purple-700" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
+        <div className="space-y-6">
+          <RatingFilter
+            ratingRange={ratingRange}
+            setRatingRange={setRatingRange}
+            expanded={expandedSections.rating}
+            toggleSection={toggleSection}
+          />
 
           {/* Decorative divider */}
           <div className="h-px bg-gradient-to-r from-transparent via-purple-400 to-transparent"></div>
         </div>
 
         {/* Pages section */}
-        <div className="space-y-4 relative">
-          <div
-            className="flex items-center justify-between cursor-pointer group"
-            onClick={() => toggleSection("pages")}
-          >
-            <h4 className="font-dancing-script text-xl font-bold text-purple-900 flex items-center">
-              <BookMarked className="h-4 w-4 mr-2 text-purple-700" />
-              Page Count
-            </h4>
-            <div className="h-6 w-6 rounded-full bg-purple-50 flex items-center justify-center group-hover:bg-purple-100 transition-colors">
-              {expandedSections.pages ? (
-                <ChevronUp className="h-4 w-4 text-purple-300" />
-              ) : (
-                <ChevronDown className="h-4 w-4 text-purple-300" />
-              )}
-            </div>
-          </div>
-
-          {expandedSections.pages && (
-            <div className="pl-6 space-y-4 mt-2">
-              <div className="bg-purple-50/50 p-3 rounded-md border border-purple-100">
-                <Slider
-                  defaultValue={pagesRange}
-                  min={50}
-                  max={1000}
-                  step={10}
-                  onValueChange={setPagesRange}
-                  className="w-full bg-gradient-to-r from-blue-200 to-purple-200 rounded-xl"
-                />
-                <div className="font-permanent-marker flex justify-between text-s text-purple-900 mt-2">
-                  <span>{pagesRange[0]} pages</span>
-                  <span>{pagesRange[1]} pages</span>
-                </div>
-              </div>
-            </div>
-          )}
+        <div className="space-y-6">
+          <PagesFilter
+            pagesRange={pagesRange}
+            setPagesRange={setPagesRange}
+            expanded={expandedSections.pages}
+            toggleSection={toggleSection}
+          />
 
           {/* Decorative divider */}
           <div className="h-px bg-gradient-to-r from-transparent via-purple-400 to-transparent"></div>
         </div>
 
         {/* Availability section */}
-        <div className="space-y-4 relative">
-          <div
-            className="flex items-center justify-between cursor-pointer group"
-            onClick={() => toggleSection("availability")}
-          >
-            <h4 className="font-dancing-script text-xl text-purple-900 font-bold flex items-center">
-              <Feather className="h-4 w-4 mr-2 text-purple-700" />
-              Availability
-            </h4>
-            <div className="h-6 w-6 rounded-full bg-purple-50 flex items-center justify-center group-hover:bg-purple-100 transition-colors">
-              {expandedSections.availability ? (
-                <ChevronUp className="h-4 w-4 text-purple-300" />
-              ) : (
-                <ChevronDown className="h-4 w-4 text-purple-300" />
-              )}
-            </div>
-          </div>
-
-          {expandedSections.availability && (
-            <div className="pl-6 space-y-3 pt-4 pb-4 rounded-xl bg-purple-50/50   pr-2">
-              <div className="flex items-center space-x-2 group">
-                <Checkbox
-                  id="availability-available"
-                  checked={availability.includes("available")}
-                  onCheckedChange={() => toggleAvailability("available")}
-                  className="border-purple-500 data-[state=checked]:bg-purple-200 data-[state=checked]:text-purple-600 rounded-sm"
-                />
-                <Label
-                  htmlFor="availability-available"
-                  className="text-lg text-purple-700 cursor-pointer group-hover:text-purple-600 transition-colors"
-                >
-                  Available Now
-                </Label>
-              </div>
-              <div className="flex items-center space-x-2 group">
-                <Checkbox
-                  id="availability-rare"
-                  checked={availability.includes("rare")}
-                  onCheckedChange={() => toggleAvailability("rare")}
-                  className="border-purple-500 data-[state=checked]:bg-purple-200 data-[state=checked]:text-purple-600 rounded-sm"
-                />
-                <Label
-                  htmlFor="availability-rare"
-                  className="text-lg text-purple-700 cursor-pointer group-hover:text-purple-600 transition-colors"
-                >
-                  Rare Editions
-                </Label>
-              </div>
-              <div className="flex items-center space-x-2 group">
-                <Checkbox
-                  id="availability-limited"
-                  checked={availability.includes("limited")}
-                  onCheckedChange={() => toggleAvailability("limited")}
-                  className="border-purple-500 data-[state=checked]:bg-purple-200 data-[state=checked]:text-purple-600 rounded-sm"
-                />
-                <Label
-                  htmlFor="availability-limited"
-                  className="text-lg text-purple-700 cursor-pointer group-hover:text-purple-600 transition-colors"
-                >
-                  Limited Edition
-                </Label>
-              </div>
-            </div>
-          )}
+        <div className="space-y-6">
+          <AvailabilityFilter
+            availability={availability}
+            expanded={expandedSections.availability}
+            toggleSection={toggleSection}
+            toggleAvailability={toggleAvailability}
+          />
         </div>
       </div>
 

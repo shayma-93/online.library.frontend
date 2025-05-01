@@ -6,9 +6,8 @@ export interface Book {
     year: number;
     rating: number;
     pages:number;
-    reviews?: number; // Optional, because not all books may have a review count
-    imageSrc?: string; // Optional, in case the book does not have an image in your static data
-    available?: string; // or `boolean` if it's stored as true/false
+    reviews?: number; 
+    imageSrc?: string; 
 
   }
   export interface Genre {
