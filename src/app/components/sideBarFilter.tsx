@@ -28,7 +28,7 @@ export default function FilterSidebar() {
   const [selectedGenres, setSelectedGenres] = useState<string[]>([]);
   const [yearValue, setYearValue] = useState<[number, number]>([1950, 2025]);
   const [ratingRange, setRatingRange] = useState<[number, number]>([0, 5]);
-  const [pagesRange, setPagesRange] = useState<[number, number]>([50, 990]);
+  const [pagesRange, setPagesRange] = useState<[number, number]>([0, 990]);
   const [activeFilters, setActiveFilters] = useState(0);
   const [availability, setAvailability] = useState<string[]>([]);
 
@@ -39,7 +39,7 @@ export default function FilterSidebar() {
     if (yearValue[0] !== yearRange.min || yearValue[1] !== yearRange.max)
       count++;
     if (ratingRange[0] !== 0 || ratingRange[1] !== 5) count++;
-    if (pagesRange[0] !== 100 || pagesRange[1] !== 500) count++;
+    if (pagesRange[0] !== 0 || pagesRange[1] !== 990) count++;
     if (availability.length > 0) count++;
     setActiveFilters(count);
   }, [selectedGenres, yearValue, ratingRange, pagesRange, availability]);
@@ -71,7 +71,7 @@ export default function FilterSidebar() {
     setSelectedGenres([]);
     setYearValue([yearRange.min, yearRange.max]);
     setRatingRange([0, 5]);
-    setPagesRange([100, 500]);
+    setPagesRange([0, 990]);
     setAvailability([]);
   };
 

@@ -40,8 +40,8 @@ const PagesFilter: FC<PagesFilterProps> = ({
         <div className="pl-6 space-y-4 mt-2">
           <div className="bg-purple-50/50 p-3 rounded-md border border-purple-100">
             <Slider
-              defaultValue={pagesRange}
-              min={50}
+              value={pagesRange}
+              min={0}
               max={900}
               step={10}
               onValueChange={(val) => setPagesRange(val as [number, number])}

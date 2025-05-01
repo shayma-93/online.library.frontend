@@ -40,7 +40,7 @@ const RatingFilter: React.FC<RatingFilterProps> = ({
         <div className="pl-6 space-y-4 mt-2">
           <div className="bg-purple-50/50 p-3 rounded-md border border-purple-100">
             <Slider
-              defaultValue={ratingRange}
+              value={ratingRange}
               min={0}
               max={5}
               step={0.5}
