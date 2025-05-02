@@ -9,8 +9,27 @@ export interface Book {
   reviews?: number;
   imageSrc?: string;
   available?: string;
+  borrowedBy?: string;
+  borrowDate?: string;
+  returnDate?: string;
+}
+interface Bookshelf {
+  id: string;
+  name: string;
+  description: string;
+  theme: string;
+  owner: {
+    id: string;
+    name: string;
+    avatar: string;
+  };
+  books: Book[];
 }
 
+// Define the expected shape of the JSON
+interface BookshelvesData {
+  Bookshelves: Bookshelf[];
+}
   export interface Genre {
     id: string;
     label: string;

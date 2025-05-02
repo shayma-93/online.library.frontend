@@ -10,12 +10,10 @@ export default function NewsletterSection() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     if (email) {
-      // In a real app, this would connect to a newsletter service
       console.log("Subscribing email:", email)
       setIsSubmitted(true)
       setEmail("")
 
-      // Reset the submitted state after 3 seconds
       setTimeout(() => {
         setIsSubmitted(false)
       }, 3000)

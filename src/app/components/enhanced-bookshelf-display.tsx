@@ -10,7 +10,6 @@ import { cn } from "../../lib/utils"
 import { useToast } from "../../hooks/use-toast"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "../components/ui/dialog"
 
-
 export type Book = {
   id: string
   title: string
