@@ -6,17 +6,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from "../atoms/button";
 import { ChevronRight, Sparkles } from 'lucide-react';
+import { Book } from '../../../data/interfaces';
 
-interface Book {
-  id: number;
-  title: string;
-  author: string;
-  genre: string;
-  year: number;
-  rating: number;
-  reviews?: number;
-  imageSrc?: string;
-}
 
 const PopularMagicalBooks = ({ books }: { books: Book[] }) => {
   const [showMore, setShowMore] = useState(false);
