@@ -1,3 +1,5 @@
+"use client"
+
 import { useState, useEffect } from "react";
 import { Button } from "../atoms/button";
 import { Sparkles, Wand2, Filter, Moon} from "lucide-react";
