@@ -10,7 +10,6 @@
       "imageSrc": "https://covers.openlibrary.org/b/id/7984916-L.jpg",
       "pages": 309,
       "available": "borrowed"
-
     },
     {
       "id": 2,
@@ -22,7 +21,6 @@
       "imageSrc": "https://covers.openlibrary.org/b/id/8106662-L.jpg",
       "pages": 310,
       "available": "borrowed"
-
     },
     {
       "id": 3,
@@ -66,7 +64,7 @@
       "rating": 4.3,
       "imageSrc": "https://covers.openlibrary.org/b/id/7272061-L.jpg",
       "pages": 387,
-      "available":"available" 
+      "available": "available"
     },
     {
       "id": 7,
@@ -77,7 +75,7 @@
       "rating": 4.4,
       "imageSrc": "https://covers.openlibrary.org/b/id/240727-L.jpg",
       "pages": 192,
-      "available":"available" 
+      "available": "available"
     },
     {
       "id": 8,
@@ -99,7 +97,7 @@
       "rating": 4.3,
       "imageSrc": "https://covers.openlibrary.org/b/id/7278315-L.jpg",
       "pages": 509,
-      "available":"available" 
+      "available": "available"
     },
     {
       "id": 10,
@@ -110,7 +108,7 @@
       "rating": 4.2,
       "imageSrc": "https://covers.openlibrary.org/b/id/6492436-L.jpg",
       "pages": 402,
-      "available":"available" 
+      "available": "available"
     },
     {
       "id": 11,
@@ -121,7 +119,7 @@
       "genre": "Fantasy",
       "year": 2020,
       "pages": 320,
-      "available":"available" 
+      "available": "available"
     },
     {
       "id": 12,
@@ -132,7 +130,7 @@
       "genre": "Magic",
       "year": 2019,
       "pages": 280,
-      "available":"available" 
+      "available": "available"
     },
     {
       "id": 13,
@@ -143,7 +141,7 @@
       "genre": "Spells",
       "year": 2021,
       "pages": 350,
-      "available":"available" 
+      "available": "available"
     },
     {
       "id": 14,
@@ -154,7 +152,7 @@
       "genre": "Fantasy",
       "year": 2023,
       "pages": 450,
-      "available":"available" 
+      "available": "available"
     },
     {
       "id": 15,
@@ -165,7 +163,7 @@
       "genre": "Horror",
       "year": 2022,
       "pages": 370,
-      "available":"available" 
+      "available": "available"
     },
     {
       "id": 16,
@@ -176,7 +174,7 @@
       "genre": "Adventure",
       "year": 2018,
       "pages": 300,
-      "available":"available" 
+      "available": "available"
     },
     {
       "id": 17,
@@ -206,10 +204,10 @@
       "author": "Clara Timekeeper",
       "rating": 4.5,
       "imageSrc": "https://covers.openlibrary.org/b/id/10200096-L.jpg",
-      "genre": "Sci-Fi",
+      "genre": "Science-fiction",
       "year": 2021,
       "pages": 340,
-      "available":"available" 
+      "available": "available"
     },
     {
       "id": 20,
@@ -220,7 +218,7 @@
       "genre": "Fantasy",
       "year": 2023,
       "pages": 410,
-      "available":"available" 
+      "available": "available"
     },
     {
       "id": 21,
@@ -228,10 +226,10 @@
       "author": "Dorian Graves",
       "rating": 4.8,
       "imageSrc": "https://covers.openlibrary.org/b/id/10200100-L.jpg",
-      "genre": "Historical Fiction",
+      "genre": "Historical-fiction",
       "year": 2019,
       "pages": 370,
-      "available":"available" 
+      "available": "available"
     },
     {
       "id": 22,
@@ -264,7 +262,7 @@
       "genre": "Time Travel",
       "year": 2022,
       "pages": 375,
-      "available":"available" 
+      "available": "available"
     },
     {
       "id": 25,

@@ -7,21 +7,22 @@ import { Button } from "./ui/button"
 import { Star, ChevronLeft, ChevronRight } from "lucide-react"
 import { cn } from "../../lib/utils"
 import Books from "../data/Books.json"
+import { Book } from "../data/interfaces";
 
 
-
-// Accessing BooksData from the imported JSON
 const allBooks = Books.BooksData;
-
-export default function BooksList() {
+type BooksListProps = {
+  books: Book[] 
+}
+export default function BooksList({ books }: BooksListProps) {
   const [currentPage, setCurrentPage] = useState(1)
   const booksPerPage = 15
-
+ 
   // Pagination
+  const totalPages = Math.ceil(books.length / booksPerPage)
   const indexOfLastBook = currentPage * booksPerPage
   const indexOfFirstBook = indexOfLastBook - booksPerPage
-  const currentBooks = allBooks.slice(indexOfFirstBook, indexOfLastBook)
-  const totalPages = Math.ceil(allBooks.length / booksPerPage)
+  const currentBooks = books.slice(indexOfFirstBook, indexOfLastBook)
 
   // Function to render stars based on rating
   const renderStars = (rating: number) => {

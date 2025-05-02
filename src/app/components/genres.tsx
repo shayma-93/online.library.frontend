@@ -4,16 +4,20 @@ import { Checkbox } from "./ui/checkbox";
 import { Label } from "./ui/label";
 import { Genre } from "../data/interfaces";
 
+type GenreFilterProps = {
+  genres: Genre[];
+  selectedGenres: string[]; 
+  toggleGenre: (genreId: string) => void; 
+};
 
-interface GenreSectionProps {
-    genres: { genres: Genre[] };
-    selectedGenres: string[]; 
-    toggleGenre: (genreId: string) => void; 
-  }
-
-const GenreFilter: React.FC<GenreSectionProps> = ({ genres, selectedGenres, toggleGenre }) => {
-
-  const [expandedSections, setExpandedSections] = useState<Record<string, boolean>>({ genres: true });
+const GenreFilter: React.FC<GenreFilterProps> = ({
+  genres,
+  selectedGenres,
+  toggleGenre,
+}) => {
+  const [expandedSections, setExpandedSections] = useState<{
+    [key: string]: boolean;
+  }>({ genres: true });
   const [showAllGenres, setShowAllGenres] = useState(false);
 
   const toggleSection = (section: string) => {
@@ -45,10 +49,7 @@ const GenreFilter: React.FC<GenreSectionProps> = ({ genres, selectedGenres, togg
       {expandedSections.genres && (
         <div className="pl-6 pt-4 pb-2 rounded-xl bg-purple-50/50 pr-2">
           <div className="grid grid-cols-2 gap-x-2 gap-y-3">
-            {(showAllGenres
-              ? genres.genres
-              : genres.genres.slice(0, 8)
-            ).map((genre) => (
+            {(showAllGenres ? genres : genres.slice(0, 8)).map((genre) => (
               <div key={genre.id} className="flex items-center space-x-2 group">
                 <Checkbox
                   id={`genre-${genre.id}`}
@@ -66,7 +67,7 @@ const GenreFilter: React.FC<GenreSectionProps> = ({ genres, selectedGenres, togg
             ))}
           </div>
 
-          {genres.genres.length > 8 && (
+          {genres.length > 8 && (
             <div className="flex justify-center pt-3">
               <div
                 onClick={() => setShowAllGenres((prev) => !prev)}

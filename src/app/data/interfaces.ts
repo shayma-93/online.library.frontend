@@ -15,4 +15,11 @@ export interface Book {
     id: string;
     label: string;
   }
+  export interface FilterType {
+    genres: string[];
+    yearRange: [number, number];
+    ratingRange: [number, number];
+    pagesRange: [number, number];
+    availability: string[];
+  }
   
