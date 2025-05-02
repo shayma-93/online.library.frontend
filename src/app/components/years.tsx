@@ -50,8 +50,8 @@ const PublicationYearFilter: React.FC<PublicationYearFilterProps> = ({
             />
             <div className="flex justify-between font-permanent-marker text-sm text-purple-900 mt-2">
               {/* Display the start (min) and end (max) of the range */}
-              <span>{formatYearValue(yearValue[0])}</span>
-              <span>{formatYearValue(yearValue[1])}</span>
+              <span>{formatYearValue(yearValue[0])} - {formatYearValue(yearValue[1])}</span> {/* Selected Range */}
+           
             </div>
           </div>
         </div>

@@ -54,8 +54,8 @@ const AvailabilityFilter: FC<AvailabilityFilterProps> = ({
               />
               <Label
                 htmlFor={`availability-${id}`}
-                className="text-lg text-purple-700 cursor-pointer group-hover:text-purple-600 transition-colors"
-              >
+                className="text-xl text-purple-900  font-akaya-kanadaka cursor-pointer group-hover:text-purple-600 transition-colors"
+                >
                 {label}
               </Label>
             </div>

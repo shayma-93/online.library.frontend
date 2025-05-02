@@ -47,9 +47,16 @@ const PagesFilter: FC<PagesFilterProps> = ({
               onValueChange={(val) => setPagesRange(val as [number, number])}
               className="w-full bg-gradient-to-r from-blue-200 to-purple-200 rounded-xl"
             />
-            <div className="font-permanent-marker flex justify-between text-s text-purple-900 mt-2">
-              <span>{pagesRange[0]} pages</span>
-              <span>{pagesRange[1]} pages</span>
+            <div className="font-permanent-marker flex justify-between text-sm text-purple-900 mt-2">
+           
+              <div className="flex items-center">
+                <span>{pagesRange[0]}</span> {/* Start of Range */}
+                <span className="ml-1">pages</span>
+                <span> - </span>
+                <span>{pagesRange[1]}</span> {/* End of Range */}
+                <span className="ml-1">pages</span>
+              </div>
+             
             </div>
           </div>
         </div>

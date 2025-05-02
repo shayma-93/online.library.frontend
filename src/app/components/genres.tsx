@@ -59,7 +59,7 @@ const GenreFilter: React.FC<GenreFilterProps> = ({
                 />
                 <Label
                   htmlFor={`genre-${genre.id}`}
-                  className="text-lg text-purple-700 cursor-pointer group-hover:text-purple-600 transition-colors"
+                  className="text-xl text-purple-900  font-akaya-kanadaka cursor-pointer group-hover:text-purple-600 transition-colors"
                 >
                   {genre.label}
                 </Label>
@@ -68,18 +68,19 @@ const GenreFilter: React.FC<GenreFilterProps> = ({
           </div>
 
           {genres.length > 8 && (
-            <div className="flex justify-center pt-3">
-              <div
-                onClick={() => setShowAllGenres((prev) => !prev)}
-                className="h-8 w-8 rounded-full bg-purple-100 hover:bg-purple-200 cursor-pointer flex items-center justify-center transition-colors"
-              >
-                {showAllGenres ? (
-                  <ChevronUp className="h-5 w-5 text-purple-600" />
-                ) : (
-                  <ChevronDown className="h-5 w-5 text-purple-600" />
-                )}
-              </div>
-            </div>
+          <div className="flex justify-center pt-3">
+          <div
+            onClick={() => setShowAllGenres((prev) => !prev)}
+            className="h-8 w-8 rounded-full bg-purple-100 hover:bg-purple-200 cursor-pointer flex items-center justify-center transition-colors"
+          >
+            {showAllGenres ? (
+              <ChevronUp className="h-5 w-5 text-purple-600" />
+            ) : (
+              <ChevronDown className="h-5 w-5 text-purple-600" />
+            )}
+          </div>
+        </div>
+        
           )}
         </div>
       )}

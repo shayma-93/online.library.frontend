@@ -47,15 +47,17 @@ const RatingFilter: React.FC<RatingFilterProps> = ({
               onValueChange={(val) => setRatingRange(val as [number, number])}
               className="w-full bg-gradient-to-r from-blue-200 to-purple-200 rounded-xl"
             />
-            <div className="font-permanent-marker flex justify-between text-s text-purple-900 mt-2">
+            <div className="font-permanent-marker flex justify-between text-sm text-purple-900 mt-2">
+              {/* Display the start (min), selected, and end (max) of the range */}
+            
               <div className="flex items-center">
                 <span>{ratingRange[0]}</span>
                 <Star className="h-4 w-4 ml-1 text-purple-700" />
-              </div>
-              <div className="flex items-center">
+                <span> - </span>
                 <span>{ratingRange[1]}</span>
                 <Star className="h-4 w-4 ml-1 text-purple-700" />
               </div>
+             
             </div>
           </div>
         </div>
