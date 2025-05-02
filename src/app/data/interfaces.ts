@@ -13,18 +13,8 @@ export interface Book {
   borrowDate?: string;
   returnDate?: string;
 }
-interface Bookshelf {
-  id: string;
-  name: string;
-  description: string;
-  theme: string;
-  owner: {
-    id: string;
-    name: string;
-    avatar: string;
-  };
-  books: Book[];
-}
+
+
 
 // Define the expected shape of the JSON
 
