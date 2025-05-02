@@ -9,7 +9,7 @@ import { Textarea } from "../components/ui/atoms/textarea";
 import { Button } from "../components/ui/atoms/button";
 import { Label } from "../components/ui/atoms/label";
 import { ArrowLeft, Sparkles } from "lucide-react";
-import TarotThemeCard from "../components/ui/molecules/tarot-theme-card";
+import TarotThemeCard from "../components/ui/organisms/tarot-theme-card";
 import BookshelfDisplay from "../components/ui/organisms/bookshelf-display";
 import Header from "../components/ui/organisms/header";
 import { Footer } from "react-day-picker";

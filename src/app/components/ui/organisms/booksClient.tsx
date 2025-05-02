@@ -3,8 +3,8 @@
 import { useState } from "react";
 import BooksData from "../../../data/Books.json";
 import useFilteredBooks from "../../../../hooks/use-filter";
-import BooksList from "../molecules/books-list";
-import FilterSidebar from "../molecules/sideBarFilter";
+import BooksList from "./books-list";
+import FilterSidebar from "./sideBarFilter";
 import { FilterType } from "../../../data/interfaces";
 
 const defaultFilters: FilterType = {

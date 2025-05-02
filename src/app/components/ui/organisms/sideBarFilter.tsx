@@ -3,7 +3,7 @@ import { Button } from "../atoms/button";
 import { Sparkles, Wand2, Filter, Moon} from "lucide-react";
 import genres from "../../../data/genres.json";
 import AvailabilityFilter from "./availability";
-import PagesFilter from "../../pages";
+import PagesFilter from "../molecules/pages";
 import RatingFilter from "./rating";
 import PublicationYearFilter from "./years";
 import GenreFilter from "./genres";

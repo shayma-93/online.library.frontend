@@ -2,7 +2,7 @@
 
 import { FC } from 'react';
 import { BookMarked, ChevronDown, ChevronUp } from 'lucide-react';
-import { Slider } from './ui/atoms/slider';
+import { Slider } from './slider';
 
 interface PagesFilterProps {
   pagesRange: [number, number];

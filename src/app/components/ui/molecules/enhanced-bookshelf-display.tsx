@@ -8,7 +8,7 @@ import { Input } from "../atoms/input"
 import { Label } from "../atoms/label"
 import { cn } from "../../../../lib/utils"
 import { useToast } from "../../../../hooks/use-toast"
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "../atoms/dialog"
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "./dialog"
 
 export type Book = {
   id: string

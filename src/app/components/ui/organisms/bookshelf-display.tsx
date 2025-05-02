@@ -23,7 +23,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogFooter,
-} from "../atoms/dialog";
+} from "../molecules/dialog";
 import { cn } from "../../../../lib/utils";
 import { useToast } from "../../../../hooks/use-toast";
 

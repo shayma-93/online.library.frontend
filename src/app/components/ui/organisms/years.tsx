@@ -1,5 +1,5 @@
 import { ChevronDown, ChevronUp, Calendar } from "lucide-react";
-import { Slider } from "../atoms/slider";
+import { Slider } from "../molecules/slider";
 
 interface PublicationYearFilterProps {
   expandedSections: { [key: string]: boolean };

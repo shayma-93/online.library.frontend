@@ -1,7 +1,7 @@
 "use client";
 
 import { ChevronDown, ChevronUp, Star } from "lucide-react";
-import { Slider } from "../atoms/slider";
+import { Slider } from "../molecules/slider";
 import React from "react";
 
 type RatingFilterProps = {
