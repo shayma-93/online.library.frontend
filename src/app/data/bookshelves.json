@@ -11,26 +11,26 @@
             "avatar": "/placeholder.svg?height=32&width=32"
           },
           "books": [
-            { "id": "1", "title": "The Enchanted Forest", "author": "Mystic Author", "rating": 3.5, "availability": "available" },
-            { "id": "2", "title": "Whispers of Magic", "author": "Luna Spellbound", "rating": 5, "availability": "available" },
+            { "id": "1", "title": "The Enchanted Forest", "author": "Mystic Author", "rating": 3.5, "availabile": "available" },
+            { "id": "2", "title": "Whispers of Magic", "author": "Luna Spellbound", "rating": 5, "availabile": "available" },
             {
               "id": "3",
               "title": "Crystal Spellbook",
               "author": "Orion Starweaver",
               "rating": 5,
-              "availability": "borrowed",
+              "availabile": "borrowed",
               "borrowedBy": "Eliza Thornwood",
               "borrowDate": "2023-04-15",
               "returnDate": "2023-04-29"
             },
-            { "id": "4", "title": "Moonlit Pages", "author": "Elara Nightshade", "rating": 4, "availability": "available" },
-            { "id": "5", "title": "Enchanted Realms", "author": "Thorne Willowbrook", "rating": 3, "availability": "available" },
+            { "id": "4", "title": "Moonlit Pages", "author": "Elara Nightshade", "rating": 4, "availabile": "available" },
+            { "id": "5", "title": "Enchanted Realms", "author": "Thorne Willowbrook", "rating": 3, "availabile": "available" },
             {
               "id": "6",
               "title": "Astral Chronicles",
               "author": "Zephyr Moonshadow",
               "rating": 4,
-              "availability": "borrowed",
+              "availabile": "borrowed",
               "borrowedBy": "Marcus Flint",
               "borrowDate": "2023-04-20",
               "returnDate": "2023-05-04"
@@ -48,21 +48,21 @@
             "avatar": "/placeholder.svg?height=32&width=32"
           },
           "books": [
-            { "id": "7", "title": "Mystic Whispers", "author": "Mystic Author", "rating": 4, "availability": "available" },
-            { "id": "8", "title": "Celestial Spells", "author": "Luna Spellbound", "rating": 4.5, "availability": "available" },
+            { "id": "7", "title": "Mystic Whispers", "author": "Mystic Author", "rating": 4, "availabile": "available" },
+            { "id": "8", "title": "Celestial Spells", "author": "Luna Spellbound", "rating": 4.5, "availabile": "available" },
             {
               "id": "9",
               "title": "Arcane Secrets",
               "author": "Orion Starweaver",
               "rating": 3.5,
-              "availability": "borrowed",
+              "availabile": "borrowed",
               "borrowedBy": "Sage Moonshadow",
               "borrowDate": "2023-04-18",
               "returnDate": "2023-05-02"
             },
-            { "id": "10", "title": "Ethereal Tales", "author": "Elara Nightshade", "rating": 4, "availability": "available" },
-            { "id": "11", "title": "Magical Beginnings", "author": "Thorne Willowbrook", "rating": 4.5, "availability": "available" },
-            { "id": "12", "title": "Sorcery & Stardust", "author": "Zephyr Moonshadow", "rating": 4, "availability": "available" }
+            { "id": "10", "title": "Ethereal Tales", "author": "Elara Nightshade", "rating": 4, "availabile": "available" },
+            { "id": "11", "title": "Magical Beginnings", "author": "Thorne Willowbrook", "rating": 4.5, "availabile": "available" },
+            { "id": "12", "title": "Sorcery & Stardust", "author": "Zephyr Moonshadow", "rating": 4, "availabile": "available" }
           ]
         },
         {
@@ -76,20 +76,20 @@
             "avatar": "/placeholder.svg?height=32&width=32"
           },
           "books": [
-            { "id": "13", "title": "Cottage Mysteries", "author": "Hazel Thornfield", "rating": 4.5, "availability": "available" },
+            { "id": "13", "title": "Cottage Mysteries", "author": "Hazel Thornfield", "rating": 4.5, "availabile": "available" },
             {
               "id": "14",
               "title": "Teacup Tales",
               "author": "Ember Rosewood",
               "rating": 5,
-              "availability": "borrowed",
+              "availabile": "borrowed",
               "borrowedBy": "Lily Whiterose",
               "borrowDate": "2023-04-10",
               "returnDate": "2023-04-24"
             },
-            { "id": "15", "title": "Fireside Stories", "author": "Aspen Oakley", "rating": 4, "availability": "available" },
-            { "id": "16", "title": "Autumn Whispers", "author": "Rowan Mapleton", "rating": 3.5, "availability": "available" },
-            { "id": "17", "title": "Garden Secrets", "author": "Willow Fernsby", "rating": 4, "availability": "available" }
+            { "id": "15", "title": "Fireside Stories", "author": "Aspen Oakley", "rating": 4, "availabile": "available" },
+            { "id": "16", "title": "Autumn Whispers", "author": "Rowan Mapleton", "rating": 3.5, "availabile": "available" },
+            { "id": "17", "title": "Garden Secrets", "author": "Willow Fernsby", "rating": 4, "availabile": "available" }
           ]
         },
         {
@@ -103,19 +103,19 @@
             "avatar": "/placeholder.svg?height=32&width=32"
           },
           "books": [
-            { "id": "18", "title": "Portal to Elsewhere", "author": "Lyra Starlight", "rating": 4, "availability": "available" },
+            { "id": "18", "title": "Portal to Elsewhere", "author": "Lyra Starlight", "rating": 4, "availabile": "available" },
             {
               "id": "19",
               "title": "The Forgotten Realm",
               "author": "Orion Eclipse",
               "rating": 4.5,
-              "availability": "borrowed",
+              "availabile": "borrowed",
               "borrowedBy": "Astrid Silverleaf",
               "borrowDate": "2023-04-05",
               "returnDate": "2023-04-19"
             },
-            { "id": "20", "title": "Whispers of the Void", "author": "Nova Shadowmoon", "rating": 3.5, "availability": "available" },
-            { "id": "21", "title": "Enchanted Pathways", "author": "Sage Moonstone", "rating": 5, "availability": "available" }
+            { "id": "20", "title": "Whispers of the Void", "author": "Nova Shadowmoon", "rating": 3.5, "availabile": "available" },
+            { "id": "21", "title": "Enchanted Pathways", "author": "Sage Moonstone", "rating": 5, "availabile": "available" }
           ]
         }
       ]
