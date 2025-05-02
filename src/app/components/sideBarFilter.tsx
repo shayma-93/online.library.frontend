@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "./ui/button";
-import { Sparkles, Wand2, Filter, Moon, Book } from "lucide-react";
+import { Sparkles, Wand2, Filter, Moon} from "lucide-react";
 import genres from "../data/genres.json";
 import AvailabilityFilter from "./availability";
 import PagesFilter from "./pages";
@@ -8,15 +8,12 @@ import RatingFilter from "./rating";
 import PublicationYearFilter from "./years";
 import GenreFilter from "./genres";
 import { FilterType } from "../data/interfaces";
-import BooksData from "../data/Books.json";
 
 type FilterSidebarProps = {
-  filters: FilterType;
   setFilters: React.Dispatch<React.SetStateAction<FilterType>>;
 };
 
 export default function FilterSidebar({
-  filters,
   setFilters,
 }: FilterSidebarProps) {
   const yearRange = { min: 1950, max: 2025 };
@@ -47,13 +44,13 @@ export default function FilterSidebar({
   useEffect(() => {
     let count = 0;
     if (selectedGenres.length > 0) count++;
-    if (yearValue[0] !== yearRange.min || yearValue[1] !== yearRange.max)
-      count++;
+    if (yearValue[0] !== yearRange.min || yearValue[1] !== yearRange.max) count++;
     if (ratingRange[0] !== 0 || ratingRange[1] !== 5) count++;
     if (pagesRange[0] !== 0 || pagesRange[1] !== 990) count++;
     if (availability.length > 0) count++;
     setActiveFilters(count);
-  }, [selectedGenres, yearValue, ratingRange, pagesRange, availability]);
+  }, [selectedGenres, yearValue, ratingRange, pagesRange, availability, yearRange.min, yearRange.max]);
+  
 
   const toggleSection = (section: keyof typeof expandedSections) => {
     setExpandedSections((prev) => ({
@@ -107,7 +104,6 @@ export default function FilterSidebar({
     });
   };
 
-  const allBooks = BooksData.BooksData;
 
   // Format year values for display
   const formatYearValue = (value: number) => {

@@ -6,11 +6,9 @@ import Image from "next/image"
 import { Button } from "./ui/button"
 import { Star, ChevronLeft, ChevronRight } from "lucide-react"
 import { cn } from "../../lib/utils"
-import Books from "../data/Books.json"
 import { Book } from "../data/interfaces";
 
 
-const allBooks = Books.BooksData;
 type BooksListProps = {
   books: Book[] 
 }
