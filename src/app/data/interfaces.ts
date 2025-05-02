@@ -27,9 +27,7 @@ interface Bookshelf {
 }
 
 // Define the expected shape of the JSON
-interface BookshelvesData {
-  Bookshelves: Bookshelf[];
-}
+
   export interface Genre {
     id: string;
     label: string;
