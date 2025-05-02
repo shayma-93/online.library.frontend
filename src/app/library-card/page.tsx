@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Button } from "../components/ui/button";
+import { Button } from "../components/ui/atoms/button";
 import {
   Card,
   CardContent,
@@ -10,13 +10,13 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "../components/ui/card";
+} from "../components/ui/atoms/card";
 import {
   Tabs,
   TabsContent,
   TabsList,
   TabsTrigger,
-} from "../components/ui/tabs";
+} from "../components/ui/atoms/tabs";
 import {
   BookOpen,
   BookMarked,
@@ -28,7 +28,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import Header from "../components/header";
+import Header from "../components/ui/organisms/header";
 import { Footer } from "react-day-picker";
 
 // Sample borrowed books data

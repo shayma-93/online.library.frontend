@@ -1,10 +1,10 @@
 import Link from "next/link"
 import { Sparkles, Plus, ArrowRight, BookOpen } from "lucide-react"
-import BookshelfDisplay from "../components/bookshelf-display"
-import Header from "../components/header"
-import Footer from "../components/footer"
-import {BookshelfProps} from "../components/enhanced-bookshelf-display"
-import { Button } from "../components/ui/button"
+import BookshelfDisplay from "../components/ui/organisms/bookshelf-display"
+import Header from "../components/ui/organisms/header"
+import Footer from "../components/ui/organisms/footer"
+import {BookshelfProps} from "../components/ui/molecules/enhanced-bookshelf-display"
+import { Button } from "../components/ui/atoms/button"
 import BookshelvesData from "../data/bookshelves.json"
 // Sample data for demonstration
 

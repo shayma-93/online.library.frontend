@@ -1,6 +1,6 @@
-import Header from "../components/header";
-import Footer from "../components/footer";
-import BooksClient from "../components/booksClient"
+import Header from "../components/ui/organisms/header";
+import Footer from "../components/ui/organisms/footer";
+import BooksClient from "../components/ui/organisms/booksClient"
 
 export default function BooksPage() {
   return (

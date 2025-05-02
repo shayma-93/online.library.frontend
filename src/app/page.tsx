@@ -1,12 +1,12 @@
 "use client"
-import Header from "./components/header"
-import Hero from "./components/hero"
-import PopularMagicalBooks from "./components/popularBooks"
+import Header from "./components/ui/organisms/header"
+import Hero from "./components/ui/organisms/hero"
+import PopularMagicalBooks from "./components/ui/organisms/popularBooks"
 import { useState, useEffect } from "react"
 import "../styles/globals.css"
 import { Book } from "./data/interfaces"
-import NewsletterSection from "./components/newsLetter"
-import Footer from "./components/footer"
+import NewsletterSection from "./components/ui/organisms/newsLetter"
+import Footer from "./components/ui/organisms/footer"
 import Books from "./data/Books.json"
 
 export default function Home() {

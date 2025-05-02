@@ -4,14 +4,14 @@ import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useToast } from "@/hooks/use-toast";
-import { Input } from "../components/ui/input";
-import { Textarea } from "../components/ui/textarea";
-import { Button } from "../components/ui/button";
-import { Label } from "../components/ui/label";
+import { Input } from "../components/ui/atoms/input";
+import { Textarea } from "../components/ui/atoms/textarea";
+import { Button } from "../components/ui/atoms/button";
+import { Label } from "../components/ui/atoms/label";
 import { ArrowLeft, Sparkles } from "lucide-react";
-import TarotThemeCard from "../components/tarot-theme-card";
-import BookshelfDisplay from "../components/bookshelf-display";
-import Header from "../components/header";
+import TarotThemeCard from "../components/ui/molecules/tarot-theme-card";
+import BookshelfDisplay from "../components/ui/organisms/bookshelf-display";
+import Header from "../components/ui/organisms/header";
 import { Footer } from "react-day-picker";
 // Define tarot-themed bookshelf themes
 const tarotThemes = [

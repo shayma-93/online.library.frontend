@@ -3,12 +3,12 @@
 import React, { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { Button } from "../components/ui/button"
-import { Input } from "../components/ui/input"
-import { Label } from "../components/ui/label"
+import { Button } from "../components/ui/atoms/button"
+import { Input } from "../components/ui/atoms/input"
+import { Label } from "../components/ui/atoms/label"
 import { Sparkles, Stars } from "lucide-react"
-import Header from "../components/header"
-import Footer from "../components/footer"
+import Header from "../components/ui/organisms/header"
+import Footer from "../components/ui/organisms/footer"
 
 export default function SignUp() {
   const [formData, setFormData] = useState({
