@@ -23,7 +23,7 @@ const nextConfig: NextConfig = {
   },
   reactStrictMode: true,
   experimental: {
-    esmExternals: false,
+    esmExternals: true,
   },
 };
 
