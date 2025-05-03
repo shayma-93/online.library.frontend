@@ -2,14 +2,10 @@
 
 import type React from "react";
 
-import { useState, useRef, useEffect } from "react";
-import Link from "next/link";
+import { useState, useRef} from "react";
 import {
   Star,
-  BookOpen,
   User,
-  Clock,
-  Sparkles,
   Plus,
   Trash2,
   Share2,
@@ -32,6 +28,7 @@ type Book = {
   id: string;
   title: string;
   author: string;
+  description?: string
   rating: number;
   status?: "available" | "borrowed";
   borrowedBy?: string;
@@ -60,14 +57,14 @@ export default function BookshelfDisplay({
   bookshelf: BookshelfProps;
   editable?: boolean;
 }) {
-  const [hoveredBook, setHoveredBook] = useState<string | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [books, setBooks] = useState<Book[]>(
     bookshelf.books.map((book) => ({
       ...book,
       status: book.status || "available",
-    }))
-  );
+      description: book.description || getRandomDescription(book.title), // Add random descriptions for demo
+    })),
+  )
   const { toast } = useToast();
   const shelfRef = useRef<HTMLDivElement>(null);
 
@@ -90,7 +87,7 @@ export default function BookshelfDisplay({
 
   // Function to handle borrowing a book
   const handleBorrowBook = (bookId: string) => {
-    // Instead of changing the book status to "borrowed", we'll just show a toast notification
+    void bookId; 
     toast({
       title: "Borrow Request Submitted!",
       description:
