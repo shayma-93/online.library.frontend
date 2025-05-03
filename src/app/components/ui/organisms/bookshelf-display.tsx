@@ -26,6 +26,7 @@ import {
 } from "../molecules/dialog";
 import { cn } from "../../../../lib/utils";
 import { useToast } from "../../../../hooks/use-toast";
+import BookDetailModal from "../molecules/book-detail-modal";
 
 type Book = {
   id: string;
@@ -60,6 +61,7 @@ export default function BookshelfDisplay({
   editable?: boolean;
 }) {
   const [hoveredBook, setHoveredBook] = useState<string | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [books, setBooks] = useState<Book[]>(
     bookshelf.books.map((book) => ({
       ...book,
@@ -68,7 +70,6 @@ export default function BookshelfDisplay({
   );
   const { toast } = useToast();
   const shelfRef = useRef<HTMLDivElement>(null);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   // State for dialogs
   const [isAddBookOpen, setIsAddBookOpen] = useState(false);
@@ -76,8 +77,8 @@ export default function BookshelfDisplay({
   const [selectedBookId, setSelectedBookId] = useState<string | null>(null);
   const [lendToName, setLendToName] = useState("");
   const [newBook, setNewBook] = useState({
-    title: '',
-    author: '',
+    title: "",
+    author: "",
     rating: 3,
     file: null as File | null,
   });
@@ -86,59 +87,19 @@ export default function BookshelfDisplay({
       setNewBook((prev) => ({ ...prev, file }));
     }
   };
-  
-  // Track mouse position for 3D effect
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (shelfRef.current) {
-        const rect = shelfRef.current.getBoundingClientRect();
-        setMousePosition({
-          x: ((e.clientX - rect.left) / rect.width) * 2 - 1,
-          y: ((e.clientY - rect.top) / rect.height) * 2 - 1,
-        });
-      }
-    };
-
-    const shelf = shelfRef.current;
-    if (shelf) {
-      shelf.addEventListener("mousemove", handleMouseMove);
-    }
-
-    return () => {
-      if (shelf) {
-        shelf.removeEventListener("mousemove", handleMouseMove);
-      }
-    };
-  }, []);
 
   // Function to handle borrowing a book
-  const handleBorrowBook = (bookId: string, e?: React.MouseEvent) => {
-    if (e) {
-      e.preventDefault();
-      e.stopPropagation();
-    }
-
-    setBooks((prevBooks) =>
-      prevBooks.map((book) =>
-        book.id === bookId
-          ? {
-              ...book,
-              status: "borrowed",
-              borrowedBy: "Current User", // In a real app, this would be the actual user
-              borrowDate: new Date().toISOString(),
-              returnDate: new Date(
-                Date.now() + 14 * 24 * 60 * 60 * 1000
-              ).toISOString(), // 14 days from now
-            }
-          : book
-      )
-    );
-
+  const handleBorrowBook = (bookId: string) => {
+    // Instead of changing the book status to "borrowed", we'll just show a toast notification
     toast({
-      title: "Book Borrowed!",
-      description: "The book has been added to your library card.",
+      title: "Borrow Request Submitted!",
+      description:
+        "Your request has been submitted. The book will be available for pickup soon.",
       duration: 3000,
     });
+
+    // Close the modal after submitting the request
+    setIsModalOpen(false);
   };
 
   // Function to handle adding a new book
@@ -153,30 +114,30 @@ export default function BookshelfDisplay({
 
   const addBook = async () => {
     const formData = new FormData();
-    formData.append('title', newBook.title);
-    formData.append('author', newBook.author);
-    formData.append('rating', newBook.rating.toString());
+    formData.append("title", newBook.title);
+    formData.append("author", newBook.author);
+    formData.append("rating", newBook.rating.toString());
     if (newBook.file) {
-      formData.append('file', newBook.file);
+      formData.append("file", newBook.file);
     }
-  
+
     try {
-      const res = await fetch('/api/creat-bookshelf', {
-        method: 'POST',
+      const res = await fetch("/api/creat-bookshelf", {
+        method: "POST",
         body: formData,
       });
-  
+
       if (res.ok) {
-        console.log('Book uploaded successfully');
+        console.log("Book uploaded successfully");
         // Optionally reset form
       } else {
-        console.error('Failed to upload book');
+        console.error("Failed to upload book");
       }
     } catch (error) {
-      console.error('Error uploading book:', error);
+      console.error("Error uploading book:", error);
     }
   };
-  
+
   // Function to handle removing a book
   const removeBook = (id: string) => {
     setBooks((prev) => prev.filter((book) => book.id !== id));
@@ -516,6 +477,34 @@ export default function BookshelfDisplay({
     return selectedPalette;
   }
 
+  // Function to generate random book descriptions for demo purposes
+  function getRandomDescription(title: string) {
+    const descriptions = [
+      "A captivating journey through magical realms where ancient spells come to life.",
+      "Discover the secrets of enchanted creatures and their mystical powers.",
+      "An essential guide for aspiring wizards and witches seeking to master the arcane arts.",
+      "Explore the hidden history of magical societies and their influence on our world.",
+      "A collection of powerful spells and potions for practitioners of all levels.",
+      "Journey through time and space with this magical adventure that will captivate your imagination.",
+      "Uncover the mysteries of ancient runes and their applications in modern magic.",
+      "A comprehensive study of magical herbs and their properties in spellcasting.",
+      "Tales of legendary wizards and their extraordinary feats of magical prowess.",
+      "Delve into the fascinating world of magical artifacts and their creation.",
+    ];
+
+    // Use the title to deterministically select a description
+    const charSum = title
+      .split("")
+      .reduce((sum, char) => sum + char.charCodeAt(0), 0);
+    return descriptions[charSum % descriptions.length];
+  }
+
+  // Handle book click to open modal
+  const handleBookClick = (book: Book) => {
+    setSelectedBookId(book.id);
+    setIsModalOpen(true);
+  };
+
   const shelfStyle = getShelfStyle(bookshelf.theme);
 
   return (
@@ -542,41 +531,31 @@ export default function BookshelfDisplay({
           <div className="relative h-[220px] flex items-end">
             {books.map((book, index) => {
               // Calculate book properties
-              const isHovered = hoveredBook === book.id;
               const bookWidth = 50 + Math.random() * 30;
               const bookHeight = 150 + Math.random() * 50;
               const tiltAngle =
                 Math.random() > 0.7 ? (Math.random() > 0.5 ? 3 : -3) : 0;
               const bookStyle = getArtisticBookStyle(book.title, index);
 
-              // 3D effect variables
-              const tiltX = isHovered ? mousePosition.y * 5 : 0;
-              const tiltY = isHovered ? -mousePosition.x * 10 : 0;
-              const translateZ = isHovered ? 20 : 0;
-
               return (
                 <div
                   key={book.id}
-                  className="relative mx-[2px] transition-all duration-300 group"
+                  className="relative mx-[2px] transition-all duration-300 group cursor-pointer"
                   style={{ width: `${bookWidth}px` }}
-                  onMouseEnter={() => setHoveredBook(book.id)}
-                  onMouseLeave={() => setHoveredBook(null)}
+                  onClick={() => handleBookClick(book)}
                 >
                   {/* Book */}
                   <div
                     className={cn(
-                      "absolute bottom-0 w-full rounded-sm transition-all duration-300 shadow-lg",
-                      isHovered ? "brightness-110 -translate-y-4 z-10" : "",
-                      book.status === "borrowed" ? "opacity-70" : ""
+                      "absolute bottom-0 w-full rounded-sm shadow-md",
+                      book.status === "borrowed" ? "opacity-70" : "",
                     )}
                     style={{
                       height: `${bookHeight}px`,
-                      transform: `rotate(${tiltAngle}deg) rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateZ(${translateZ}px)`,
+                      transform: `rotate(${tiltAngle}deg)`,
                       transformOrigin: "bottom center",
                       background: bookStyle.background,
-                      boxShadow: isHovered
-                        ? "0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.2)"
-                        : "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+                      boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
                     }}
                   >
                     {/* Book cover */}
@@ -588,10 +567,7 @@ export default function BookshelfDisplay({
                       </div>
 
                       {/* Book spine texture overlay */}
-                      <div
-                        className="absolute inset-0 opacity-10"
-                        style={{ backgroundImage: bookStyle.texture }}
-                      ></div>
+                      <div className="absolute inset-0 opacity-10" style={{ backgroundImage: bookStyle.texture }}></div>
 
                       {/* Book spine decoration */}
                       {bookStyle.hasRibbon && (
@@ -610,10 +586,7 @@ export default function BookshelfDisplay({
                       {/* Book title (vertical text) */}
                       <div
                         className="absolute top-0 left-0 w-full h-full flex items-center justify-center overflow-hidden"
-                        style={{
-                          writingMode: "vertical-rl",
-                          textOrientation: "mixed",
-                        }}
+                        style={{ writingMode: "vertical-rl", textOrientation: "mixed" }}
                       >
                         <span
                           className="text-xs font-medium px-2 truncate rotate-180 text-shadow"
@@ -632,68 +605,32 @@ export default function BookshelfDisplay({
                       {/* Status indicator */}
                       {book.status === "borrowed" && (
                         <div className="absolute top-0 left-0 w-full h-full bg-black/10 flex items-center justify-center">
-                          <div className="w-full h-6 bg-red-500/70 flex items-center justify-center transform -rotate-90">
-                            <span className="text-white text-xs font-bold">
-                              Borrowed
-                            </span>
+                          <div className="w-full h-6 bg-red-400/70 flex items-center justify-center transform -rotate-90">
+                            <span className="text-white text-xs font-bold">Borrowed</span>
                           </div>
                         </div>
                       )}
                     </div>
 
-                    {/* Book side (visible when hovered) */}
-                    {isHovered && (
-                      <>
-                        <div
-                          className="absolute top-0 bottom-0 -right-[5px] w-[5px] transform origin-left rotateY(90deg)"
-                          style={{
-                            background:
-                              "linear-gradient(to bottom, rgba(255,255,255,0.3), rgba(0,0,0,0.2))",
-                          }}
-                        ></div>
-                        <div
-                          className="absolute -top-[5px] left-0 right-0 h-[5px] transform origin-bottom rotateX(-90deg)"
-                          style={{
-                            background:
-                              "linear-gradient(to right, rgba(0,0,0,0.2), rgba(255,255,255,0.3))",
-                          }}
-                        ></div>
-                      </>
-                    )}
-
-                    {/* Direct borrow button on hover */}
-                    {isHovered && book.status === "available" && !editable && (
-                      <button
-                        onClick={(e) => handleBorrowBook(book.id, e)}
-                        className="absolute bottom-2 left-1/2 transform -translate-x-1/2 bg-purple-600 hover:bg-purple-700 text-white text-xs px-2 py-1 rounded-sm shadow-md transition-all duration-200 flex items-center gap-1 opacity-0 group-hover:opacity-100"
-                        style={{ writingMode: "horizontal-tb" }}
-                      >
-                        <span className="sr-only">Borrow</span>
-                        <BookOpen className="h-3 w-3" />
-                      </button>
-                    )}
-
                     {/* Edit buttons for editable mode */}
-                    {isHovered && editable && (
-                      <div className="absolute -right-2 top-2 flex flex-col gap-1">
+                    {editable && (
+                      <div className="absolute -right-2 top-2 flex flex-col gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
                         <button
                           onClick={(e) => {
-                            e.preventDefault();
-                            e.stopPropagation();
-                            removeBook(book.id);
+                            e.stopPropagation()
+                            removeBook(book.id)
                           }}
-                          className="bg-red-500 hover:bg-red-600 text-white p-1 rounded-full shadow-md transition-all duration-200"
+                          className="bg-red-200 text-red-600 p-1 rounded-sm shadow-md"
                         >
                           <Trash2 className="h-3 w-3" />
                         </button>
                         {book.status === "available" && (
                           <button
                             onClick={(e) => {
-                              e.preventDefault();
-                              e.stopPropagation();
-                              openLendDialog(book.id);
+                              e.stopPropagation()
+                              openLendDialog(book.id)
                             }}
-                            className="bg-blue-500 hover:bg-blue-600 text-white p-1 rounded-full shadow-md transition-all duration-200"
+                            className="bg-blue-100 text-blue-500 p-1 rounded-sm shadow-md"
                           >
                             <Share2 className="h-3 w-3" />
                           </button>
@@ -701,86 +638,8 @@ export default function BookshelfDisplay({
                       </div>
                     )}
                   </div>
-
-                  {/* Hover tooltip */}
-                  {isHovered && (
-                    <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 translate-y-full w-[220px] bg-white/95 backdrop-blur-sm rounded-md shadow-lg p-3 z-20 border border-purple-100">
-                      <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-4 h-4 rotate-45 bg-white border-t border-l border-purple-100"></div>
-                      <h4 className="font-medium text-purple-800 text-sm">
-                        {book.title}
-                      </h4>
-                      <p className="text-purple-600 text-xs">{book.author}</p>
-                      <div className="flex mt-1">
-                        {renderStars(book.rating)}
-                      </div>
-
-                      <div className="mt-2 pt-2 border-t border-purple-100">
-                        <div className="flex items-center">
-                          <div
-                            className={cn(
-                              "w-2 h-2 rounded-full mr-2",
-                              book.status === "available"
-                                ? "bg-green-500"
-                                : "bg-red-500"
-                            )}
-                          ></div>
-                          <span
-                            className={cn(
-                              "text-xs font-medium",
-                              book.status === "available"
-                                ? "text-green-600"
-                                : "text-red-600"
-                            )}
-                          >
-                            {book.status === "available"
-                              ? "Available"
-                              : "Borrowed"}
-                          </span>
-                        </div>
-
-                        {book.status === "borrowed" && book.borrowedBy && (
-                          <div className="text-xs text-purple-600 mt-1 flex items-center">
-                            <User className="h-3 w-3 mr-1" />
-                            <span>By: {book.borrowedBy}</span>
-                          </div>
-                        )}
-
-                        {book.status === "borrowed" && book.returnDate && (
-                          <div className="text-xs text-purple-600 mt-1 flex items-center">
-                            <Clock className="h-3 w-3 mr-1" />
-                            <span>
-                              Return by:{" "}
-                              {new Date(book.returnDate).toLocaleDateString()}
-                            </span>
-                          </div>
-                        )}
-
-                        <div className="mt-2">
-                          {book.status === "available" && !editable ? (
-                            <button
-                              className="w-full text-xs h-8 bg-purple-600 hover:bg-purple-700 text-white rounded-md flex items-center justify-center gap-1 group"
-                              onClick={(e) => {
-                                e.preventDefault();
-                                handleBorrowBook(book.id);
-                              }}
-                            >
-                              <BookOpen className="h-3 w-3 mr-1" />
-                              Borrow Book
-                              <Sparkles className="h-3 w-3 ml-1 opacity-0 group-hover:opacity-100 transition-opacity" />
-                            </button>
-                          ) : book.status === "borrowed" ? (
-                            <Link href="/library-card">
-                              <button className="w-full text-xs h-8 border border-purple-200 text-purple-700 rounded-md flex items-center justify-center">
-                                View in Library Card
-                              </button>
-                            </Link>
-                          ) : null}
-                        </div>
-                      </div>
-                    </div>
-                  )}
                 </div>
-              );
+              )
             })}
 
             {/* Add book button for editable mode */}
@@ -790,11 +649,9 @@ export default function BookshelfDisplay({
                 style={{ width: "60px" }}
                 onClick={() => setIsAddBookOpen(true)}
               >
-                <div className="absolute bottom-0 w-full h-[180px] rounded-sm bg-purple-100 border-2 border-dashed border-purple-300 flex flex-col items-center justify-center text-purple-500 hover:bg-purple-200 hover:text-purple-600 transition-colors">
+                <div className="absolute bottom-0 w-full h-[180px] rounded-sm bg-purple-100 border-2 border-dashed border-purple-200 flex flex-col items-center justify-center text-purple-400">
                   <Plus className="h-6 w-6 mb-2" />
-                  <span className="text-xs font-medium text-center px-1">
-                    Add Book
-                  </span>
+                  <span className="text-xs font-medium text-center px-1">Add Book</span>
                 </div>
               </div>
             )}
@@ -802,8 +659,7 @@ export default function BookshelfDisplay({
             {/* Plant decorations */}
             {getPlantDecoration(bookshelf.theme, "left")}
             {getPlantDecoration(bookshelf.theme, "right")}
-            {bookshelf.theme === "cozy" &&
-              getPlantDecoration(bookshelf.theme, "center")}
+            {bookshelf.theme === "cozy" && getPlantDecoration(bookshelf.theme, "center")}
           </div>
 
           {/* Shelf */}
@@ -813,7 +669,7 @@ export default function BookshelfDisplay({
               className={cn(
                 "absolute bottom-0 left-0 right-0 h-8 relative overflow-hidden",
                 shelfStyle.main,
-                shelfStyle.glow
+                shelfStyle.glow,
               )}
             >
               {/* Wood texture overlay */}
@@ -866,8 +722,23 @@ export default function BookshelfDisplay({
             ></div>
           </div>
         </div>
+
+        {/* Bookshelf Information */}
+        <div className="mt-4">
+          <h2 className="text-xl font-semibold">{bookshelf.name}</h2>
+          <p className="text-gray-600">{bookshelf.description}</p>
+        </div>
       </div>
 
+      {/* Book Detail Modal */}
+      <BookDetailModal
+        book={books.find((b) => b.id === selectedBookId) || null}
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onBorrow={handleBorrowBook}
+      />
+
+      {/* Add Book Dialog */}
       <Dialog open={isAddBookOpen} onOpenChange={setIsAddBookOpen}>
   <DialogContent className="sm:max-w-[425px]">
     <DialogHeader>
@@ -953,7 +824,6 @@ export default function BookshelfDisplay({
     </DialogFooter>
   </DialogContent>
 </Dialog>
-
 
       {/* Lend Book Dialog */}
       <Dialog open={isLendBookOpen} onOpenChange={setIsLendBookOpen}>
