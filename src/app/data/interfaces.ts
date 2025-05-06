@@ -29,4 +29,11 @@ export interface Book {
     pagesRange: [number, number];
     availability: string[];
   }
-  
+export  interface User {
+    id: string;
+    username: string;
+    first_name: string;
+    last_name: string;
+    email: string;
+    age:number;
+  }
