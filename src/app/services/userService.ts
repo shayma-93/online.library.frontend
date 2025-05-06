@@ -1,14 +1,16 @@
+import { User } from '../data/interfaces';
+
 // GET
-export async function getAllUsers() {
+export async function getAllUsers(): Promise<User[]> {
   try {
     const token = localStorage.getItem('token');
     const res = await fetch("/users", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`, 
+        Authorization: `Bearer ${token}`,
       },
-      credentials: 'include', 
+      credentials: 'include',
     });
 
     if (!res.ok) {
@@ -17,23 +19,23 @@ export async function getAllUsers() {
       throw new Error(errorData.message || "Failed to fetch users");
     }
 
-    const data = await res.json();
+    const data: User[] = await res.json();
     console.log("Fetched users:", data);
     return data;
-  } catch (err) {
+  } catch {
     throw new Error("Failed to fetch users, please try again later.");
   }
 }
 
 // POST
-export async function createUser(data: any) {
+export async function createUser(data: Omit<User, 'id'>): Promise<User> {
   try {
-    const token = localStorage.getItem('token'); // Retrieve token from localStorage
+    const token = localStorage.getItem('token');
     const res = await fetch("/api/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`, // Send token in the header
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(data),
     });
@@ -44,7 +46,7 @@ export async function createUser(data: any) {
       throw new Error(errorData.message || "Failed to create user");
     }
 
-    const result = await res.json();
+    const result: User = await res.json();
     console.log("Created user:", result);
     return result;
   } catch (err) {
@@ -54,14 +56,14 @@ export async function createUser(data: any) {
 }
 
 // PUT
-export async function updateUser(id: string, data: any) {
+export async function updateUser(id: string, data: Partial<User>): Promise<User> {
   try {
-    const token = localStorage.getItem('token'); // Retrieve token from localStorage
+    const token = localStorage.getItem('token');
     const res = await fetch(`/api/users/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`, // Send token in the header
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(data),
     });
@@ -72,7 +74,7 @@ export async function updateUser(id: string, data: any) {
       throw new Error(errorData.message || "Failed to update user");
     }
 
-    const result = await res.json();
+    const result: User = await res.json();
     console.log("Updated user:", result);
     return result;
   } catch (err) {
@@ -82,14 +84,14 @@ export async function updateUser(id: string, data: any) {
 }
 
 // DELETE
-export async function deleteUser(id: string) {
+export async function deleteUser(id: string): Promise<User> {
   try {
-    const token = localStorage.getItem('token'); // Retrieve token from localStorage
+    const token = localStorage.getItem('token');
     const res = await fetch(`/api/users/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`, // Send token in the header
+        Authorization: `Bearer ${token}`,
       },
     });
 
@@ -99,7 +101,7 @@ export async function deleteUser(id: string) {
       throw new Error(errorData.message || "Failed to delete user");
     }
 
-    const result = await res.json();
+    const result: User = await res.json();
     console.log("Deleted user:", result);
     return result;
   } catch (err) {

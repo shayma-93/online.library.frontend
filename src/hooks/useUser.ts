@@ -5,16 +5,18 @@ import {
   updateUser,
   deleteUser,
 } from '../app/services/userService';
+import {User} from "../app/data/interfaces"
 
 // Fetch all users
 export function useUsers() {
-    return useQuery({
-      queryKey: ['users'],
-      queryFn: getAllUsers,
-    });
-  }
+  return useQuery<User[]>({
+    queryKey: ['users'],
+    queryFn: getAllUsers,
+  });
+}
 
-// Create user mutation
+// Create user
+
 export function useCreateUser() {
   const queryClient = useQueryClient();
   return useMutation({
@@ -22,35 +24,38 @@ export function useCreateUser() {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['users'] });
     },
-    onError: (error: any) => {
+    onError: (error: unknown) => {
       console.error('Error creating user:', error);
     },
   });
 }
 
-// Update user mutation
+
+// Update user 
 export function useUpdateUser() {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: ({ id, data }: { id: string, data: any }) => updateUser(id, data),
+    mutationFn: ({ id, data }: { id: string; data: Partial<User> }) =>
+      updateUser(id, data),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['users'] });
     },
-    onError: (error: any) => {
+    onError: (error: unknown) => {
       console.error('Error updating user:', error);
     },
   });
 }
 
-// Delete user mutation
+
+// Delete user 
 export function useDeleteUser() {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: deleteUser,
+    mutationFn: (id: string) => deleteUser(id),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['users'] });
     },
-    onError: (error: any) => {
+    onError: (error: unknown) => {
       console.error('Error deleting user:', error);
     },
   });
