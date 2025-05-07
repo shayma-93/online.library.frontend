@@ -11,8 +11,13 @@ import { Sparkles, Stars, Moon } from "lucide-react"
 import Header from "../components/ui/organisms/header"
 import Footer from "../components/ui/organisms/footer"
 import Image from "next/image"
+import { loginUser } from "../services/authService"
+import { useRouter } from "next/navigation" 
+
 
 export default function SignIn() {
+  const router = useRouter();
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -28,10 +33,26 @@ export default function SignIn() {
     setFormData((prev) => ({ ...prev, rememberMe: checked }))
   }
 
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault()
-    console.log("Form submitted:", formData)
-  }
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+  
+    try {
+      const { email, password } = formData;
+      const result = await loginUser(email, password);
+  
+      if (result.success) {
+        console.log("Login successful:", result.user);
+  
+        router.push("/"); 
+      } else {
+        console.error("Login failed:", result.error);
+        alert("Login failed. Please check your credentials.");
+      }
+    } catch (err) {
+      console.error("Unexpected error during login:", err);
+      alert("Something went wrong. Please try again later.");
+    }
+  };
 
   return (
     <div>

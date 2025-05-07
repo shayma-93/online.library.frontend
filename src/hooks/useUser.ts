@@ -20,7 +20,8 @@ export function useUsers() {
 export function useCreateUser() {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: createUser,
+    mutationFn: ({  data }: {  data: Partial<User> }) =>
+      createUser( data),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['users'] });
     },
@@ -35,7 +36,7 @@ export function useCreateUser() {
 export function useUpdateUser() {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: ({ id, data }: { id: string; data: Partial<User> }) =>
+    mutationFn: ({ id, data }: { id: number; data: Partial<User> }) =>
       updateUser(id, data),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['users'] });
@@ -51,7 +52,8 @@ export function useUpdateUser() {
 export function useDeleteUser() {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: (id: string) => deleteUser(id),
+    mutationFn: ({ id }: { id: number })  => 
+      deleteUser(id),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['users'] });
     },

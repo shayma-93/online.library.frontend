@@ -1,13 +1,16 @@
 'use client';
 import {User} from "../data/interfaces"
 import { useUsers} from '../../hooks/useUser';
+import { useEffect } from "react";
 
 export default function UsersPage() {
     const { data: users, isLoading, error } = useUsers();
- // Log users when they are successfully fetched
- if (users) {
-  console.log("Fetched Users:", users);  
-}
+
+    useEffect(() => {
+  if (users) {
+    console.log("Fetched Users:", users);
+  }
+}, [users]);
     if (isLoading) return <p>Loading...</p>;
     if (error) return <p>Error loading users</p>;
   
