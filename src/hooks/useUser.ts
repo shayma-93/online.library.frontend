@@ -20,7 +20,7 @@ export function useUsers() {
 export function useCreateUser() {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: ({  data }: {  data: Partial<User> }) =>
+    mutationFn: ({  data }: {  data: User }) =>
       createUser( data),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['users'] });
