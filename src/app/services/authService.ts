@@ -17,11 +17,12 @@ export async function loginUser(email: string, password: string) {
 
     // Save accessToken to localStorage for front-end use
     localStorage.setItem("token", accessToken);
+    localStorage.setItem("refreshToken", refreshToken);
 
     localStorage.setItem("user", JSON.stringify(user));
 
 
-    return { success: true, user };
+    return { success: true, user, refreshToken };
   } catch (error) {
     console.error("Login error:", error);
     return { success: false, error };

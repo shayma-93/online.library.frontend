@@ -1,3 +1,5 @@
+import {User} from "../data/interfaces"
+
 const BASE_URL = "http://localhost:5000/api/users";
 
 export async function getAllUsers() {
@@ -15,7 +17,7 @@ export async function getAllUsers() {
   return res.json();
 }
 
-export async function createUser(data: any) {
+export async function createUser(data: User) {
   const res = await fetch(BASE_URL, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -25,7 +27,7 @@ export async function createUser(data: any) {
   return res.json();
 }
 
-export async function updateUser(id: number, data: any) {
+export async function updateUser(id: number, data: Partial<User>) {
   const res = await fetch(`${BASE_URL}/${id}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
