@@ -13,7 +13,7 @@ type BooksListProps = {
 }
 
 export default function BooksList({ book }: BooksListProps) {
-    const { data: books = [], isLoading, error } = useBooks(); 
+    const { data: books = [], isLoading, error } = useBooks(); // Set fallback value to empty array
 
     const [currentPage, setCurrentPage] = useState(1);
 

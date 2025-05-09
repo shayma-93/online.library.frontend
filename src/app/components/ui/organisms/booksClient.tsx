@@ -16,7 +16,7 @@ const defaultFilters: FilterType = {
 };
 
 export default function BooksClient() {
-  const { data: books, isLoading, error } = useBooks();
+  const { data: books, isLoading } = useBooks();
   const [filters, setFilters] = useState<FilterType>(defaultFilters);
 
 
