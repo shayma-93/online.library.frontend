@@ -1,3 +1,6 @@
+"use client"
+
+import { useEffect } from "react";
 import Link from "next/link"
 import { Sparkles, Plus, ArrowRight, BookOpen } from "lucide-react"
 import BookshelfDisplay from "../components/ui/organisms/bookshelf-display"
@@ -6,7 +9,8 @@ import Footer from "../components/ui/organisms/footer"
 import {BookshelfProps} from "../components/ui/molecules/enhanced-bookshelf-display"
 import { Button } from "../components/ui/atoms/button"
 import BookshelvesData from "../data/bookshelves.json"
-// Sample data for demonstration
+import { useBookshelves } from "../../hooks/useBookshelves";
+
 
 const bookshelves: BookshelfProps[] = BookshelvesData.BookshelvesData
 
@@ -16,6 +20,17 @@ const bookshelves: BookshelfProps[] = BookshelvesData.BookshelvesData
 
 
 export default function BookshelvesPage() {
+    const { data: Bookshelves, isLoading, error } = useBookshelves();
+  
+    useEffect(() => {
+      if (Bookshelves) {
+        console.log("Fetched Bookshelves:", Bookshelves);
+      }
+    }, [Bookshelves]);
+    if (isLoading) return <p>Loading...</p>;
+    if (error) return <p>Error loading Bookshelves</p>;
+  
+    if (!Bookshelves || Bookshelves.length === 0) return <p>No Bookshelves found.</p>;
   return (
     <div>
       <Header/>

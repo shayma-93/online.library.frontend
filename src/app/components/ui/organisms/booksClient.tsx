@@ -1,11 +1,11 @@
 'use client';
 
 import { useState } from "react";
-import BooksData from "../../../data/Books.json";
 import useFilteredBooks from "../../../../hooks/use-filter";
 import BooksList from "./books-list";
 import FilterSidebar from "./sideBarFilter";
 import { FilterType } from "../../../data/interfaces";
+import { useBooks } from "../../../../hooks/useBooks";
 
 const defaultFilters: FilterType = {
   genres: [],
@@ -16,10 +16,14 @@ const defaultFilters: FilterType = {
 };
 
 export default function BooksClient() {
-  const allBooks = BooksData.BooksData;
+  const { data: books, isLoading, error } = useBooks();
   const [filters, setFilters] = useState<FilterType>(defaultFilters);
-  const filteredBooks = useFilteredBooks(allBooks, filters);
 
+
+
+  const filteredBooks = useFilteredBooks(!isLoading && books ? books : [], filters);
+
+ 
   return (
     <section className="w-full md:px-6 py-8">
       <div className="w-full flex flex-col md:flex-row gap-4">
@@ -30,7 +34,7 @@ export default function BooksClient() {
 
         {/* Pass filtered books to the list */}
         <div className="w-full flex flex-col justify-start items-center flex-1 md:ml-6">
-          <BooksList books={filteredBooks} />
+          <BooksList book={filteredBooks} />
         </div>
       </div>
     </section>

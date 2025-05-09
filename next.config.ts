@@ -17,7 +17,7 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
-        hostname: "covers.openlibrary.org",
+        hostname: "covers.openlibrary.org", // Add this line for book covers
       },
     ],
   },

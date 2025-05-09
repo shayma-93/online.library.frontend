@@ -21,7 +21,6 @@ export async function loginUser(email: string, password: string) {
 
     localStorage.setItem("user", JSON.stringify(user));
 
-
     return { success: true, user, refreshToken };
   } catch (error) {
     console.error("Login error:", error);

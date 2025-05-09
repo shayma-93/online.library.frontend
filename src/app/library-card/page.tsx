@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import Link from "next/link";
 import { Button } from "../components/ui/atoms/button";
 import {
@@ -30,6 +30,7 @@ import {
 import { useToast } from "@/hooks/use-toast";
 import Header from "../components/ui/organisms/header";
 import { Footer } from "react-day-picker";
+import { useLibraryCards } from "../../hooks/useLibraryCard";
 
 // Sample borrowed books data
 const borrowedBooks = [
@@ -109,8 +110,20 @@ const borrowingHistory = [
 ];
 
 export default function LibraryCardPage() {
-  const [activeBooks, setActiveBooks] = useState(borrowedBooks);
-  const { toast } = useToast();
+    const { data: LibraryCards, isLoading, error } = useLibraryCards();
+    const [activeBooks, setActiveBooks] = useState(borrowedBooks);
+    const { toast } = useToast();
+    
+    useEffect(() => {
+      if (LibraryCards) {
+        console.log("Fetched LibraryCards:", LibraryCards);
+      }
+    }, [LibraryCards]);
+    if (isLoading) return <p>Loading...</p>;
+    if (error) return <p>Error loading LibraryCards</p>;
+  
+    if (!LibraryCards || LibraryCards.length === 0) return <p>No LibraryCards found.</p>;
+  
 
   const handleReturnBook = (bookId: string) => {
     setActiveBooks(activeBooks.filter((book) => book.id !== bookId));

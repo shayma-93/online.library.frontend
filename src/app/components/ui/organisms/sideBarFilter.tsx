@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
 import { useState, useEffect } from "react";
 import { Button } from "../atoms/button";
-import { Sparkles, Wand2, Filter, Moon} from "lucide-react";
+import { Sparkles, Wand2, Filter, Moon } from "lucide-react";
 import genres from "../../../data/genres.json";
 import AvailabilityFilter from "./availability";
 import PagesFilter from "../molecules/pages";
@@ -15,9 +15,7 @@ type FilterSidebarProps = {
   setFilters: React.Dispatch<React.SetStateAction<FilterType>>;
 };
 
-export default function FilterSidebar({
-  setFilters,
-}: FilterSidebarProps) {
+export default function FilterSidebar({ setFilters }: FilterSidebarProps) {
   const yearRange = { min: 1950, max: 2025 };
   const [expandedSections, setExpandedSections] = useState({
     genres: true,
@@ -46,13 +44,21 @@ export default function FilterSidebar({
   useEffect(() => {
     let count = 0;
     if (selectedGenres.length > 0) count++;
-    if (yearValue[0] !== yearRange.min || yearValue[1] !== yearRange.max) count++;
+    if (yearValue[0] !== yearRange.min || yearValue[1] !== yearRange.max)
+      count++;
     if (ratingRange[0] !== 0 || ratingRange[1] !== 5) count++;
     if (pagesRange[0] !== 0 || pagesRange[1] !== 990) count++;
     if (availability.length > 0) count++;
     setActiveFilters(count);
-  }, [selectedGenres, yearValue, ratingRange, pagesRange, availability, yearRange.min, yearRange.max]);
-  
+  }, [
+    selectedGenres,
+    yearValue,
+    ratingRange,
+    pagesRange,
+    availability,
+    yearRange.min,
+    yearRange.max,
+  ]);
 
   const toggleSection = (section: keyof typeof expandedSections) => {
     setExpandedSections((prev) => ({
@@ -84,7 +90,7 @@ export default function FilterSidebar({
     setRatingRange([0, 5]);
     setPagesRange([0, 990]);
     setAvailability([]);
-  
+
     // Clear the applied filters passed from the parent
     setFilters({
       genres: [],
@@ -105,7 +111,6 @@ export default function FilterSidebar({
       availability,
     });
   };
-
 
   // Format year values for display
   const formatYearValue = (value: number) => {
@@ -155,7 +160,7 @@ export default function FilterSidebar({
 
         <div className="space-y-6">
           <GenreFilter
-            genres={genres.genres} 
+            genres={genres.genres}
             selectedGenres={selectedGenres}
             toggleGenre={toggleGenre}
           />
@@ -191,6 +196,7 @@ export default function FilterSidebar({
             expanded={expandedSections.pages}
             toggleSection={toggleSection}
           />
+
           <div className="h-px bg-gradient-to-r from-transparent via-purple-400 to-transparent"></div>
         </div>
 

@@ -1,8 +1,8 @@
-import { User } from "../data/interfaces";
+import {  LibraryCard } from "../data/interfaces";
 
-const BASE_URL = "http://localhost:5000/api/users";
+const BASE_URL = "http://localhost:5000/api/librarycards";
 
-export async function getAllUsers() {
+export async function getAllLibraryCards() {
   const token = localStorage.getItem("token");
   const res = await fetch(BASE_URL, {
     method: "GET",
@@ -11,31 +11,32 @@ export async function getAllUsers() {
       Authorization: `Bearer ${token}`,
     },
   });
-  if (!res.ok) throw new Error("Failed to fetch users");
+  if (!res.ok) throw new Error("Failed to fetch Library Cards");
   return res.json();
 }
-export async function createUser(data: User) {
+export async function createLibraryCard(data: LibraryCard) {
   const res = await fetch(BASE_URL, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
   });
-  if (!res.ok) throw new Error("Failed to create user");
+  if (!res.ok) throw new Error("Failed to create Library Card");
   return res.json();
 }
-export async function updateUser(id: number, data: Partial<User>) {
+export async function updateLibraryCard(id: number, data: Partial<LibraryCard>) {
   const res = await fetch(`${BASE_URL}/${id}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
   });
-  if (!res.ok) throw new Error("Failed to update user");
+  if (!res.ok) throw new Error("Failed to update Library Card");
   return res.json();
 }
-export async function deleteUser(id: number) {
+
+export async function deleteLibraryCard(id: number) {
   const res = await fetch(`${BASE_URL}/${id}`, {
     method: "DELETE",
   });
-  if (!res.ok) throw new Error("Failed to delete user");
+  if (!res.ok) throw new Error("Failed to delete Library Card");
   return res.json();
 }
